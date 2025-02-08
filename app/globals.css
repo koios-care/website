@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --primary: 328 34% 83%; /* Bubbly pink */
+    --primary-foreground: 210 40% 98%;
+  }
+}
+
+.font-display {
+  font-feature-settings: "ss01" on, "ss02" on;
+  letter-spacing: -0.02em;
+}
+
+/* Add custom gradient backgrounds and other brand-specific styles */
+.bg-koios-gradient {
+  background: linear-gradient(135deg, #e4c1d5 0%, #ccd2ea 100%);
+}
+
