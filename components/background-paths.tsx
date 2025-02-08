@@ -96,28 +96,16 @@ export default function BackgroundPaths({
           transition={{ duration: 2 }}
           className="max-w-4xl mx-auto"
         >
-          <AnimatedTitle title={title} />
-
-          <div
-            className="inline-block group relative bg-gradient-to-b from-warm-purple/10 to-bubbly-pink/10 
-                          dark:from-white/10 dark:to-black/10 p-px rounded-2xl backdrop-blur-lg 
-                          overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-600"
-          >
+          <motion.h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-8 text-warm-purple">
+            {title}
+          </motion.h1>
+          <div className="inline-block group relative bg-gradient-to-b from-warm-purple/10 to-bubbly-pink/10 p-px rounded-2xl backdrop-blur-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-600">
             <Button
               variant="ghost"
-              className="rounded-[1.15rem] px-8 py-6 text-lg font-semibold backdrop-blur-md 
-                         bg-white/95 hover:bg-white/100 dark:bg-warm-purple/95 dark:hover:bg-warm-purple/100 
-                         text-warm-purple dark:text-white transition-all duration-300 
-                         group-hover:-translate-y-0.5 border border-warm-purple/10 dark:border-white/10
-                         hover:shadow-md dark:hover:shadow-bubbly-pink/50"
+              className="rounded-[1.15rem] px-8 py-6 text-lg font-semibold backdrop-blur-md bg-white/95 hover:bg-white/100 dark:bg-warm-purple/95 dark:hover:bg-warm-purple/100 text-warm-purple dark:text-white transition-all duration-300 group-hover:-translate-y-0.5 border border-warm-purple/10 dark:border-white/10 hover:shadow-md dark:hover:shadow-bubbly-pink/50"
             >
-              <span className="opacity-90 group-hover:opacity-100 transition-opacity">Discover Excellence</span>
-              <span
-                className="ml-3 opacity-70 group-hover:opacity-100 group-hover:translate-x-1.5 
-                               transition-all duration-300"
-              >
-                →
-              </span>
+              <span className="opacity-90 group-hover:opacity-100 transition-opacity">Science & Excellence</span>
+              <span className="ml-3 opacity-70 group-hover:opacity-100 group-hover:translate-x-1.5 transition-all duration-300">→</span>
             </Button>
           </div>
         </motion.div>

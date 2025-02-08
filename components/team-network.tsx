@@ -3,11 +3,11 @@ import Image from "next/image"
 const teamMembers = [
   {
     name: "Prof. MD Gaëtan Garraux",
-    role: "Clinical Lead",
+    role: "Clinical Lead Neurology Professor @CHU Liege",
     image: "/placeholder.svg",
   },
   {
-    name: "Konstantinos Kyritsis",
+    name: "Konstantinos Kyritsis, PhD",
     role: "CEO",
     image: "/placeholder.svg",
   },
@@ -22,12 +22,12 @@ const teamMembers = [
     image: "/placeholder.svg",
   },
   {
-    name: "Vasileios Papapanagiotou",
-    role: "Senior R&D engineer",
+    name: "Vasileios Papapanagiotou, PhD",
+    role: "Senior R&D engineer Professor @Karonlinska ",
     image: "/placeholder.svg",
   },
   {
-    name: "Dimitris Iakovakis",
+    name: "Dimitris Iakovakis, PhD",
     role: "CTO",
     image: "/placeholder.svg",
   },
