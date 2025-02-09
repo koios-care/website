@@ -182,9 +182,7 @@ export default function BackgroundPaths({
             className="mb-8"
           >
             <Link
-              href="https://www.koios.care/publications"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/publications"
               className="inline-flex items-center text-sm text-white hover:text-[#E4C1D5] transition-colors"
             >
               <svg

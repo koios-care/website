@@ -19,7 +19,7 @@ const solutions = [
     link: "mailto:info@koios.care",
     buttonText: "Contact Us",
     icon: "/drug+.jpeg",
-    secondaryLink: "https://koios.care/publications",
+    secondaryLink: "/publications",
     secondaryText: "View validated solutions",
   },
   {

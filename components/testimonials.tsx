@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import useEmblaCarousel from 'embla-carousel-react'
 import { useCallback, useEffect, useState } from 'react'
 import Autoplay from 'embla-carousel-autoplay'
+import Image from "next/image"
 
 function GraphicElements() {
   return (
@@ -111,15 +112,122 @@ const testimonials = [
   }
 ]
 
+const videoTestimonials = [
+  {
+    title: "Neurologist perspective on remote patient-assessment",
+    description: "Neurologist practicing with Koios Care to remotely monitor patient's condition",
+    videoId: "CXdxewRlAMU",
+    category: "Part 1",
+    thumbnail: "v1.png",
+    thumbnailAlt: "Neurologist practicing with Koios Care to remotely monitor patient's condition"
+  },
+  {
+    title: "Patient perspective on remote patient-assessment",
+    description: "Sharing personal experience with diseasse and vision on remote patient-assessment",
+    videoId: "wJuJwDrOzF4",
+    category: "Part 2",
+    thumbnail: "v2.png",
+    thumbnailAlt: "Patricia Van Rompuy, Quality and Clinical trial lead at Koios Care"
+  },
+  {
+    title: "The Q-index Study",
+    description: "Results of Quality of Life Index clinical trial (ID NCT06209502) in collaboration with leading institutions",
+    videoId: "jT12fHfjVlA",
+    category: "Part 3",
+    thumbnail: "v3.png",
+    thumbnailAlt: "The Q-index study team with clinical trial partners ISPPC, AZ Delta, CHU Liege, and AZ Oostende"
+  },
+  {
+    title: "AI for Parkinson's disease monitoring",
+    description: "How we're revolutionizing Parkinsson's disease monitoring with advanced imaging and data analysis",
+    videoId: "pUCX9wFhJ7g",
+    category: "Part 4",
+    thumbnail: "v4.png",
+    thumbnailAlt: "Medical professional analyzing Koios Cae Parkinson's disease monitoring"
+  }
+]
+
+function VideoSection() {
+  return (
+    <div className="mt-20">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="text-center mb-12"
+      >
+        <h2 className="text-3xl font-bold text-white mb-4">
+          Watch Our Stories
+        </h2>
+        <p className="text-white/80">
+          Hear directly from healthcare professionals, patients, and our team about their experiences with Koios Care
+        </p>
+      </motion.div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {videoTestimonials.map((video, index) => (
+          <motion.div
+            key={video.videoId}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: index * 0.2 }}
+          >
+            <a
+              href={`https://youtu.be/${video.videoId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group"
+            >
+              <div className="relative aspect-video mb-4 rounded-lg overflow-hidden bg-black/20">
+                <Image
+                  src={video.thumbnail}
+                  alt={video.thumbnailAlt}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                />
+                <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
+                  <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                    <svg 
+                      className="w-8 h-8 text-white" 
+                      fill="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+                  <span className="text-sm text-white/90 font-medium">
+                    {video.category}
+                  </span>
+                </div>
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">
+                {video.title}
+              </h3>
+              <p className="text-sm text-white/70">
+                {video.description}
+              </p>
+            </a>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export function Testimonials() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { 
       loop: true,
-      duration: 20, // Faster transitions
+      duration: 20,
       skipSnaps: true
     }, 
     [Autoplay({ 
-      delay: 3000, // Reduced from 5000 to 3000ms
+      delay: 3000,
       stopOnInteraction: false,
       playOnInit: true
     })]
@@ -209,12 +317,15 @@ export function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center mt-12"
+          className="text-center mt-12 mb-20"
         >
           <p className="text-sm font-medium text-white/90">
-          As a Parkinson's patient, you want to stay connected. With yourself, your own body, family & friends, doctors & caregivers
+            As a Parkinson's patient, you want to stay connected. With yourself, your own body, family & friends, doctors & caregivers
           </p>
         </motion.div>
+
+        {/* Video Testimonials Section */}
+        <VideoSection />
       </div>
     </section>
   )
