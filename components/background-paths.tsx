@@ -203,17 +203,16 @@ export default function BackgroundPaths({
           </motion.div>
 
           {/* Mission Button */}
-          <div className="inline-block group relative bg-white/10 p-px rounded-2xl backdrop-blur-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-600">
+          <div className="flex flex-col items-center space-y-6">
             <Link
-              href="#mission-vision"
-              scroll={true}
-              className="block"
+              href="/solutions/pharma#solutions"
+              className="group"
             >
               <Button
                 variant="ghost"
                 className="rounded-[1.15rem] px-8 py-6 text-lg font-semibold backdrop-blur-md bg-white/10 hover:bg-white/20 text-white transition-all duration-300 group-hover:-translate-y-0.5 border border-white/20 hover:shadow-md"
               >
-                <span className="opacity-90 group-hover:opacity-100 transition-opacity">Our Mission</span>
+                <span className="opacity-90 group-hover:opacity-100 transition-opacity">Our Solution and Success Stories</span>
                 <span className="ml-3 opacity-70 group-hover:opacity-100 group-hover:translate-x-1.5 transition-all duration-300">→</span>
               </Button>
             </Link>

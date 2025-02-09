@@ -1,8 +1,65 @@
 import BackgroundPattern from "@/components/shared/background-pattern"
 import Link from "next/link"
 import Image from "next/image"
+import UseCase from "@/components/UseCase"
 
 export default function PharmaSolutions() {
+  const pharmaUseCases = [
+    {
+      title: "Decentralized Digital Endpoint of Quality of Life in Neurology",
+      challenge: "Need to develop objective measures of disease progression for a neurodegenerative condition in their clinical trials.",
+      solution: "We implemented our digital measure platform to capture continuous movement data and cognitive function metrics through passive smartphone and wearablemonitoring.",
+      results: [
+        "Successfully validated novel digital endpoints of Quality of Life and Disease Progression",
+        "Potential to reduce costs by 40% and patient-outcomes in HrQoL by 57%",
+        "Patient compliance to 77%",
+        "Generated rich real-world evidence data"
+      ],
+    },
+    {
+      title: "QoL insights for improving medication in Parkinson's",
+      challenge: "Need to close the loop between patients' visits using objective measures during care",
+      solution: "We provided the digital measures, onboarding and analytics to patients to better understand their own health",
+      results: [
+        "Improved patient-caregiver communication",
+        "Observed reduced time-with symptoms by clincians' drug-tuning",
+        "L-Dopa 96% correlation with the digital measure of digital motor function",
+        "Upcoming deployment in 5 hospitals"
+      ],
+    },
+    {
+      title: "Daytime Sleepiness",
+      challenge: " improve the screening pathway of narcolepsy from obstructive sleep apnea (which is 60% misdiagnosed) using digital measures of daytime-movement and circadian response through heart-rate physiology.",
+      solution: "We implemented our digital measure to relate daytime sleepiness and meal intake.",
+      results: [
+        "0.85 AUC for the detection of daytime sleepiness",
+        "Cost-benefit analysis shows 8x ROI on asset",
+        "0.83 average fix-rater ICC",
+      ],
+    },
+    {
+      title: "Remote Patient Monitoring in IBD",
+      challenge: "Sudden inflammation often leads to poor patient adherence and poor outcomes. We implemented a novel physiology and ADL-baseed digital biomarker platform to capture disease activity and patient engagement data.",
+      solution: "Our platform provided continuous remote monitoring of symptoms and medication adherence, with real-time alerts for adverse events.",
+      results: [
+        ">6 digital biomarkers with high test-retest reliability",
+        "Improved early detection of adverse events through passive sensing",
+        "Enhanced patient engagement scores"
+      ],
+    },
+    {
+      title: "Decentralized Clinical Trial Implementation",
+      challenge: "A pharmaceutical company needed to continue their clinical trials during the pandemic while ensuring patient safety and data quality.",
+      solution: "We deployed our decentralized trial platform with remote monitoring capabilities and integrated ePRO collection.",
+      results: [
+        "Successfully transitioned 80% of trial activities to remote",
+        "Maintained trial timeline without delays",
+        "Reduced site visits by 60%",
+        "Achieved 90% patient satisfaction rate"
+      ],
+    },
+  ]
+
   return (
     <div className="min-h-screen bg-white">
       <BackgroundPattern 
@@ -13,7 +70,7 @@ export default function PharmaSolutions() {
       <div className="container mx-auto px-4 py-16 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Key Benefits Section */}
-          <section className="mb-16">
+          <section id="key-benefits" className="mb-16">
             <h2 className="text-3xl font-bold text-warm-purple mb-8">Key Benefits</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white rounded-xl p-6 shadow-sm border border-warm-purple/10">
@@ -28,7 +85,7 @@ export default function PharmaSolutions() {
           </section>
 
           {/* Features Section */}
-          <section className="mb-16">
+          <section id="solutions" className="mb-16">
             <h2 className="text-3xl font-bold text-warm-purple mb-8">Features</h2>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
@@ -54,6 +111,19 @@ export default function PharmaSolutions() {
                 </div>
               </div>
             </div>
+          </section>
+
+          {/* Use Cases Section */}
+          <section id="success-stories" className="mb-16">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-warm-purple mb-4">Success Stories</h2>
+              <p className="text-gray-700 max-w-2xl mx-auto">
+                Discover how leading pharmaceutical companies are transforming their clinical trials and research with our digital health platform.
+              </p>
+            </div>
+            {pharmaUseCases.map((useCase, index) => (
+              <UseCase key={index} {...useCase} />
+            ))}
           </section>
 
           {/* Contact Section */}

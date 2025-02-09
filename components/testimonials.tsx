@@ -118,7 +118,7 @@ const videoTestimonials = [
     description: "Neurologist practicing with Koios Care to remotely monitor patient's condition",
     videoId: "CXdxewRlAMU",
     category: "Part 1",
-    thumbnail: "v1.png",
+    thumbnail: "/v1.png",
     thumbnailAlt: "Neurologist practicing with Koios Care to remotely monitor patient's condition"
   },
   {
@@ -126,7 +126,7 @@ const videoTestimonials = [
     description: "Sharing personal experience with diseasse and vision on remote patient-assessment",
     videoId: "wJuJwDrOzF4",
     category: "Part 2",
-    thumbnail: "v2.png",
+    thumbnail: "/v2.png",
     thumbnailAlt: "Patricia Van Rompuy, Quality and Clinical trial lead at Koios Care"
   },
   {
@@ -134,7 +134,7 @@ const videoTestimonials = [
     description: "Results of Quality of Life Index clinical trial (ID NCT06209502) in collaboration with leading institutions",
     videoId: "jT12fHfjVlA",
     category: "Part 3",
-    thumbnail: "v3.png",
+    thumbnail: "/v3.png",
     thumbnailAlt: "The Q-index study team with clinical trial partners ISPPC, AZ Delta, CHU Liege, and AZ Oostende"
   },
   {
@@ -142,7 +142,7 @@ const videoTestimonials = [
     description: "How we're revolutionizing Parkinsson's disease monitoring with advanced imaging and data analysis",
     videoId: "pUCX9wFhJ7g",
     category: "Part 4",
-    thumbnail: "v4.png",
+    thumbnail: "/v4.png",
     thumbnailAlt: "Medical professional analyzing Koios Cae Parkinson's disease monitoring"
   }
 ]

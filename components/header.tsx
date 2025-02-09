@@ -25,14 +25,14 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link href="#solutions" className="text-warm-purple hover:text-bubbly-pink transition-colors">
+            <Link href="/solutions/pharma#solutions" className="text-warm-purple hover:text-bubbly-pink transition-colors">
               Solutions
             </Link>
-            <Link href="#vision" className="text-warm-purple hover:text-bubbly-pink transition-colors">
-              Vision
+            <Link href="/solutions/pharma#key-benefits" className="text-warm-purple hover:text-bubbly-pink transition-colors">
+              Benefits
             </Link>
-            <Link href="#team" className="text-warm-purple hover:text-bubbly-pink transition-colors">
-              Team
+            <Link href="/solutions/pharma#success-stories" className="text-warm-purple hover:text-bubbly-pink transition-colors">
+              Success Stories
             </Link>
             <Link href="/contact" className="px-4 py-2 bg-warm-purple text-white rounded-full hover:bg-bubbly-pink transition-colors">
               Contact Us
@@ -67,25 +67,25 @@ export function Header() {
         {isMenuOpen && (
           <nav className="md:hidden py-4 space-y-4">
             <Link 
-              href="#solutions" 
+              href="/solutions/pharma#solutions" 
               className="block text-warm-purple hover:text-bubbly-pink transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Solutions
             </Link>
             <Link 
-              href="#vision" 
+              href="/solutions/pharma#key-benefits" 
               className="block text-warm-purple hover:text-bubbly-pink transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Vision
+              Benefits
             </Link>
             <Link 
-              href="#team" 
+              href="/solutions/pharma#success-stories" 
               className="block text-warm-purple hover:text-bubbly-pink transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Team
+              Success Stories
             </Link>
             <Link 
               href="/contact" 
