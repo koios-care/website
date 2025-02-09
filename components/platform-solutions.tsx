@@ -7,15 +7,15 @@ import { useEffect, useState } from "react"
 
 const solutions = [
   {
-    title: "Parkiwatch mobile and wearable app",
-    description: "People aiming to improve how they experience Parkinson's disease",
+    title: "Optimize your Parkinson's disease care",
+    description: "Improve how you experience Parkinson's disease. Use parkiwatch mobile and wearable app:  Learn more about your health and symptoms. Empower yourself with precise daily insights and better communicate with your care team.",
     link: "https://play.google.com/store/apps/details?id=care.koios.parkiwatch&hl=en-US",
     buttonText: "Get Started",
     icon: "/data_report_parki.png",
   },
   {
     title: "Drug+ solution for Pharma & Medical Devices",
-    description: "Improve how you passively characterize HrQoL and disease state for neuro and brain medicinal solutions",
+    description: "Improve data, patient engagment and passively characterize HrQoL and disease state for neuro and brain care solutions in the market or in development",
     link: "mailto:info@koios.care",
     buttonText: "Contact Us",
     icon: "/drug+.jpeg",

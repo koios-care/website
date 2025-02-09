@@ -20,9 +20,6 @@ export default function Home() {
           <div className="container mx-auto px-4 py-4 flex items-center justify-between">
             <Image src="/koios.png" alt="Koios Logo" width={120} height={40} className="h-8 w-auto" />
             <div className="hidden md:flex space-x-8">
-              <Link href="#showcase" className="text-warm-purple hover:text-warm-purple/80">
-                showcase
-              </Link>
               <Link href="#testimonials" className="text-warm-purple hover:text-warm-purple/80">
                 testimonials
               </Link>
@@ -38,9 +35,6 @@ export default function Home() {
               <Link href="#team" className="text-warm-purple hover:text-warm-purple/80">
                 team
               </Link>
-              <Link href="#advisors" className="text-warm-purple hover:text-warm-purple/80">
-                advisors
-              </Link>
             </div>
           </div>
         </nav>
@@ -49,7 +43,7 @@ export default function Home() {
         <BackgroundPaths title="Koios Care" />
 
         {/* App Showcase with Nodes Section */}
-        <section id="showcase">
+        <section id="connections">
           <AppShowcaseWithNodes />
         </section>
 
