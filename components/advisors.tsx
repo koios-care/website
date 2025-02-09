@@ -1,30 +1,36 @@
 import Image from "next/image"
+import Link from "next/link"
 
 const advisors = [
   {
     name: "Kris Schellens",
     role: "Biopharma Leader • previously director, Biogen Beglium",
-    image: "/placeholder.svg",
+    image: "/kris.jpeg",
+    linkedin: "https://www.linkedin.com/in/kris-schellens-27579710/",
   },
   {
-    name: "Dr. Lampros Kourtis",
+    name: "Lampros Kourtis, PhD",
     role: "Lead of Gates Ventures ADDF • Alzheimer's Digital Diagnostics • Exited Founder",
-    image: "/placeholder.svg",
+    image: "/kourtis.jpeg",
+    linkedin: "https://www.linkedin.com/in/lamproskourtis1977/",
   },
   {
-    name: "Dr. Gregor Strobbe",
+    name: "Gregor Strobbe, PhD",
     role: "Health-tech Entrepreneur • founder, CEO of Clouds of Care",
-    image: "/placeholder.svg",
+    image: "/strobbe.jpeg",
+    linkedin: "https://www.linkedin.com/in/gregor-strobbe-17b37525/",
   },
   {
-    name: "Jurgen van Broeck",
+    name: "Jurgen van Broeck, MBA",
     role: "CEO of mAbxcience",
-    image: "/placeholder.svg",
+    image: "/jurgen.jpeg",
+    linkedin: "https://www.linkedin.com/in/jurgen-van-broeck-7842ba8/",
   },
   {
     name: "MD Jean-Briac Prevost",
     role: "Clinical Oncologist - Business",
-    image: "/placeholder.svg",
+    image: "/jeanbriac.jpeg",
+    linkedin: "https://www.linkedin.com/in/jean-briac-prevost-66b2131a",
   },
 ]
 
@@ -35,17 +41,25 @@ export function Advisors() {
         <h2 className="font-display text-3xl text-warm-purple text-center mb-12">Our Advisors</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {advisors.map((advisor, index) => (
-            <div key={index} className="text-center p-6 bg-white/50 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-              <Image
-                src={advisor.image || "/placeholder.svg"}
-                alt={advisor.name}
-                width={120}
-                height={120}
-                className="rounded-full mx-auto mb-4"
-              />
-              <h3 className="font-display text-xl text-warm-purple mb-2">{advisor.name}</h3>
-              <p className="text-wood-green text-sm leading-relaxed">{advisor.role}</p>
-            </div>
+            <Link 
+              href={advisor.linkedin}
+              key={index}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block hover:scale-105 transition-transform duration-300"
+            >
+              <div className="text-center p-6 bg-white/50 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                <Image
+                  src={advisor.image || "/placeholder.svg"}
+                  alt={advisor.name}
+                  width={120}
+                  height={120}
+                  className="rounded-full mx-auto mb-4"
+                />
+                <h3 className="font-display text-xl text-warm-purple mb-2">{advisor.name}</h3>
+                <p className="text-wood-green text-sm leading-relaxed">{advisor.role}</p>
+              </div>
+            </Link>
           ))}
         </div>
       </div>

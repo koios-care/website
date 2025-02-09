@@ -24,7 +24,7 @@ export function Features() {
   return (
     <section className="py-20 bg-sky-blue/10">
       <div className="container mx-auto px-4">
-        <h2 className="font-display text-3xl text-warm-purple text-center mb-12">Patient-centric benefits for patients, providers and researchers</h2>
+        <h2 className="font-display text-3xl text-warm-purple text-center mb-12">Patient-centric solutions for patients, providers and researchers</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (
             <Card key={index} className="bg-white">

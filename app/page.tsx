@@ -8,6 +8,7 @@ import { MissionVision } from "@/components/mission-vision"
 import { Testimonials } from "@/components/testimonials"
 import { Advisors } from "@/components/advisors"
 import { Footer } from "@/components/footer"
+import { PlatformSolutions } from "@/components/platform-solutions"
 
 export default function Home() {
   return (
@@ -16,13 +17,16 @@ export default function Home() {
         {/* Navigation */}
         <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-bubbly-pink">
           <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-            <Image src="/placeholder.svg" alt="Koios Logo" width={120} height={40} className="h-8 w-auto" />
+            <Image src="/koios.png" alt="Koios Logo" width={120} height={40} className="h-8 w-auto" />
             <div className="hidden md:flex space-x-8">
               <Link href="#testimonials" className="text-warm-purple hover:text-warm-purple/80">
                 testimonials
               </Link>
               <Link href="#vision" className="text-warm-purple hover:text-warm-purple/80">
                 vision
+              </Link>
+              <Link href="#solutions" className="text-warm-purple hover:text-warm-purple/80">
+                solutions
               </Link>
               <Link href="#features" className="text-warm-purple hover:text-warm-purple/80">
                 features
@@ -43,6 +47,11 @@ export default function Home() {
         {/* Testimonials Section */}
         <section id="testimonials">
           <Testimonials />
+        </section>
+
+        {/* Platform Solutions Section */}
+        <section id="solutions">
+          <PlatformSolutions />
         </section>
 
         {/* Mission & Vision Section */}

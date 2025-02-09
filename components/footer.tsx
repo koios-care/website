@@ -9,7 +9,7 @@ export function Footer() {
         <div className="mb-12">
           <div className="flex items-center mb-4">
             <Image 
-              src="/placeholder.svg" 
+              src="/koios.png" 
               alt="KOIOS" 
               width={120} 
               height={40} 

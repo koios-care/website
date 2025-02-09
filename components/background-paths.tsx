@@ -2,42 +2,117 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
-function FloatingPaths({ position }: { position: number }) {
-  const paths = Array.from({ length: 36 }, (_, i) => ({
-    id: i,
-    d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
-      380 - i * 5 * position
-    } -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${
-      152 - i * 5 * position
-    } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
-      684 - i * 5 * position
-    } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
-    color: `rgba(91,17,47,${0.1 + i * 0.03})`,
-    width: 0.5 + i * 0.03,
-  }))
+function ConnectionPaths() {
+  // Define the base unit size for the pattern
+  const unit = 200;
+  const cornerRadius = 0;
+
+  // Helper function to create L-shaped path
+  const createLShape = (startX: number, startY: number, direction: 'tr' | 'br' | 'bl' | 'tl' = 'tr') => {
+    const size = unit;
+    switch(direction) {
+      case 'tr': // top-right L
+        return `M${startX} ${startY} L${startX} ${startY - size} L${startX + size} ${startY - size}`;
+      case 'br': // bottom-right L
+        return `M${startX} ${startY} L${startX} ${startY + size} L${startX + size} ${startY + size}`;
+      case 'bl': // bottom-left L
+        return `M${startX} ${startY} L${startX} ${startY + size} L${startX - size} ${startY + size}`;
+      case 'tl': // top-left L
+        return `M${startX} ${startY} L${startX} ${startY - size} L${startX - size} ${startY - size}`;
+      default:
+        return '';
+    }
+  };
 
   return (
     <div className="absolute inset-0 pointer-events-none">
-      <svg className="w-full h-full text-warm-purple" viewBox="0 0 696 316" fill="none">
-        <title>Background Paths</title>
-        {paths.map((path) => (
+      <svg className="w-full h-full" viewBox="0 0 1600 1000" fill="none" preserveAspectRatio="xMidYMid slice">
+        <title>Connection Points</title>
+        
+        {/* L-shaped connections */}
+        {[
+          // Top section - spaced out
+          { x: 400, y: 200, dir: 'tr', delay: 0 },
+          { x: 800, y: 200, dir: 'tl', delay: 2 },
+          { x: 1200, y: 200, dir: 'tr', delay: 4 },
+          // Middle section (sparse to leave space for content)
+          { x: 400, y: 500, dir: 'br', delay: 3 },
+          { x: 1200, y: 500, dir: 'bl', delay: 5 },
+          // Bottom section
+          { x: 400, y: 800, dir: 'br', delay: 1 },
+          { x: 800, y: 800, dir: 'bl', delay: 3.5 },
+          { x: 1200, y: 800, dir: 'br', delay: 6 }
+        ].map((shape, index) => (
           <motion.path
-            key={path.id}
-            d={path.d}
-            stroke="currentColor"
-            strokeWidth={path.width}
-            strokeOpacity={0.1 + path.id * 0.03}
-            initial={{ pathLength: 0.3, opacity: 0.6 }}
-            animate={{
-              pathLength: 1,
-              opacity: [0.3, 0.6, 0.3],
-              pathOffset: [0, 1, 0],
-            }}
+            key={`l-shape-${index}`}
+            d={createLShape(shape.x, shape.y, shape.dir as any)}
+            stroke="#E4C1D5"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 0.7 }}
             transition={{
-              duration: 20 + Math.random() * 10,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
+              duration: 4,
+              delay: shape.delay,
+              ease: "easeInOut",
+              repeat: Infinity,
+              repeatType: "reverse",
+              repeatDelay: 4
+            }}
+          />
+        ))}
+
+        {/* Connection points at corners */}
+        {[
+          // Top section dots - spaced out
+          [400, 200, 0], [600, 200, 2], [800, 200, 4], [1000, 200, 1], [1200, 200, 3],
+          // Middle sparse section dots
+          [400, 500, 2.5], [1200, 500, 4.5],
+          // Bottom section dots
+          [400, 800, 1.5], [600, 800, 3.5], [800, 800, 5], [1000, 800, 2], [1200, 800, 4]
+        ].map(([cx, cy, delay], index) => (
+          <motion.circle
+            key={`point-${cx}-${cy}`}
+            cx={cx}
+            cy={cy}
+            r="4"
+            fill="#E4C1D5"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 0.7 }}
+            transition={{
+              duration: 2,
+              delay: delay,
+              ease: "easeOut",
+              repeat: Infinity,
+              repeatType: "reverse",
+              repeatDelay: 3
+            }}
+          />
+        ))}
+
+        {/* Right-pointing arrows - more spaced out timing */}
+        {[200, 500, 800].map((y, index) => (
+          <motion.path
+            key={`arrow-${y}`}
+            d="M1350 -30 L1400 0 L1350 30"
+            stroke="#E4C1D5"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            fill="none"
+            transform={`translate(0, ${y})`}
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 0.7 }}
+            transition={{
+              duration: 3,
+              delay: 4 + index * 2,
+              ease: "easeInOut",
+              repeat: Infinity,
+              repeatType: "reverse",
+              repeatDelay: 3
             }}
           />
         ))}
@@ -62,7 +137,7 @@ function AnimatedTitle({ title }: { title: string }) {
                 delay: wordIndex * 0.1 + letterIndex * 0.03,
                 type: "spring",
                 stiffness: 150,
-                damping: 25,
+                damping: 12,
               }}
               className="inline-block text-transparent bg-clip-text 
                          bg-gradient-to-r from-warm-purple to-bubbly-pink 
@@ -83,10 +158,9 @@ export default function BackgroundPaths({
   title?: string
 }) {
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-warm-purple">
+    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-warm-purple">
       <div className="absolute inset-0">
-        <FloatingPaths position={1} />
-        <FloatingPaths position={-1} />
+        <ConnectionPaths />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
@@ -96,17 +170,55 @@ export default function BackgroundPaths({
           transition={{ duration: 2 }}
           className="max-w-4xl mx-auto"
         >
-          <motion.h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-8 text-warm-purple">
+          <motion.h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-8 text-white">
             {title}
           </motion.h1>
-          <div className="inline-block group relative bg-gradient-to-b from-warm-purple/10 to-bubbly-pink/10 p-px rounded-2xl backdrop-blur-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-600">
-            <Button
-              variant="ghost"
-              className="rounded-[1.15rem] px-8 py-6 text-lg font-semibold backdrop-blur-md bg-white/95 hover:bg-white/100 dark:bg-warm-purple/95 dark:hover:bg-warm-purple/100 text-warm-purple dark:text-white transition-all duration-300 group-hover:-translate-y-0.5 border border-warm-purple/10 dark:border-white/10 hover:shadow-md dark:hover:shadow-bubbly-pink/50"
+
+          {/* Publications Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="mb-8"
+          >
+            <Link
+              href="https://www.koios.care/publications"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-sm text-white hover:text-[#E4C1D5] transition-colors"
             >
-              <span className="opacity-90 group-hover:opacity-100 transition-opacity">Science & Excellence</span>
-              <span className="ml-3 opacity-70 group-hover:opacity-100 group-hover:translate-x-1.5 transition-all duration-300">→</span>
-            </Button>
+              <svg
+                className="w-4 h-4 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                />
+              </svg>
+              Connecting patients, AI and technology to improve neuro and brain health
+            </Link>
+          </motion.div>
+
+          {/* Mission Button */}
+          <div className="inline-block group relative bg-white/10 p-px rounded-2xl backdrop-blur-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-600">
+            <Link
+              href="#mission-vision"
+              scroll={true}
+              className="block"
+            >
+              <Button
+                variant="ghost"
+                className="rounded-[1.15rem] px-8 py-6 text-lg font-semibold backdrop-blur-md bg-white/10 hover:bg-white/20 text-white transition-all duration-300 group-hover:-translate-y-0.5 border border-white/20 hover:shadow-md"
+              >
+                <span className="opacity-90 group-hover:opacity-100 transition-opacity">Our Mission</span>
+                <span className="ml-3 opacity-70 group-hover:opacity-100 group-hover:translate-x-1.5 transition-all duration-300">→</span>
+              </Button>
+            </Link>
           </div>
         </motion.div>
       </div>
