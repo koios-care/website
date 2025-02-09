@@ -55,12 +55,12 @@ function ConnectionPaths() {
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ pathLength: 1, opacity: 0.7 }}
             transition={{
-              duration: 4,
+              duration: 0.5,
               delay: shape.delay,
               ease: "easeInOut",
               repeat: Infinity,
               repeatType: "reverse",
-              repeatDelay: 4
+              repeatDelay: 2
             }}
           />
         ))}
@@ -83,12 +83,12 @@ function ConnectionPaths() {
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 0.7 }}
             transition={{
-              duration: 2,
+              duration: 0.5,
               delay: delay,
               ease: "easeOut",
               repeat: Infinity,
               repeatType: "reverse",
-              repeatDelay: 3
+              repeatDelay: 1
             }}
           />
         ))}
@@ -107,12 +107,12 @@ function ConnectionPaths() {
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ pathLength: 1, opacity: 0.7 }}
             transition={{
-              duration: 3,
-              delay: 4 + index * 2,
+              duration: 0.5,
+              delay: 4 + index * 1,
               ease: "easeInOut",
               repeat: Infinity,
               repeatType: "reverse",
-              repeatDelay: 3
+              repeatDelay: 1
             }}
           />
         ))}
@@ -167,7 +167,7 @@ export default function BackgroundPaths({
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 2 }}
+          transition={{ duration: 0.5 }}
           className="max-w-4xl mx-auto"
         >
           <motion.h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-8 text-white">
@@ -178,7 +178,7 @@ export default function BackgroundPaths({
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
             className="mb-8"
           >
             <Link
