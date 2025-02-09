@@ -28,7 +28,7 @@ export function Footer() {
             <h3 className="text-xl font-semibold mb-4 text-bubbly-pink">Company</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#vision" className="hover:text-bubbly-pink transition-colors">
+                <Link href="#mission-vision" className="hover:text-bubbly-pink transition-colors">
                   Vision
                 </Link>
               </li>
@@ -38,8 +38,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="hover:text-bubbly-pink transition-colors">
-                  Careers
+                <Link href="/publications" className="hover:text-bubbly-pink transition-colors">
+                  Publications
                 </Link>
               </li>
             </ul>
@@ -50,23 +50,23 @@ export function Footer() {
             <h3 className="text-xl font-semibold mb-4 text-bubbly-pink">Solutions</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/pharma" className="hover:text-bubbly-pink transition-colors">
-                  Pharma
+                <Link href="/solutions/pharma" className="hover:text-bubbly-pink transition-colors">
+                  For Pharma
                 </Link>
               </li>
               <li>
-                <Link href="/providers" className="hover:text-bubbly-pink transition-colors">
-                  Care Providers
+                <Link href="/solutions/care-providers" className="hover:text-bubbly-pink transition-colors">
+                  For Care Providers
                 </Link>
               </li>
               <li>
-                <Link href="/researchers" className="hover:text-bubbly-pink transition-colors">
-                  Researchers
+                <Link href="/solutions/researchers" className="hover:text-bubbly-pink transition-colors">
+                  For Researchers
                 </Link>
               </li>
               <li>
-                <Link href="/individuals" className="hover:text-bubbly-pink transition-colors">
-                  Individuals
+                <Link href="/solutions/individuals" className="hover:text-bubbly-pink transition-colors">
+                  For Individuals
                 </Link>
               </li>
             </ul>
@@ -77,9 +77,16 @@ export function Footer() {
             <h3 className="text-xl font-semibold mb-4 text-bubbly-pink">Contact</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/contact" className="hover:text-bubbly-pink transition-colors">
-                  Get in Touch
-                </Link>
+                <a 
+                  href="mailto:info@koios.care" 
+                  className="hover:text-bubbly-pink transition-colors"
+                >
+                  info@koios.care
+                </a>
+              </li>
+              <li>
+                <p className="text-sm text-white/80">Filip Williotstraat 9</p>
+                <p className="text-sm text-white/80">2600 Antwerpen</p>
               </li>
             </ul>
           </div>
@@ -97,6 +104,9 @@ export function Footer() {
                 <Link href="/terms" className="hover:text-bubbly-pink transition-colors">
                   Terms of Service
                 </Link>
+              </li>
+              <li>
+                <p className="text-sm text-white/80">VAT: BE0786.830.148</p>
               </li>
             </ul>
           </div>
