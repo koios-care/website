@@ -16,13 +16,13 @@ function MetricCard({ label, value, category, improvement }: MetricProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-white/10 backdrop-blur-lg rounded-xl p-4 text-white flex-1"
+      className="bg-white/10 backdrop-blur-lg rounded-xl p-4 text-white w-full min-w-[250px] max-w-full overflow-hidden"
     >
-      <h3 className="text-lg font-semibold">{label}</h3>
-      <div className="mt-2 text-3xl font-bold">{value}</div>
+      <h3 className="text-lg font-semibold truncate">{label}</h3>
+      <div className="mt-2 text-2xl md:text-3xl font-bold">{value}</div>
       <div className="mt-1 text-sm opacity-80">{category}</div>
       {improvement && (
-        <div className="mt-2 text-emerald-400 text-sm">↑ {improvement}</div>
+        <div className="mt-2 text-emerald-400 text-sm">{improvement}</div>
       )}
     </motion.div>
   )
@@ -312,7 +312,7 @@ export default function AppShowcaseWithNodes() {
       {/* Metrics Bar - Fixed at the top */}
       <div className="absolute top-0 left-0 right-0 bg-warm-purple/80 backdrop-blur-md py-4 z-20">
         <div className="container mx-auto px-4">
-          <div className="flex gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-4 max-w-full overflow-x-hidden">
             {metrics.map((metric, index) => (
               <MetricCard key={index} {...metric} />
             ))}

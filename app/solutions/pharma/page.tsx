@@ -131,7 +131,7 @@ export default function PharmaSolutions() {
             <h2 className="text-2xl font-bold text-warm-purple mb-4">Ready to Transform Your Clinical Research?</h2>
             <p className="text-gray-700 mb-6">Get in touch to learn how our solutions can enhance your clinical trials and research.</p>
             <Link 
-              href="mailto:info@koios.care"
+              href="mailto:info@koios.care?cc=dimitris@koios.care&subject=Koios%20Care%20Information"
               className="inline-flex items-center justify-center px-6 py-3 bg-warm-purple text-white rounded-full hover:bg-warm-purple/90 transition-colors"
             >
               Contact Us
