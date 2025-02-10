@@ -5,7 +5,7 @@ const teamMembers = [
   {
     name: "Prof. MD Gaëtan Garraux",
     role: "Clinical Lead Neurology Professor @CHU Liege",
-    image: "/gaetan.jpeg",
+    image: "/gg-nbg.png",
     linkedin: "https://www.linkedin.com/in/gaëtan-garraux-md-phd-8744b2a/",
   },
   {
@@ -17,25 +17,25 @@ const teamMembers = [
   {
     name: "Patricia van Rompuy",
     role: "Quality and Clinical trial lead",
-    image: "/patricia.jpeg",
+    image: "/pvr-nbg.png",
     linkedin: "https://www.linkedin.com/in/patricia-van-rompuy-341927b/",
   },
   {
     name: "Apostolis Moustaklis",
     role: "Junior R&D engineer",
-    image: "/moustaklis.jpeg",
+    image: "/AM-nbg.png",
     linkedin: "https://www.linkedin.com/in/apostolos-moustaklis-941a45162/",
   },
   {
     name: "Vasileios Papapanagiotou, PhD",
     role: "Senior R&D engineer Professor @Karonlinska ",
-    image: "/papapanagiotou.jpeg",
+    image: "/vp-nbg.png",
     linkedin: "https://www.linkedin.com/in/vasileios-papapanagiotou-3155b990/",
   },
   {
     name: "Dimitris Iakovakis, PhD",
     role: "CTO",
-    image: "/iakovakis.jpeg",
+    image: "/di-nbg.png",
     linkedin: "https://www.linkedin.com/in/iakovakis/",
   },
 ]
@@ -54,7 +54,7 @@ export function TeamNetwork() {
               rel="noopener noreferrer"
               className="block hover:scale-105 transition-transform duration-300"
             >
-              <div className="text-center p-6 bg-white/50 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="text-center p-6 bg-wood-green/10 backdrop-blur-sm rounded-xl shadow-sm hover:shadow-md transition-shadow border border-wood-green/20">
                 <Image
                   src={member.image || "/placeholder.svg"}
                   alt={member.name}

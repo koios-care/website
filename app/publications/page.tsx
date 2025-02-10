@@ -10,10 +10,12 @@ interface Publication {
   authors: string
   journal: string
   year: string
+  citations?: number
   link?: string
 }
 
 const publications: Record<string, Publication[]> = {
+  
   "Parkinson's Disease": [
     {
       title: "Touchscreen typing-pattern analysis for detecting fine motor skills decline in early-stage Parkinson's disease",
@@ -80,6 +82,36 @@ const publications: Record<string, Publication[]> = {
       year: "2019"
     }
   ],
+  "Eating Behavior Analysis": [
+    {
+      title: "A novel chewing detection system based on ppg, audio, and accelerometry",
+      authors: "V Papapanagiotou, C Diou, L Zhou, J Van Den Boer, M Mars, I Ioakimidis",
+      journal: "IEEE journal of biomedical and health informatics 21 (3), 607-618",
+      year: "2016",
+      citations: 89
+    },
+    {
+      title: "Chewing detection from an in-ear microphone using convolutional neural networks",
+      authors: "V Papapanagiotou, C Diou, A Delopoulos",
+      journal: "2017 39th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC)",
+      year: "2017",
+      citations: 37
+    },
+    {
+      title: "Control of eating behavior using a novel feedback system",
+      authors: "M Esfandiari, V Papapanagiotou, C Diou, M Zandian, J Nolstam, I Södersten",
+      journal: "Journal of visualized experiments: JoVE, 57432",
+      year: "2018",
+      citations: 25
+    },
+    {
+      title: "Automatic analysis of food intake and meal microstructure based on continuous weight measurements",
+      authors: "V Papapanagiotou, C Diou, I Ioakimidis, P Södersten, A Delopoulos",
+      journal: "IEEE journal of biomedical and health informatics 23 (2), 893-902",
+      year: "2018",
+      citations: 24
+    }
+  ],
   "Orthostatic Hypotension": [
     {
       title: "Fuzzy logic-based risk of fall estimation using smartwatch data as a means to form an assistive feedback mechanism in everyday living activities",
@@ -110,7 +142,14 @@ function ResearchArea({ title, papers }: { title: string; papers: Publication[] 
             <p className="text-gray-600 mb-2">{paper.authors}</p>
             <div className="flex justify-between items-center">
               <p className="text-gray-500 text-sm">{paper.journal}</p>
-              <span className="text-warm-purple font-semibold">{paper.year}</span>
+              <div className="flex items-center gap-4">
+                {paper.citations && (
+                  <span className="text-warm-purple text-sm">
+                    Citations: {paper.citations}
+                  </span>
+                )}
+                <span className="text-warm-purple font-semibold">{paper.year}</span>
+              </div>
             </div>
           </div>
         ))}
@@ -121,33 +160,37 @@ function ResearchArea({ title, papers }: { title: string; papers: Publication[] 
 
 function ResearchVisualization() {
   const areas = [
-    { name: "Parkinson's Disease", count: 8, color: "#4A2B5F" },
-    { name: "Mild Cognitive Impairment", count: 1, color: "#D25137" },
-    { name: "Depression", count: 1, color: "#89CFF0" },
-    { name: "Orthostatic Hypotension", count: 2, color: "#E4C1D5" }
+    { name: "Parkinson's Disease", color: "#4A2B5F" },
+    { name: "Eating Behavior Analysis", color: "#2A634D" },
+    { name: "Orthostatic Hypotension", color: "#E4C1D5" },
+    { name: "Depression", color: "#89CFF0" },
+    { name: "Mild Cognitive Impairment", color: "#D25137" }
   ]
 
   return (
     <section className="mb-16">
       <h2 className="text-2xl font-bold text-warm-purple mb-6">Research Areas</h2>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
         {areas.map((area, index) => (
-          <div 
+          <motion.div 
             key={index}
-            className="relative p-4 rounded-xl"
-            style={{ backgroundColor: `${area.color}10` }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="relative p-6 rounded-xl bg-white shadow-sm border border-warm-purple/10 hover:border-warm-purple/30 transition-all"
           >
             <div 
-              className="w-full h-2 rounded-full mb-2"
+              className="absolute inset-x-0 top-0 h-1 rounded-t-xl"
               style={{ backgroundColor: area.color }}
             />
-            <h3 className="text-lg font-semibold mb-1" style={{ color: area.color }}>
+            <h3 
+              className="text-lg font-semibold mt-3" 
+              style={{ color: area.color }}
+            >
               {area.name}
             </h3>
-            <p className="text-sm text-gray-600">
-              {area.count} publication{area.count !== 1 ? 's' : ''}
-            </p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
@@ -159,16 +202,31 @@ function TeamResearchImpact() {
     {
       name: "Dimitrios Iakovakis, PhD",
       role: "CTO",
-      citations: 796,
+      citations: 797,
       hIndex: 16,
       i10Index: 20,
       expertise: ["Biomedical Engineering", "Human Computer Interaction", "Machine Learning", "Digital Health"],
       keyAreas: ["Parkinson's Disease", "Depression", "Motor Impairment Analysis"],
-      image: "/iakovakis.jpeg",
+      image: "/di-nbg.png",
       highlightPaper: {
         title: "Touchscreen typing pattern analysis for detecting fine motor skills decline in early-stage Parkinson's disease",
         citations: 92,
         year: 2018
+      }
+    },
+    {
+      name: "Vasileios Papapanagiotou, PhD",
+      role: "Ass. Professor @KI",
+      citations: 470,
+      hIndex: 13,
+      i10Index: 18,
+      expertise: ["Digital Signal Processing", "Machine Learning", "Wearable Sensors", "Eating Behavior Analysis"],
+      keyAreas: ["Eating Behavior", "Wearable Sensors", "Digital Biomarkers"],
+      image: "/papapanagiotou.jpeg",
+      highlightPaper: {
+        title: "A novel chewing detection system based on ppg, audio, and accelerometry",
+        citations: 89,
+        year: 2016
       }
     },
     {
@@ -188,10 +246,10 @@ function TeamResearchImpact() {
     },
     {
       name: "Prof. MD Gaëtan Garraux",
-      role: "Clinical Lead Neurology Professor @CHU Liege",
-      citations: 4850,
-      hIndex: 38,
-      i10Index: 82,
+      role: "Neurology Professor @CHU Liege",
+      citations: 5473,
+      hIndex: 43,
+      i10Index: 71,
       expertise: ["Movement Disorders", "Neurology", "Clinical Research", "Parkinson's Disease"],
       keyAreas: ["Clinical Neurology", "Movement Disorders", "Neuroimaging"],
       image: "/gaetan.jpeg",
@@ -204,10 +262,10 @@ function TeamResearchImpact() {
     {
       name: "Gregor Strobbe, PhD",
       role: "Advisor",
-      citations: 680,
-      hIndex: 15,
-      i10Index: 18,
-      expertise: ["Digital Health", "Healthcare Innovation", "Medical Technology", "Entrepreneurship"],
+      citations: 639,
+      hIndex: 13,
+      i10Index: 16,
+      expertise: ["EEG", "MRI", "Biomarkers", "Entrepreneurship"],
       keyAreas: ["Health Technology", "Digital Transformation", "Healthcare Solutions"],
       image: "/strobbe.jpeg",
       highlightPaper: {
@@ -219,12 +277,12 @@ function TeamResearchImpact() {
     {
       name: "Lampros Kourtis, PhD",
       role: "Advisor",
-      citations: 1830,
+      citations: 1828,
       hIndex: 23,
-      i10Index: 38,
+      i10Index: 37,
       expertise: ["Digital Biomarkers", "Alzheimer's Disease", "Wearable Technology"],
       keyAreas: ["Digital Medicine", "Cognitive Impairment", "Medical Devices"],
-      image: "/kourtis.jpeg",
+      image: "/ik-nbg.png",
       highlightPaper: {
         title: "Digital biomarkers for Alzheimer's disease: the mobile/wearable devices opportunity",
         citations: 359,

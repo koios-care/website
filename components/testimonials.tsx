@@ -12,9 +12,9 @@ function GraphicElements() {
       <svg className="w-full h-full" viewBox="0 0 1600 600" fill="none" preserveAspectRatio="xMidYMid slice">
         <title>Graphic Elements</title>
         {/* Grid pattern - expanded horizontally */}
-        {[0, 1, 2].map((row) => (
+        {[0, 1, 2, 3, 4].map((row) => (
           <g key={row}>
-            {[0, 1, 2, 3, 4, 5, 6].map((col) => {
+            {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((col) => {
               const x = 200 + col * 200
               const y = 150 + row * 150
               return (
@@ -33,6 +33,9 @@ function GraphicElements() {
                     repeatType: "reverse",
                     repeatDelay: 2
                   }}
+                  style={{
+                    willChange: 'transform, opacity'
+                  }}
                 />
               )
             })}
@@ -40,7 +43,7 @@ function GraphicElements() {
         ))}
         
         {/* Horizontal connecting lines */}
-        {[0, 1, 2].map((row) => (
+        {[0, 1, 2, 3, 4].map((row) => (
           <g key={`line-${row}`}>
             <motion.path
               d={`M200 ${150 + row * 150} L1400 ${150 + row * 150}`}
@@ -56,15 +59,18 @@ function GraphicElements() {
                 repeatType: "reverse",
                 repeatDelay: 1.5
               }}
+              style={{
+                willChange: 'transform, opacity'
+              }}
             />
           </g>
         ))}
         
         {/* Vertical connecting lines */}
-        {[0, 1, 2, 3, 4, 5, 6].map((col) => (
+        {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((col) => (
           <g key={`col-${col}`}>
             <motion.path
-              d={`M${200 + col * 200} 150 L${200 + col * 200} 450`}
+              d={`M${200 + col * 200} 150 L${200 + col * 200} 750`}
               stroke="#FFFFFF"
               strokeWidth="1"
               strokeDasharray="8 8"
@@ -76,6 +82,9 @@ function GraphicElements() {
                 repeat: Infinity,
                 repeatType: "reverse",
                 repeatDelay: 1.5
+              }}
+              style={{
+                willChange: 'transform, opacity'
               }}
             />
           </g>
@@ -117,7 +126,7 @@ const videoTestimonials = [
     title: "Neurologist perspective on remote patient-assessment",
     description: "Neurologist practicing with Koios Care to remotely monitor patient's condition",
     videoId: "CXdxewRlAMU",
-    category: "Part 1",
+    category: "Neurologist",
     thumbnail: "/v1.png",
     thumbnailAlt: "Neurologist practicing with Koios Care to remotely monitor patient's condition"
   },
@@ -125,7 +134,7 @@ const videoTestimonials = [
     title: "Patient perspective on remote patient-assessment",
     description: "Sharing personal experience with diseasse and vision on remote patient-assessment",
     videoId: "wJuJwDrOzF4",
-    category: "Part 2",
+    category: "Patient",
     thumbnail: "/v2.png",
     thumbnailAlt: "Patricia Van Rompuy, Quality and Clinical trial lead at Koios Care"
   },
@@ -133,7 +142,7 @@ const videoTestimonials = [
     title: "The Q-index Study",
     description: "Results of Quality of Life Index clinical trial (ID NCT06209502) in collaboration with leading institutions",
     videoId: "jT12fHfjVlA",
-    category: "Part 3",
+    category: "Koios Care CEO",
     thumbnail: "/v3.png",
     thumbnailAlt: "The Q-index study team with clinical trial partners ISPPC, AZ Delta, CHU Liege, and AZ Oostende"
   },
@@ -141,7 +150,7 @@ const videoTestimonials = [
     title: "AI for Parkinson's disease monitoring",
     description: "How we're revolutionizing Parkinsson's disease monitoring with advanced imaging and data analysis",
     videoId: "pUCX9wFhJ7g",
-    category: "Part 4",
+    category: "Clinical Lead",
     thumbnail: "/v4.png",
     thumbnailAlt: "Medical professional analyzing Koios Cae Parkinson's disease monitoring"
   }
@@ -158,7 +167,7 @@ function VideoSection() {
         className="text-center mb-12"
       >
         <h2 className="text-3xl font-bold text-white mb-4">
-          Watch Our Stories
+          Watch the stories from our partners
         </h2>
         <p className="text-white/80">
           Hear directly from healthcare professionals, patients, and our team about their experiences with Koios Care
@@ -223,12 +232,12 @@ export function Testimonials() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { 
       loop: true,
-      duration: 20,
-      skipSnaps: true
+      duration: 30,
+      skipSnaps: false
     }, 
     [Autoplay({ 
-      delay: 3000,
-      stopOnInteraction: false,
+      delay: 5000,
+      stopOnInteraction: true,
       playOnInit: true
     })]
   )
@@ -258,7 +267,7 @@ export function Testimonials() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold mb-4 text-white">
@@ -275,10 +284,14 @@ export function Testimonials() {
                   className="flex-[0_0_100%] min-w-0"
                 >
                   <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.3 }}
                     className="relative p-8 mx-4 bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg"
+                    style={{
+                      willChange: 'transform, opacity'
+                    }}
                   >
                     <div className="absolute top-4 left-4 text-6xl opacity-20 text-[#D25137]">
                       "
@@ -293,22 +306,6 @@ export function Testimonials() {
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* Dots */}
-          <div className="flex justify-center gap-2 mt-6 flex-wrap">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === selectedIndex 
-                    ? 'bg-white w-4' 
-                    : 'bg-white/30'
-                }`}
-                onClick={() => emblaApi?.scrollTo(index)}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
           </div>
         </div>
 

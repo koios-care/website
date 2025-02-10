@@ -78,7 +78,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <a 
-                  href="mailto:info@koios.care" 
+                  href="mailto:info@koios.care?cc=dimitris@koios.care&subject=Koios%20Care%20Information" 
                   className="hover:text-bubbly-pink transition-colors"
                 >
                   info@koios.care

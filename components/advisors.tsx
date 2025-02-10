@@ -5,33 +5,39 @@ const advisors = [
   {
     name: "Kris Schellens",
     role: "Biopharma Leader • previously director, Biogen Beglium",
-    image: "/kris.jpeg",
+    image: "/ks-nbg.png",
     linkedin: "https://www.linkedin.com/in/kris-schellens-27579710/",
   },
   {
     name: "Lampros Kourtis, PhD",
     role: "Lead of Gates Ventures ADDF • Alzheimer's Digital Diagnostics • Exited Founder",
-    image: "/kourtis.jpeg",
+    image: "/ik-nbg.png",
     linkedin: "https://www.linkedin.com/in/lamproskourtis1977/",
   },
   {
     name: "Gregor Strobbe, PhD",
     role: "Health-tech Entrepreneur • founder, CEO of Clouds of Care",
-    image: "/strobbe.jpeg",
+    image: "/gs-nbg.png",
     linkedin: "https://www.linkedin.com/in/gregor-strobbe-17b37525/",
   },
   {
     name: "Jurgen van Broeck, MBA",
     role: "CEO of mAbxcience",
-    image: "/jurgen.jpeg",
+    image: "/jvb-nbg.png",
     linkedin: "https://www.linkedin.com/in/jurgen-van-broeck-7842ba8/",
   },
   {
     name: "MD Jean-Briac Prevost",
-    role: "Clinical Oncologist - Business",
-    image: "/jeanbriac.jpeg",
+    role: "Clinical Oncologist • Business",
+    image: "/jb-nbg.png",
     linkedin: "https://www.linkedin.com/in/jean-briac-prevost-66b2131a",
   },
+  {
+    name: "Hadeel Elamer",
+    role: "Businsess Development Advisor • ex-Digital Lead @Abbott",
+    image: "/hadeel.png",
+    linkedin: "https://www.linkedin.com/in/jean-briac-prevost-66b2131a",
+  }
 ]
 
 export function Advisors() {
@@ -48,7 +54,7 @@ export function Advisors() {
               rel="noopener noreferrer"
               className="block hover:scale-105 transition-transform duration-300"
             >
-              <div className="text-center p-6 bg-white/50 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="text-center p-6 bg-wood-green/10 backdrop-blur-sm rounded-xl shadow-sm hover:shadow-md transition-shadow border border-wood-green/20">
                 <Image
                   src={advisor.image || "/placeholder.svg"}
                   alt={advisor.name}

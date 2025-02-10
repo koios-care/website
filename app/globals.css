@@ -1,3 +1,27 @@
+@font-face {
+  font-family: 'LemondeJournalStd';
+  src: url('/le-monde-journal-std-regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AkzidenzGrotesk';
+  src: url('/Akzidenz-grotesk-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AkzidenzGrotesk';
+  src: url('/Akzidenz-grotesk-black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,6 +32,29 @@
     --foreground: 222.2 84% 4.9%;
     --primary: 328 34% 83%; /* Bubbly pink */
     --primary-foreground: 210 40% 98%;
+  }
+
+  html {
+    font-family: 'AkzidenzGrotesk', system-ui, sans-serif;
+    font-weight: normal;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'LemondeJournalStd', serif;
+  }
+}
+
+@layer components {
+  .heading-style {
+    @apply font-['LemondeJournalStd'];
+  }
+  
+  .body-style {
+    @apply font-['AkzidenzGrotesk'] font-normal;
+  }
+
+  .body-style-bold {
+    @apply font-['AkzidenzGrotesk'] font-black;
   }
 }
 

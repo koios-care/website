@@ -4,8 +4,34 @@ import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 
+type NavigationLink = {
+  href?: string;
+  label: string;
+  isButton?: boolean;
+  children?: Array<{
+    href: string;
+    label: string;
+  }>;
+}
+
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const navigationLinks: NavigationLink[] = [
+    { href: "/about", label: "About" },
+    {
+      label: "Solutions",
+      children: [
+        { href: "/solutions/individuals", label: "For Patients" },
+        { href: "/solutions/pharma", label: "For Pharma" },
+        { href: "/solutions/care-providers", label: "For Care Providers" }
+      ]
+    },
+    { href: "/publications", label: "Science" },
+    { href: "/#testimonials", label: "Testimonials" },
+    { href: "/#team", label: "Team" },
+    { href: "/contact", label: "Contact Us", isButton: true }
+  ]
 
   return (
     <header className="fixed w-full bg-white/95 backdrop-blur-sm z-50 shadow-sm">
@@ -25,18 +51,39 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/solutions/pharma#solutions" className="text-warm-purple hover:text-bubbly-pink transition-colors">
-              Solutions
-            </Link>
-            <Link href="/solutions/pharma#key-benefits" className="text-warm-purple hover:text-bubbly-pink transition-colors">
-              Benefits
-            </Link>
-            <Link href="/solutions/pharma#success-stories" className="text-warm-purple hover:text-bubbly-pink transition-colors">
-              Success Stories
-            </Link>
-            <Link href="/contact" className="px-4 py-2 bg-warm-purple text-white rounded-full hover:bg-bubbly-pink transition-colors">
-              Contact Us
-            </Link>
+            {navigationLinks.map((item, index) => (
+              item.children ? (
+                <div key={index} className="relative group">
+                  <button className="text-warm-purple hover:text-bubbly-pink transition-colors body-style py-2">
+                    {item.label}
+                  </button>
+                  <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div className="py-1">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="block px-4 py-2 text-sm text-warm-purple hover:bg-gray-50 hover:text-bubbly-pink body-style"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : item.href ? (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={item.isButton 
+                    ? "px-4 py-2 bg-warm-purple text-white rounded-full hover:bg-bubbly-pink transition-colors body-style"
+                    : "text-warm-purple hover:text-bubbly-pink transition-colors body-style"
+                  }
+                >
+                  {item.label}
+                </Link>
+              ) : null
+            ))}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -66,30 +113,61 @@ export function Header() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <nav className="md:hidden py-4 space-y-4">
-            <Link 
-              href="/solutions/pharma#solutions" 
-              className="block text-warm-purple hover:text-bubbly-pink transition-colors"
+            {/* About Link */}
+            <Link
+              href="/about"
+              className="block text-warm-purple hover:text-bubbly-pink transition-colors body-style"
               onClick={() => setIsMenuOpen(false)}
             >
-              Solutions
+              About
             </Link>
-            <Link 
-              href="/solutions/pharma#key-benefits" 
-              className="block text-warm-purple hover:text-bubbly-pink transition-colors"
+
+            {/* Solutions Section in Mobile */}
+            <div className="space-y-2">
+              <div className="font-medium text-warm-purple body-style">Solutions</div>
+              {navigationLinks[1].children?.map((child) => (
+                <Link
+                  key={child.href}
+                  href={child.href}
+                  className="block pl-4 text-warm-purple hover:text-bubbly-pink transition-colors body-style"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {child.label}
+                </Link>
+              ))}
+            </div>
+            
+            {/* Science Link */}
+            <Link
+              href="/publications"
+              className="block text-warm-purple hover:text-bubbly-pink transition-colors body-style"
               onClick={() => setIsMenuOpen(false)}
             >
-              Benefits
+              Science
             </Link>
-            <Link 
-              href="/solutions/pharma#success-stories" 
-              className="block text-warm-purple hover:text-bubbly-pink transition-colors"
+
+            {/* Testimonials Link */}
+            <Link
+              href="/#testimonials"
+              className="block text-warm-purple hover:text-bubbly-pink transition-colors body-style"
               onClick={() => setIsMenuOpen(false)}
             >
-              Success Stories
+              Testimonials
             </Link>
-            <Link 
-              href="/contact" 
-              className="block px-4 py-2 bg-warm-purple text-white rounded-full hover:bg-bubbly-pink transition-colors w-fit"
+
+            {/* Team Link */}
+            <Link
+              href="/#team"
+              className="block text-warm-purple hover:text-bubbly-pink transition-colors body-style"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Team
+            </Link>
+
+            {/* Contact Us Link */}
+            <Link
+              href="/contact"
+              className="block px-4 py-2 bg-warm-purple text-white rounded-full hover:bg-bubbly-pink transition-colors w-fit body-style"
               onClick={() => setIsMenuOpen(false)}
             >
               Contact Us

@@ -51,17 +51,20 @@ function MovingDot({
         y: y1
       }}
       animate={{ 
-        opacity: [0, 1, 1, 0],
+        opacity: [0, 1, 0],
         x: x2,
         y: y2
       }}
       transition={{
-        duration: 2,
+        duration: 3,
         delay,
         repeat: Infinity,
-        repeatDelay: 0.5,
+        repeatDelay: 2,
         ease: "linear",
-        times: [0, 0.2, 0.8, 1,1.5]
+        times: [0, 0.5, 1]
+      }}
+      style={{
+        willChange: 'transform, opacity'
       }}
     />
   )
@@ -69,25 +72,39 @@ function MovingDot({
 
 function NodeText({ text, x, y, delay }: { text: string; x: number; y: number; delay: number }) {
   return (
-    <motion.text
-      x={x}
-      y={y}
-      textAnchor="middle"
-      className="text-base md:text-lg fill-current text-white font-medium"
+    <motion.g
       initial={{ opacity: 0 }}
       animate={{ opacity: [0, 1, 1, 0] }}
       transition={{
-        duration: 4,
-        delay: delay + 1.5,
+        duration: 6,
+        delay: delay + 3,
         repeat: Infinity,
-        repeatDelay: 4,
+        repeatDelay: 8,
         times: [0, 0.1, 0.9, 1],
         ease: "easeInOut"
       }}
     >
-      {text}
-    </motion.text>
-  )
+      <rect
+        x={x - 300}
+        y={y - 24}
+        width="600"
+        height="48"
+        rx="8"
+        fill="white"
+        opacity="0.1"
+        className="backdrop-blur-lg"
+      />
+      <text
+        x={x}
+        y={y}
+        textAnchor="middle"
+        dominantBaseline="middle"
+        className="text-base md:text-lg fill-current text-white font-medium font-inter"
+      >
+        {text}
+      </text>
+    </motion.g>
+  );
 }
 
 function ConnectionNode({ 
@@ -109,9 +126,9 @@ function ConnectionNode({
     <>
       <motion.text
         x={x}
-        y={y - r - 10}
+        y={y - r - 30}
         textAnchor="middle"
-        className="text-lg md:text-xl font-bold fill-current text-white"
+        className="text-xl md:text-2xl font-bold fill-current text-white font-inter"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: delay * 0.5 + 0.4 }}
@@ -124,7 +141,7 @@ function ConnectionNode({
         r={r}
         fill="#E4C1D5"
         initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.9 }}
+        animate={{ scale: 1, opacity: 1 }}
         transition={{
           duration: 0.8,
           delay: delay * 0.5,
@@ -132,12 +149,34 @@ function ConnectionNode({
         }}
       />
       {description && (
-        <NodeText 
-          text={description} 
-          x={x} 
-          y={y + 60} 
-          delay={delay * 0.5}
-        />
+        <motion.g
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            duration: 0.5,
+            delay: delay * 0.5 + 0.6
+          }}
+        >
+          <rect
+            x={x - 300}
+            y={y + r + 20}
+            width="600"
+            height="60"
+            rx="8"
+            fill="white"
+            opacity="0.15"
+            className="backdrop-blur-lg"
+          />
+          <text
+            x={x}
+            y={y + r + 50}
+            textAnchor="middle"
+            dominantBaseline="middle"
+            className="text-base md:text-lg fill-current text-white/90 font-medium font-inter"
+          >
+            {description}
+          </text>
+        </motion.g>
       )}
     </>
   )
@@ -148,44 +187,44 @@ export default function AppShowcaseWithNodes() {
   const nodes = [
     {
       label: "Patients",
-      x: 800, // Center position
-      y: 450,
+      x: 1200, // Center position (scaled up from 800)
+      y: 675, // Scaled up from 450
       delay: 0,
       description: "Understand therapy, medication, and lifestyle impact.",
       isCenter: true
     },
     {
       label: "Pharma R&D",
-      x: 800,
-      y: 200, // Top
+      x: 1200,
+      y: 225, // Scaled up from 150
       delay: 1,
       description: "Optimize clinical trials with objective HrQoL measurement.",
     },
     {
       label: "Care Providers",
-      x: 1400,
-      y: 325, // Top right
+      x: 1800, // Scaled up from 1200
+      y: 450, // Scaled up from 300
       delay: 2,
       description: "Personalized health insights, remote monitoring, improved outcomes.",
     },
     {
-      label: "Hospitals & Payers",
-      x: 1300,
-      y: 775, // Bottom right
+      label: "Hospitals - Payers",
+      x: 1800, // Scaled up from 1200
+      y: 900, // Scaled up from 600
       delay: 3,
       description: "Improve outcomes, lower costs with data-driven remote care.",
     },
     {
-      label: "Passive Sensing and AI",
-      x: 200,
-      y: 325, // Top left
+      label: "AI with Passive Sensing ",
+      x: 600, // Scaled up from 400
+      y: 450, // Scaled up from 300
       delay: 4,
       description: "Clinically meaningful frictionless solution.",
     },
     {
-      label: "Existing Disease-Specific Products",
-      x: 400,
-      y: 700, // Bottom
+      label: "Marketed Drug Products",
+      x: 600, // Scaled up from 400
+      y: 900, // Scaled up from 600
       delay: 5,
       description: "Optimize Drug+AI solutions towards patient needs.",
     },
@@ -292,13 +331,13 @@ export default function AppShowcaseWithNodes() {
       improvement: "260% improvement over research PROs / 2.6 months over standard of care" 
     },
     { 
-      label: "Commercial data compliance", 
+      label: "Data compliance", 
       value: "96%", 
       category: "Percentage of patients' days covered",
       improvement: "24% increase completeness with v.s. without feedback" 
     },
     { 
-      label: "Sensing unseen symptoms", 
+      label: "Sensing symptoms", 
       value: "57%", 
       category: "HrQol gain by connecting data, science and AI",
       improvement: "avg. 1.3 h/day" 
@@ -339,27 +378,34 @@ export default function AppShowcaseWithNodes() {
       {/* Main Content */}
       <div className="container mx-auto px-4 relative">
         {/* Nodes Animation Layer */}
-        <div className="relative h-[800px]">
-          <svg className="w-full h-full" viewBox="0 0 1600 1000" fill="none">
+        <div className="relative h-[1200px]">
+          <svg className="w-full h-full" viewBox="0 0 2400 1500" fill="none">
             <g>
               {connections.map((connection) => (
                 <g key={connection.id}>
                   <motion.path
                     d={connection.path}
                     stroke="#E4C1D5"
-                    strokeWidth="1"
+                    strokeWidth="2"
                     strokeLinecap="round"
+                    strokeDasharray="8 8"
                     fill="none"
                     initial={{ pathLength: 0, opacity: 0 }}
-                    animate={{ pathLength: 1, opacity: 0.3 }}
+                    animate={{ pathLength: 1, opacity: 0.15 }}
                     transition={{
-                      duration: 1,
-                      delay: connection.delay,
+                      duration: 3,
+                      delay: connection.delay * 0.2,
                       ease: "easeInOut",
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      repeatDelay: 1.5
+                    }}
+                    style={{
+                      willChange: 'transform, opacity'
                     }}
                   />
                   {/* Multiple dots per connection using segmented paths */}
-                  {[0, 0.33, 0.66].map((offset, i) => (
+                  {[0, 0.2, 0.4, 0.6, 0.8].map((offset, i) => (
                     <SegmentedMovingDot
                       key={`${connection.id}-dot-${i}`}
                       points={connection.points}
@@ -379,7 +425,7 @@ export default function AppShowcaseWithNodes() {
                 key={index} 
                 {...node} 
                 // Make center node slightly larger
-                r={node.isCenter ? 40 : 30}
+                r={node.isCenter ? 60 : 45} // Scaled up from 40 and 30
               />
             ))}
           </svg>
