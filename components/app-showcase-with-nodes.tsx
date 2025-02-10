@@ -325,19 +325,19 @@ export default function AppShowcaseWithNodes() {
   // Define the metrics to show
   const metrics: MetricProps[] = [
     { 
-      label: "Detection of changes", 
+      label: "Early detection", 
       value: "74% ", 
       category: "Early detection to capture clinically meaningful changes",
       improvement: "260% improvement over research PROs / 2.6 months over standard of care" 
     },
     { 
-      label: "Data compliance", 
+      label: "Easy to use", 
       value: "96%", 
       category: "Percentage of patients' days covered",
       improvement: "24% increase completeness with v.s. without feedback" 
     },
     { 
-      label: "Sensing symptoms", 
+      label: "Impact in symptoms", 
       value: "57%", 
       category: "HrQol gain by connecting data, science and AI",
       improvement: "avg. 1.3 h/day" 
