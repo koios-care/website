@@ -28,7 +28,7 @@ export function Footer() {
             <h3 className="text-xl font-semibold mb-4 text-bubbly-pink">Company</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#mission-vision" className="hover:text-bubbly-pink transition-colors">
+                <Link href="#vision" className="hover:text-bubbly-pink transition-colors">
                   Vision
                 </Link>
               </li>
