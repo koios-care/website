@@ -167,7 +167,7 @@ export default function SystemConnections() {
     },
     { 
       label: "Care Providers",
-      description: "Personalized health insights, remote monitoring, improved outcomes.",
+      description: "Remote managment, improved outcomes.",
       x: 1300, 
       y: 350, 
       delay: 0.4 

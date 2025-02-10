@@ -205,14 +205,14 @@ export default function AppShowcaseWithNodes() {
       x: 1800,
       y: 450,
       delay: 2,
-      description: "Personalized health insights, remote monitoring, improved outcomes.",
+      description: "Remote patient managment, improved outcomes.",
     },
     {
       label: "Hospitals - Payers",
       x: 1800,
       y: 900,
       delay: 3,
-      description: "Improve outcomes, lower costs with data-driven remote care.",
+      description: "Improve outcomes at lower costs.",
     },
     {
       label: "AI with Passive Sensing",
@@ -226,7 +226,7 @@ export default function AppShowcaseWithNodes() {
       x: 600,
       y: 900,
       delay: 5,
-      description: "Optimize Drug+AI solutions towards patient needs.",
+      description: "Deliver Drug+AI solutions personalized in patient needs.",
     },
   ];
 

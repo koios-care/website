@@ -6,7 +6,7 @@ import Link from "next/link"
 
 function ConnectionPaths() {
   // Define the base unit size for the pattern
-  const unit = 200;
+  const unit = 180; // Slightly reduced for better spacing
   const cornerRadius = 0;
 
   // Helper function to create L-shaped path
@@ -33,15 +33,15 @@ function ConnectionPaths() {
         {[
           // Top section - spaced out
           { x: 400, y: 200, dir: 'tr', delay: 0 },
-          { x: 800, y: 200, dir: 'tl', delay: 2 },
-          { x: 1200, y: 200, dir: 'tr', delay: 4 },
+          { x: 800, y: 200, dir: 'tl', delay: 0.5 },
+          { x: 1200, y: 200, dir: 'tr', delay: 1 },
           // Middle section (sparse to leave space for content)
-          { x: 400, y: 500, dir: 'br', delay: 3 },
-          { x: 1200, y: 500, dir: 'bl', delay: 5 },
+          { x: 400, y: 500, dir: 'br', delay: 0.8 },
+          { x: 1200, y: 500, dir: 'bl', delay: 1.2 },
           // Bottom section
-          { x: 400, y: 800, dir: 'br', delay: 1 },
-          { x: 800, y: 800, dir: 'bl', delay: 3.5 },
-          { x: 1200, y: 800, dir: 'br', delay: 6 }
+          { x: 400, y: 800, dir: 'br', delay: 0.3 },
+          { x: 800, y: 800, dir: 'bl', delay: 0.9 },
+          { x: 1200, y: 800, dir: 'br', delay: 1.5 }
         ].map((shape, index) => (
           <motion.path
             key={`l-shape-${index}`}
@@ -50,16 +50,16 @@ function ConnectionPaths() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeDasharray="8 8"
+            strokeDasharray="6 6"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ pathLength: 1, opacity: 0.15 }}
             transition={{
-              duration: 3,
-              delay: shape.delay * 0.2,
+              duration: 2,
+              delay: shape.delay * 0.15,
               ease: "easeInOut",
               repeat: Infinity,
               repeatType: "reverse",
-              repeatDelay: 1.5
+              repeatDelay: 1
             }}
             style={{
               willChange: 'transform, opacity'
@@ -67,14 +67,14 @@ function ConnectionPaths() {
           />
         ))}
 
-        {/* Connection points */}
+        {/* Connection points with increased animation frequency */}
         {[
           // Top section dots - spaced out
-          [400, 200, 0], [600, 200, 2], [800, 200, 4], [1000, 200, 1], [1200, 200, 3],
+          [400, 200, 0], [600, 200, 0.4], [800, 200, 0.8], [1000, 200, 0.2], [1200, 200, 0.6],
           // Middle sparse section dots
-          [400, 500, 2.5], [1200, 500, 4.5],
+          [400, 500, 0.5], [1200, 500, 0.9],
           // Bottom section dots
-          [400, 800, 1.5], [600, 800, 3.5], [800, 800, 5], [1000, 800, 2], [1200, 800, 4]
+          [400, 800, 0.3], [600, 800, 0.7], [800, 800, 1], [1000, 800, 0.4], [1200, 800, 0.8]
         ].map(([cx, cy, delay], index) => (
           <motion.circle
             key={`point-${cx}-${cy}`}
@@ -83,42 +83,14 @@ function ConnectionPaths() {
             r="4"
             fill="#E4C1D5"
             initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 0.3 }}
+            animate={{ scale: [0.8, 1.2, 0.8], opacity: [0.2, 0.4, 0.2] }}
             transition={{
-              duration: 0.5,
-              delay: delay * 0.1,
+              duration: 2,
+              delay: delay * 0.5,
               ease: "easeInOut",
               repeat: Infinity,
               repeatType: "reverse",
-              repeatDelay: 2
-            }}
-            style={{
-              willChange: 'transform, opacity'
-            }}
-          />
-        ))}
-
-        {/* Right-pointing arrows */}
-        {[200, 500, 800].map((y, index) => (
-          <motion.path
-            key={`arrow-${y}`}
-            d="M1350 -30 L1400 0 L1350 30"
-            stroke="#E4C1D5"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeDasharray="8 8"
-            fill="none"
-            transform={`translate(0, ${y})`}
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 0.15 }}
-            transition={{
-              duration: 3,
-              delay: index * 0.2,
-              ease: "easeInOut",
-              repeat: Infinity,
-              repeatType: "reverse",
-              repeatDelay: 1.5
+              repeatDelay: 0.5
             }}
             style={{
               willChange: 'transform, opacity'
@@ -172,7 +144,7 @@ export default function BackgroundPaths({
         <ConnectionPaths />
       </div>
 
-      <div className="relative z-10 w-full">
+      <div className="relative z-10 w-full py-16 md:py-24">
         <div className="w-full px-4 md:container md:mx-auto md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0 }}
@@ -180,44 +152,35 @@ export default function BackgroundPaths({
             transition={{ duration: 0.5 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <motion.h1 className="heading-style text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-12 text-white leading-tight px-2">
-              {title}
+            <motion.h1 
+              className="heading-style text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 md:mb-12 text-white leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Koios Care
             </motion.h1>
 
-            {/* Publications Button */}
+            {/* Description */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-              className="mb-8 md:mb-12 px-4 sm:px-6"
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mb-12 md:mb-16"
             >
-              <Link
-                href="/publications"
-                className="inline-flex items-center body-style text-sm sm:text-base text-white hover:text-[#E4C1D5] transition-colors text-center"
-              >
-                <svg
-                  className="w-4 h-4 mr-2 flex-shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                  />
-                </svg>
-                <span className="flex-grow text-left">
-                  Combining software, AI and medicine to improve patient outcomes at lower costs. <br className="hidden sm:inline" /> Starting with Parkinson's Disease
-                </span>
-              </Link>
+              <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-4">
+                A neurology-focused digital medicine company
+              </p>
+              <p className="text-base sm:text-lg text-white/80 max-w-3xl mx-auto">
+                Combining data, software AI and medicine to improve patient outcomes at lower costs, <br className="hidden sm:inline" /> 
+                Starting with Parkinson's Disease
+              </p>
             </motion.div>
 
             {/* Solution Buttons */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 w-full max-w-2xl mx-auto px-4 sm:px-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-2xl mx-auto">
               {[
-                { href: "/solutions/individuals", label: "Patient  solution", delay: 0.6 },
+                { href: "/solutions/individuals", label: "Patient solution", delay: 0.6 },
                 { href: "/solutions/pharma", label: "Pharma platform", delay: 0.7 },
                 { href: "/solutions/care-providers", label: "Providers solution", delay: 0.8 },
                 { href: "/publications", label: "Science & R&D", delay: 0.9 }
@@ -226,14 +189,14 @@ export default function BackgroundPaths({
                   key={button.href}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: button.delay, duration: 0.5 }}
+                  transition={{ duration: 0.5, delay: button.delay }}
                   className="w-full"
                 >
                   <Link
                     href={button.href}
-                    className="block group relative bg-white/10 p-px rounded-2xl backdrop-blur-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-600"
+                    className="block group relative bg-white/10 p-px rounded-2xl backdrop-blur-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    <div className="w-full rounded-[1.15rem] px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base font-medium backdrop-blur-md bg-white/10 hover:bg-white/20 text-white transition-all duration-300 group-hover:-translate-y-0.5 border border-white/20 hover:shadow-md body-style">
+                    <div className="w-full rounded-[1.15rem] px-6 py-4 text-base font-medium backdrop-blur-md bg-white/10 hover:bg-white/20 text-white transition-all duration-300 group-hover:-translate-y-0.5 border border-white/20 hover:shadow-md body-style">
                       <span className="opacity-90 group-hover:opacity-100 transition-opacity">{button.label}</span>
                       <span className="ml-2 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">→</span>
                     </div>

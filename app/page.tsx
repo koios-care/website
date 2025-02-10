@@ -3,7 +3,6 @@ import Link from "next/link"
 import BackgroundPaths from "@/components/background-paths"
 import { TeamNetwork } from "@/components/team-network"
 import { Funders } from "@/components/funders"
-import { Features } from "@/components/features"
 import { MissionVision } from "@/components/mission-vision"
 import { Testimonials } from "@/components/testimonials"
 import { Advisors } from "@/components/advisors"
@@ -80,11 +79,6 @@ export default function Home() {
         {/* Mission & Vision Section */}
         <section id="vision">
           <MissionVision />
-        </section>
-
-        {/* Features Section */}
-        <section id="features">
-          <Features />
         </section>
 
         {/* Team Section */}
