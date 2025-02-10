@@ -73,7 +73,7 @@ function NodeText({ text, x, y, delay }: { text: string; x: number; y: number; d
       x={x}
       y={y}
       textAnchor="middle"
-      className="text-base md:text-lg fill-current text-white/90 font-medium"
+      className="text-base md:text-lg fill-current text-white font-medium"
       initial={{ opacity: 0 }}
       animate={{ opacity: [0, 1, 1, 0] }}
       transition={{
@@ -107,6 +107,17 @@ function ConnectionNode({
 }) {
   return (
     <>
+      <motion.text
+        x={x}
+        y={y - r - 10}
+        textAnchor="middle"
+        className="text-lg md:text-xl font-bold fill-current text-white"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: delay * 0.5 + 0.4 }}
+      >
+        {label}
+      </motion.text>
       <motion.circle
         cx={x}
         cy={y}
@@ -120,22 +131,11 @@ function ConnectionNode({
           ease: "easeOut",
         }}
       />
-      <motion.text
-        x={x}
-        y={y + 50}
-        textAnchor="middle"
-        className="text-xs fill-current text-white/80"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: delay * 0.5 + 0.4 }}
-      >
-        {label}
-      </motion.text>
       {description && (
         <NodeText 
           text={description} 
           x={x} 
-          y={y + 80} 
+          y={y + 60} 
           delay={delay * 0.5}
         />
       )}
@@ -157,7 +157,7 @@ export default function AppShowcaseWithNodes() {
     {
       label: "Pharma R&D",
       x: 800,
-      y: 100, // Top
+      y: 200, // Top
       delay: 1,
       description: "Optimize clinical trials with objective HrQoL measurement.",
     },
@@ -170,8 +170,8 @@ export default function AppShowcaseWithNodes() {
     },
     {
       label: "Hospitals & Payers",
-      x: 1100,
-      y: 575, // Bottom right
+      x: 1300,
+      y: 775, // Bottom right
       delay: 3,
       description: "Improve outcomes, lower costs with data-driven remote care.",
     },
@@ -183,8 +183,8 @@ export default function AppShowcaseWithNodes() {
       description: "Clinically meaningful frictionless solution.",
     },
     {
-      label: "Marketed Solutions",
-      x: 800,
+      label: "Existing Disease-Specific Products",
+      x: 400,
       y: 700, // Bottom
       delay: 5,
       description: "Optimize Drug+AI solutions towards patient needs.",
@@ -197,12 +197,16 @@ export default function AppShowcaseWithNodes() {
     [4, 0],
     // Patients connects to Care Providers
     [0, 2],
+    [1, 3],
+    [1, 2],
+    [1,4],
     // Patients connects to Pharma R&D
     [0, 1],
     // Patients connects to Hospitals & Payers
     [0, 3],
     // Patients connects to Marketed Solutions
     [0, 5],
+    [4, 5],
     // Care Providers connects to Hospitals & Payers
     [2, 3],
     // Pharma R&D connects to Marketed Solutions
@@ -282,10 +286,10 @@ export default function AppShowcaseWithNodes() {
   // Define the metrics to show
   const metrics: MetricProps[] = [
     { 
-      label: "Early meaningful changes detection", 
+      label: "Detection of changes", 
       value: "74% ", 
-      category: "Early detection to capture changes",
-      improvement: "260% improvement over PROs / 2.6 months over standard of care" 
+      category: "Early detection to capture clinically meaningful changes",
+      improvement: "260% improvement over research PROs / 2.6 months over standard of care" 
     },
     { 
       label: "Commercial data compliance", 
