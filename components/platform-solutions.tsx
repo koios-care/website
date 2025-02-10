@@ -63,7 +63,7 @@ const solutions: Solution[] = [
   {
     title: "Clinician's and Hospitals",
     description: "Comprehensive digital health platform for remote patient monitoring and enhanced care delivery.",
-    buttonText: "Care Providers solution",
+    buttonText: "Care Providers Solution",
     link: "/solutions/care-providers",
     icon: "/data_app.jpeg",
     features: [

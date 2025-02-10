@@ -36,7 +36,7 @@ const advisors = [
     name: "Hadeel Elamer",
     role: "Businsess Development Advisor • ex-Digital Lead @Abbott",
     image: "/hadeel.png",
-    linkedin: "https://www.linkedin.com/in/jean-briac-prevost-66b2131a",
+    linkedin: "https://www.linkedin.com/in/hadeelelamer/",
   }
 ]
 
