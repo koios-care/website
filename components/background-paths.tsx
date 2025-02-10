@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { useState } from "react"
 import { ContactForm } from "./contact-form"
+import HeroCarousel from "./hero-carousel"
 
 function ConnectionPaths() {
   // Define the base unit size for the pattern
@@ -157,88 +158,102 @@ export default function BackgroundPaths({
 
         <div className="relative z-10 w-full py-16 md:py-24">
           <div className="w-full px-4 md:container md:mx-auto md:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="max-w-4xl mx-auto text-center"
-            >
-              <motion.h1 
-                className="heading-style text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 md:mb-12 text-white leading-tight"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                Koios Care
-              </motion.h1>
-
-              {/* Description */}
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+              {/* Left side - Text content */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="mb-12 md:mb-16"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="max-w-2xl lg:max-w-xl"
               >
-                <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-4">
-                  A neurology-focused digital medicine company
-                </p>
-                <p className="text-base sm:text-lg text-white/80 max-w-3xl mx-auto">
-                  Combining data, software AI and medicine to improve patient outcomes at lower costs, <br className="hidden sm:inline" /> 
-                  Starting with Parkinson's Disease
-                </p>
+                <motion.h1 
+                  className="heading-style text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 md:mb-12 text-white leading-tight"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  Koios Care
+                </motion.h1>
+
+                {/* Description */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className="mb-8 md:mb-12"
+                >
+                  <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-4">
+                    A neurology-focused digital medicine company
+                  </p>
+                  <p className="text-base sm:text-lg text-white/80">
+                    Combining data, software AI and medicine to improve patient outcomes at lower costs, <br className="hidden sm:inline" /> 
+                    Starting with Parkinson's Disease
+                  </p>
+                </motion.div>
+
+                {/* Solution Buttons - 2x2 grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-2xl">
+                  <Link href="/solutions/individuals">
+                    <motion.button
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.6 }}
+                      className="w-full px-6 py-3 bg-white text-warm-purple rounded-full hover:bg-bubbly-pink hover:text-white transition-colors body-style flex items-center justify-center gap-2"
+                    >
+                      <span>For Patients</span>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </motion.button>
+                  </Link>
+                  <Link href="/solutions/pharma">
+                    <motion.button
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.8 }}
+                      className="w-full px-6 py-3 bg-white text-warm-purple rounded-full hover:bg-bubbly-pink hover:text-white transition-colors body-style flex items-center justify-center gap-2"
+                    >
+                      <span>For Pharma</span>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </motion.button>
+                  </Link>
+                  <Link href="/solutions/care-providers">
+                    <motion.button
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 1.0 }}
+                      className="w-full px-6 py-3 bg-white text-warm-purple rounded-full hover:bg-bubbly-pink hover:text-white transition-colors body-style flex items-center justify-center gap-2"
+                    >
+                      <span>For Care Providers</span>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </motion.button>
+                  </Link>
+                  <button
+                    onClick={handleContactClick}
+                    className="w-full px-6 py-3 bg-bubbly-pink text-white rounded-full hover:bg-white hover:text-warm-purple transition-colors body-style flex items-center justify-center gap-2"
+                  >
+                    <span>Get in Touch</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                  </button>
+                </div>
               </motion.div>
 
-              {/* Solution Buttons */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-2xl mx-auto">
-                {[
-                  { href: "/solutions/individuals", label: "For Patients", subtext: "Improve your quality of life", delay: 0.6 },
-                  { href: "/solutions/pharma", label: "For Pharma", subtext: "Optimize trials & deliver drug+ solutions", delay: 0.7 },
-                  { href: "/solutions/care-providers", label: "For Providers", subtext: "Enhance patient care", delay: 0.8 },
-                  { type: "button", onClick: handleContactClick, label: "Get in Touch", subtext: "Let's discuss your needs", delay: 0.9 }
-                ].map((button) => (
-                  <motion.div
-                    key={button.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: button.delay }}
-                    className="w-full"
-                  >
-                    {button.href ? (
-                      <Link
-                        href={button.href}
-                        className="block group relative bg-white/10 p-px rounded-2xl backdrop-blur-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-                      >
-                        <div className="relative w-full rounded-[1.15rem] px-6 py-4 backdrop-blur-md bg-white/10 hover:bg-white/20 text-white transition-all duration-300 group-hover:-translate-y-0.5 border border-white/20 hover:shadow-md body-style">
-                          <div className="flex flex-col items-start">
-                            <span className="text-base font-medium opacity-90 group-hover:opacity-100 transition-opacity mb-1">{button.label}</span>
-                            <span className="text-sm opacity-70 group-hover:opacity-90 transition-opacity">{button.subtext}</span>
-                          </div>
-                          <div className="absolute right-6 top-1/2 -translate-y-1/2">
-                            <span className="opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">→</span>
-                          </div>
-                        </div>
-                      </Link>
-                    ) : (
-                      <button
-                        onClick={button.onClick}
-                        type="button"
-                        className="w-full group relative bg-white/10 p-px rounded-2xl backdrop-blur-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-                      >
-                        <div className="relative w-full rounded-[1.15rem] px-6 py-4 backdrop-blur-md bg-white/10 hover:bg-white/20 text-white transition-all duration-300 group-hover:-translate-y-0.5 border border-white/20 hover:shadow-md body-style">
-                          <div className="flex flex-col items-start">
-                            <span className="text-base font-medium opacity-90 group-hover:opacity-100 transition-opacity mb-1">{button.label}</span>
-                            <span className="text-sm opacity-70 group-hover:opacity-90 transition-opacity">{button.subtext}</span>
-                          </div>
-                          <div className="absolute right-6 top-1/2 -translate-y-1/2">
-                            <span className="opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">→</span>
-                          </div>
-                        </div>
-                      </button>
-                    )}
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+              {/* Right side - Photo Carousel */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 1 }}
+                className="hidden lg:block lg:ml-8"
+              >
+                <HeroCarousel />
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
