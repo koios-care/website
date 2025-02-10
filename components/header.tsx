@@ -35,7 +35,7 @@ export function Header() {
 
   return (
     <header className="fixed w-full bg-white/95 backdrop-blur-sm z-50 shadow-sm">
-      <div className="container mx-auto px-4">
+      <div className="w-full px-4 md:container md:mx-auto md:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
@@ -44,7 +44,7 @@ export function Header() {
               alt="KOIOS"
               width={180}
               height={60}
-              className="h-12 w-auto"
+              className="h-8 md:h-12 w-auto"
               priority
             />
           </Link>
@@ -112,35 +112,37 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden py-4 space-y-4">
+          <nav className="md:hidden py-4 space-y-4 max-h-[calc(100vh-4rem)] overflow-y-auto">
             {/* About Link */}
             <Link
               href="/about"
-              className="block text-warm-purple hover:text-bubbly-pink transition-colors body-style"
+              className="block text-warm-purple hover:text-bubbly-pink transition-colors body-style px-4"
               onClick={() => setIsMenuOpen(false)}
             >
               About
             </Link>
 
             {/* Solutions Section in Mobile */}
-            <div className="space-y-2">
+            <div className="space-y-3 px-4">
               <div className="font-medium text-warm-purple body-style">Solutions</div>
-              {navigationLinks[1].children?.map((child) => (
-                <Link
-                  key={child.href}
-                  href={child.href}
-                  className="block pl-4 text-warm-purple hover:text-bubbly-pink transition-colors body-style"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {child.label}
-                </Link>
-              ))}
+              <div className="space-y-3 pl-4 border-l-2 border-warm-purple/20">
+                {navigationLinks[1].children?.map((child) => (
+                  <Link
+                    key={child.href}
+                    href={child.href}
+                    className="block text-warm-purple hover:text-bubbly-pink transition-colors body-style"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {child.label}
+                  </Link>
+                ))}
+              </div>
             </div>
             
             {/* Science Link */}
             <Link
               href="/publications"
-              className="block text-warm-purple hover:text-bubbly-pink transition-colors body-style"
+              className="block text-warm-purple hover:text-bubbly-pink transition-colors body-style px-4"
               onClick={() => setIsMenuOpen(false)}
             >
               Science
@@ -149,7 +151,7 @@ export function Header() {
             {/* Testimonials Link */}
             <Link
               href="/#testimonials"
-              className="block text-warm-purple hover:text-bubbly-pink transition-colors body-style"
+              className="block text-warm-purple hover:text-bubbly-pink transition-colors body-style px-4"
               onClick={() => setIsMenuOpen(false)}
             >
               Testimonials
@@ -158,20 +160,22 @@ export function Header() {
             {/* Team Link */}
             <Link
               href="/#team"
-              className="block text-warm-purple hover:text-bubbly-pink transition-colors body-style"
+              className="block text-warm-purple hover:text-bubbly-pink transition-colors body-style px-4"
               onClick={() => setIsMenuOpen(false)}
             >
               Team
             </Link>
 
             {/* Contact Us Link */}
-            <Link
-              href="/contact"
-              className="block px-4 py-2 bg-warm-purple text-white rounded-full hover:bg-bubbly-pink transition-colors w-fit body-style"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact Us
-            </Link>
+            <div className="px-4">
+              <Link
+                href="/contact"
+                className="block w-full text-center px-6 py-2.5 bg-warm-purple text-white rounded-full hover:bg-bubbly-pink transition-colors body-style"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact Us
+              </Link>
+            </div>
           </nav>
         )}
       </div>

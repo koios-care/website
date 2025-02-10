@@ -16,13 +16,13 @@ function MetricCard({ label, value, category, improvement }: MetricProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-white/10 backdrop-blur-lg rounded-xl p-4 text-white w-full min-w-[250px] max-w-full overflow-hidden"
+      className="bg-white/10 backdrop-blur-lg rounded-xl p-5 text-white h-full flex flex-col"
     >
-      <h3 className="text-lg font-semibold truncate">{label}</h3>
-      <div className="mt-2 text-2xl md:text-3xl font-bold">{value}</div>
-      <div className="mt-1 text-sm opacity-80">{category}</div>
+      <h3 className="text-base sm:text-lg font-semibold truncate">{label}</h3>
+      <div className="mt-2 text-xl sm:text-2xl md:text-3xl font-bold">{value}</div>
+      <div className="mt-1 text-xs sm:text-sm opacity-80 flex-grow">{category}</div>
       {improvement && (
-        <div className="mt-2 text-emerald-400 text-sm">{improvement}</div>
+        <div className="mt-2 text-emerald-400 text-xs sm:text-sm">{improvement}</div>
       )}
     </motion.div>
   )
@@ -126,9 +126,9 @@ function ConnectionNode({
     <>
       <motion.text
         x={x}
-        y={y - r - 30}
+        y={y - r - 20}
         textAnchor="middle"
-        className="text-xl md:text-2xl font-bold fill-current text-white font-inter"
+        className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold fill-current text-white font-inter"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: delay * 0.5 + 0.4 }}
@@ -158,10 +158,10 @@ function ConnectionNode({
           }}
         >
           <rect
-            x={x - 300}
-            y={y + r + 20}
-            width="600"
-            height="60"
+            x={x - 250}
+            y={y + r + 15}
+            width="500"
+            height="70"
             rx="8"
             fill="white"
             opacity="0.15"
@@ -169,10 +169,10 @@ function ConnectionNode({
           />
           <text
             x={x}
-            y={y + r + 50}
+            y={y + r + 45}
             textAnchor="middle"
             dominantBaseline="middle"
-            className="text-base md:text-lg fill-current text-white/90 font-medium font-inter"
+            className="text-sm sm:text-base md:text-lg lg:text-xl fill-current text-white/90 font-medium font-inter"
           >
             {description}
           </text>
@@ -187,8 +187,8 @@ export default function AppShowcaseWithNodes() {
   const nodes = [
     {
       label: "Patients",
-      x: 1200, // Center position (scaled up from 800)
-      y: 675, // Scaled up from 450
+      x: 1200,
+      y: 675,
       delay: 0,
       description: "Understand therapy, medication, and lifestyle impact.",
       isCenter: true
@@ -196,35 +196,35 @@ export default function AppShowcaseWithNodes() {
     {
       label: "Pharma R&D",
       x: 1200,
-      y: 225, // Scaled up from 150
+      y: 225,
       delay: 1,
       description: "Optimize clinical trials with objective HrQoL measurement.",
     },
     {
       label: "Care Providers",
-      x: 1800, // Scaled up from 1200
-      y: 450, // Scaled up from 300
+      x: 1800,
+      y: 450,
       delay: 2,
       description: "Personalized health insights, remote monitoring, improved outcomes.",
     },
     {
       label: "Hospitals - Payers",
-      x: 1800, // Scaled up from 1200
-      y: 900, // Scaled up from 600
+      x: 1800,
+      y: 900,
       delay: 3,
       description: "Improve outcomes, lower costs with data-driven remote care.",
     },
     {
-      label: "AI with Passive Sensing ",
-      x: 600, // Scaled up from 400
-      y: 450, // Scaled up from 300
+      label: "AI with Passive Sensing",
+      x: 600,
+      y: 450,
       delay: 4,
       description: "Clinically meaningful frictionless solution.",
     },
     {
       label: "Marketed Drug Products",
-      x: 600, // Scaled up from 400
-      y: 900, // Scaled up from 600
+      x: 600,
+      y: 900,
       delay: 5,
       description: "Optimize Drug+AI solutions towards patient needs.",
     },
@@ -351,11 +351,11 @@ export default function AppShowcaseWithNodes() {
   ];
 
   return (
-    <section className="py-20 bg-warm-purple relative">
+    <section className="py-20 bg-warm-purple relative w-full">
       {/* Metrics Bar - Fixed at the top */}
-      <div className="absolute top-0 left-0 right-0 bg-warm-purple/80 backdrop-blur-md py-4 z-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-4 max-w-full overflow-x-hidden">
+      <div className="absolute top-0 left-0 right-0 w-full bg-warm-purple/80 backdrop-blur-md py-4 z-20">
+        <div className="w-full px-4 md:container md:mx-auto md:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {metrics.map((metric, index) => (
               <MetricCard key={index} {...metric} />
             ))}
@@ -364,9 +364,9 @@ export default function AppShowcaseWithNodes() {
       </div>
 
       {/* Title */}
-      <div className="container mx-auto px-4 mb-16">
+      <div className="w-full px-4 md:container md:mx-auto md:px-6 lg:px-8 mb-8 md:mb-16 pt-24 md:pt-16">
         <motion.h2 
-          className="text-4xl md:text-5xl font-bold text-center text-white mb-8"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-white mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -376,11 +376,29 @@ export default function AppShowcaseWithNodes() {
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 relative">
+      <div className="w-full relative">
         {/* Nodes Animation Layer */}
-        <div className="relative h-[1200px]">
-          <svg className="w-full h-full" viewBox="0 0 2400 1500" fill="none">
-            <g>
+        <div className="relative h-[600px] sm:h-[800px] md:h-[1000px] overflow-hidden">
+          <svg 
+            className="w-full h-full" 
+            viewBox="0 0 2400 1500" 
+            preserveAspectRatio="xMidYMid meet"
+            style={{
+              transform: 'scale(1)',
+              transformOrigin: 'center center',
+              ['@media (max-width: 640px)' as string]: {
+                transform: 'scale(0.8) translateY(-10%)',
+              },
+              ['@media (min-width: 641px) and (max-width: 768px)' as string]: {
+                transform: 'scale(0.9) translateY(-5%)',
+              },
+              ['@media (min-width: 769px) and (max-width: 1024px)' as string]: {
+                transform: 'scale(0.95)',
+              }
+            }}
+            fill="none"
+          >
+            <g className="transform origin-center">
               {connections.map((connection) => (
                 <g key={connection.id}>
                   <motion.path
@@ -420,14 +438,16 @@ export default function AppShowcaseWithNodes() {
             </g>
 
             {/* Render nodes on top of paths */}
-            {nodes.map((node, index) => (
-              <ConnectionNode 
-                key={index} 
-                {...node} 
-                // Make center node slightly larger
-                r={node.isCenter ? 60 : 45} // Scaled up from 40 and 30
-              />
-            ))}
+            <g className="transform origin-center">
+              {nodes.map((node, index) => (
+                <ConnectionNode 
+                  key={index} 
+                  {...node} 
+                  // Make center node slightly larger
+                  r={node.isCenter ? 70 : 55} // Increased sizes
+                />
+              ))}
+            </g>
           </svg>
         </div>
       </div>
