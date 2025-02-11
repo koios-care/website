@@ -182,6 +182,49 @@ function ConnectionNode({
   )
 }
 
+// Add this new component before the AppShowcaseWithNodes component
+function HospitalCarousel() {
+  const hospitals = [
+    { name: "AZ Delta", image: "/azdelta.png" },
+    { name: "AZ Groeninge", image: "/azgron.png" },
+    { name: "AZ Oostende", image: "/azostend.png" },
+    { name: "CHU Liège", image: "/chu liege.png" },
+    { name: "CHU Charleroi", image: "/chu-charleroi.png" }
+  ];
+
+  return (
+    <div className="w-full px-4 md:container md:mx-auto md:px-6 lg:px-8 mt-16">
+      <motion.h3 
+        className="text-2xl md:text-3xl font-bold text-center text-white mb-8"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        Our Hospital Partners
+      </motion.h3>
+      <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+        {hospitals.map((hospital, index) => (
+          <motion.div
+            key={hospital.name}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="w-40 md:w-48 h-24 relative bg-white/10 backdrop-blur-lg rounded-xl p-4 flex items-center justify-center"
+          >
+            <Image
+              src={hospital.image}
+              alt={hospital.name}
+              width={160}
+              height={80}
+              className="object-contain max-h-16"
+            />
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function AppShowcaseWithNodes() {
   // Define the nodes in the system with descriptions - hexagonal layout
   const nodes = [
@@ -450,6 +493,9 @@ export default function AppShowcaseWithNodes() {
             </g>
           </svg>
         </div>
+
+        {/* Add the hospital carousel */}
+        <HospitalCarousel />
       </div>
     </section>
   )
