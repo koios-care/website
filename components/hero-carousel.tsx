@@ -13,8 +13,8 @@ const images = [
   { src: '/pic6.png', alt: 'Inspirational Person 6' },
   { src: '/pic7.png', alt: 'Inspirational Person 7' },
   { src: '/pic8.png', alt: 'Inspirational Person 8' },
-  { src: '/pic9.png', alt: 'Inspirational Person 9' },
   { src: '/pic10.png', alt: 'Inspirational Person 10' },
+  { src: '/pic11.png', alt: 'Inspirational Person 11' },
 ]
 
 export default function HeroCarousel() {
