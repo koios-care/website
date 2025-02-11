@@ -189,7 +189,8 @@ function HospitalCarousel() {
     { name: "AZ Groeninge", image: "/azgron.png" },
     { name: "AZ Oostende", image: "/azostend.png" },
     { name: "CHU Liège", image: "/chu liege.png" },
-    { name: "CHU Charleroi", image: "/chu-charleroi.png" }
+    { name: "CHU Charleroi", image: "/chu-charleroi.png" },
+    { name: "Greenhouse", image: "/greenh.png" }
   ];
 
   return (
