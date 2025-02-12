@@ -21,7 +21,7 @@ const advisors = [
     linkedin: "https://www.linkedin.com/in/gregor-strobbe-17b37525/",
   },
   {
-    name: "Jurgen van Broeck, MBA",
+    name: "Jurgen Van Broeck, MBA",
     role: "CEO of mAbxcience",
     image: "/jvb-nbg.png",
     linkedin: "https://www.linkedin.com/in/jurgen-van-broeck-7842ba8/",
