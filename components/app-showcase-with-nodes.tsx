@@ -424,22 +424,9 @@ export default function AppShowcaseWithNodes() {
         {/* Nodes Animation Layer */}
         <div className="relative h-[600px] sm:h-[800px] md:h-[1000px] overflow-hidden">
           <svg 
-            className="w-full h-full" 
+            className="w-full h-full origin-center transform scale-100 sm:scale-90 md:scale-95 lg:scale-100 sm:-translate-y-[10%] md:-translate-y-[5%] lg:translate-y-0" 
             viewBox="0 0 2400 1500" 
             preserveAspectRatio="xMidYMid meet"
-            style={{
-              transform: 'scale(1)',
-              transformOrigin: 'center center',
-              ['@media (max-width: 640px)' as string]: {
-                transform: 'scale(0.8) translateY(-10%)',
-              },
-              ['@media (min-width: 641px) and (max-width: 768px)' as string]: {
-                transform: 'scale(0.9) translateY(-5%)',
-              },
-              ['@media (min-width: 769px) and (max-width: 1024px)' as string]: {
-                transform: 'scale(0.95)',
-              }
-            }}
             fill="none"
           >
             <g className="transform origin-center">
