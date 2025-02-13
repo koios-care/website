@@ -15,7 +15,7 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/konstantinos-kyritsis-0a6b0a4a/",
   },
   {
-    name: "Patricia van Rompuy",
+    name: "Patricia Van Rompuy",
     role: "Quality and Clinical trial lead",
     image: "/pvr-nbg.png",
     linkedin: "https://www.linkedin.com/in/patricia-van-rompuy-341927b/",

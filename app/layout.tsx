@@ -2,6 +2,7 @@ import type React from "react"
 import { Header } from "@/components/header"
 import './globals.css'
 import { Metadata } from 'next'
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: 'Koios',
@@ -34,6 +35,7 @@ export default function RootLayout({
         <main className="pt-16">
           {children}
         </main>
+        <Analytics />
       </body>
     </html>
   )
