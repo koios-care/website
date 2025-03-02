@@ -19,13 +19,13 @@ export default function IndividualsSolutions() {
                 Are you or your loved one living with Parkinson's Disease?
               </h2>
               <div className="space-y-4 text-lg text-gray-600">
-                <p>Do you face involuntary movements of your muscles despite your medication?</p>
-                <p>Do you want to feel relieved, improve your quality of life and show your doctor how you experience the disease?</p>
+                <p>Do you want to self-help yourself or your beloved one ?</p>
+                <p>Do you want to feel relieved, improve your quality of life and keep a log of how you experience the disease?</p>
               </div>
             </div>
             <div className="bg-[#E4C1D5]/5 rounded-xl p-8 border border-[#E4C1D5]/10">
               <p className="text-gray-700 leading-relaxed">
-                Our wellness solution empowers neurocare with AI-enabled insights from everyday devices. You and your clinician can use AI algorithms to detect clinically meaningful signs of quality of life and provide personalized insights. 
+                Our wellness solution empowers neurocare with AI-enabled insights from everyday devices. You can use meaningful signs of quality of life and get personalized insights. 
                 <span className="block mt-4 text-sm">
                   Note: Koios Care is not a medical device and does not diagnose or treat any disease.
                 </span>
@@ -70,8 +70,8 @@ export default function IndividualsSolutions() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-[#E4C1D5] mb-2">Doctor Collaboration</h3>
-                  <p className="text-gray-700">Share insights with your healthcare provider to optimize your care journey.</p>
+                  <h3 className="text-xl font-semibold text-[#E4C1D5] mb-2">Shareable Insights</h3>
+                  <p className="text-gray-700">Option to share insights to optimize your care journey.</p>
                 </div>
               </div>
             </div>

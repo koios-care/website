@@ -124,14 +124,14 @@ const testimonials = [
 const videoTestimonials = [
   {
     title: "Neurologist perspective on remote patient-assessment",
-    description: "Neurologist practicing with Koios Care to remotely monitor patient's condition",
+    description: "Study: Neurologist practicing with Koios Care to remotely monitor patient's condition",
     videoId: "CXdxewRlAMU",
     category: "Neurologist",
     thumbnail: "/v1.png",
-    thumbnailAlt: "Neurologist practicing with Koios Care to remotely monitor patient's condition"
+    thumbnailAlt: "Study: Potentials on Koios Care to remotely monitor patient's condition"
   },
   {
-    title: "Patient perspective on remote patient-assessment",
+    title: "Patient perspective on using Koios Care as a self-help tool",
     description: "Sharing personal experience with diseasse and vision on remote patient-assessment",
     videoId: "wJuJwDrOzF4",
     category: "Patient",
@@ -147,12 +147,12 @@ const videoTestimonials = [
     thumbnailAlt: "The Q-index study team with clinical trial partners ISPPC, AZ Delta, CHU Liege, and AZ Oostende"
   },
   {
-    title: "AI for Parkinson's disease monitoring",
+    title: "Q-index study PI: AI for Parkinson's disease monitoring",
     description: "How we're revolutionizing Parkinsson's disease monitoring with advanced imaging and data analysis",
     videoId: "pUCX9wFhJ7g",
     category: "Clinical Lead",
     thumbnail: "/v4.png",
-    thumbnailAlt: "Medical professional analyzing Koios Cae Parkinson's disease monitoring"
+    thumbnailAlt: "Q-index study PI: Medical professional analyzing Koios Cae Parkinson's disease monitoring"
   }
 ]
 
@@ -170,7 +170,7 @@ function VideoSection() {
           Watch the stories from our partners
         </h2>
         <p className="text-white/80">
-          Hear directly from healthcare professionals, patients, and our team about their experiences with Koios Care
+          Hear directly from healthcare professionals, patients, and our team about their thought on Koios Care; experience under a clinical study
         </p>
       </motion.div>
 
