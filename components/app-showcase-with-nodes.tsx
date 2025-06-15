@@ -210,14 +210,14 @@ function HospitalCarousel() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="w-40 md:w-48 h-24 relative bg-white/10 backdrop-blur-lg rounded-xl p-4 flex items-center justify-center"
+            className="w-48 md:w-64 h-32 relative bg-white rounded-xl p-6 flex items-center justify-center shadow-lg"
           >
             <Image
               src={hospital.image}
               alt={hospital.name}
-              width={160}
-              height={80}
-              className="object-contain max-h-16"
+              width={200}
+              height={100}
+              className="object-contain max-h-24"
             />
           </motion.div>
         ))}
