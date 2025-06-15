@@ -156,6 +156,17 @@ export default function BackgroundPaths({
           <ConnectionPaths />
         </div>
 
+        {/* Funding Banner - just below the menu, above hero content */}
+        <div className="absolute top-0 left-0 w-full z-20 flex justify-center">
+          <div
+            className="bg-wood-green text-white text-center py-3 px-6 text-lg font-bold rounded-b-xl shadow-lg cursor-pointer hover:bg-wood-green/90 transition-colors tracking-wide"
+            style={{ maxWidth: 520 }}
+            onClick={() => window.location.href = '/press-release'}
+          >
+            Koios Care raises €1M Seed Round
+          </div>
+        </div>
+
         <div className="relative z-10 w-full py-16 md:py-24">
           <div className="w-full px-4 md:container md:mx-auto md:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
