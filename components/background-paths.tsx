@@ -198,7 +198,7 @@ export default function BackgroundPaths({
                   </p>
                   <p className="text-base sm:text-lg text-white/80">
                     Combining data, software AI and medicine to improve patient outcomes at lower costs, <br className="hidden sm:inline" /> 
-                    Starting with Parkinson's Disease
+                    starting with Parkinson's Disease
                   </p>
                 </motion.div>
 
