@@ -12,7 +12,7 @@ export default function PressRelease() {
         <div className="prose prose-lg">
           <p className="text-xs uppercase tracking-widest text-bubbly-pink font-semibold mb-2">FOR IMMEDIATE RELEASE</p>
           <h1 className="text-3xl font-bold mb-2">Koios Care Secures €1M Seed Round to Bring AI and Digital Biomarkers to Parkinson's Disease Care and Research</h1>
-          <p className="text-sm text-gray-500 mb-8">ANTWERP, BELGIUM – June 10, 2025</p>
+          <p className="text-sm text-gray-500 mb-8">ANTWERP, BELGIUM – June 16, 2025</p>
 
           <p>Koios Care, a pioneering health technology company focused on improving the Quality of Life for people living with neurological and chronic conditions, starting with Parkinson's Disease, today announced the successful closing of an €1M funding round.</p>
 
