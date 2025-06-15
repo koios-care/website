@@ -104,7 +104,7 @@ export default function PrivacyPolicy() {
           Location Data
         </h3>
         <p className="mb-6">
-          We collect your device’s precise location when you use the phone. This
+          We collect your device's precise location when you use the phone. This
           happens both when you use the Parkiwatch app as well as in the
           background—provided you have granted the necessary permission. This
           data type is used to calculate the activity performed outside your
@@ -240,7 +240,7 @@ export default function PrivacyPolicy() {
           Data Deletion
         </h3>
         <p className="mb-6">
-          The deletion of users’ data is performed upon request and includes a
+          The deletion of users' data is performed upon request and includes a
           manual approval step to prevent accidental deletion. This manual
           approval process is implemented using AWS Step Functions, as described{" "}
           <a
@@ -268,9 +268,9 @@ export default function PrivacyPolicy() {
           provide an adequate level of data protection (e.g., the United
           States). In any such transfer, Koios Care BV will ensure that
           appropriate data protection safeguards (such as the European
-          Commission’s Standard Contractual Clauses) are in place. To obtain a
+          Commission's Standard Contractual Clauses) are in place. To obtain a
           copy of the relevant transfer mechanism or for additional information,
-          please contact us.
+          please connect with us.
         </p>
 
         {/* Your Rights and Choices */}
@@ -289,7 +289,7 @@ export default function PrivacyPolicy() {
         <p className="mb-6">
           We may send you commercial or promotional emails regarding our
           Services. If you wish to unsubscribe, please follow the instructions
-          contained in the email or contact us. Note that if you opt out of
+          contained in the email or connect with us. Note that if you opt out of
           receiving commercial emails from us, you may still receive
           administrative messages regarding our Services (e.g., updates or
           billing notices).
@@ -366,13 +366,13 @@ export default function PrivacyPolicy() {
 
         {/* Children's Privacy */}
         <h2 className="text-2xl font-bold text-warm-purple mb-4">
-          Children’s Privacy
+          Children's Privacy
         </h2>
         <p className="mb-6">
           The Services are not directed to children, and we do not knowingly
           collect Personal Data from anyone under the age of 18. If you learn
           that a child has provided us with Personal Data in violation of this
-          Policy, please contact us.
+          Policy, please connect with us.
         </p>
 
         {/* Updates to Our Privacy Notice */}
@@ -388,8 +388,8 @@ export default function PrivacyPolicy() {
           time to ensure that you are happy with any changes.
         </p>
 
-        {/* Contact Us */}
-        <h2 className="text-2xl font-bold text-warm-purple mb-4">Contact Us</h2>
+        {/* Let's Connect */}
+        <h2 className="text-2xl font-bold text-warm-purple mb-4">Let's Connect</h2>
         <p className="mb-4">
           We welcome all requests, suggestions, and questions concerning our use
           of your information. All such communication should be directed to:

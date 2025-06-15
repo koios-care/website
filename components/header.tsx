@@ -32,7 +32,7 @@ export function Header() {
     { href: "/publications", label: "Science" },
     { href: "/#testimonials", label: "Testimonials" },
     { href: "/#team", label: "Team" },
-    { label: "Contact Us", isContactForm: true }
+    { label: "Let's Connect", isContactForm: true }
   ]
 
   const handleContactClick = (e: React.MouseEvent) => {
@@ -181,7 +181,7 @@ export function Header() {
                 Team
               </Link>
 
-              {/* Contact Us Link in Mobile Menu */}
+              {/* Let's Connect Link in Mobile Menu */}
               <div className="px-4">
                 <button
                   type="button"
@@ -191,7 +191,7 @@ export function Header() {
                   }}
                   className="block w-full text-center px-6 py-2.5 bg-warm-purple text-white rounded-full hover:bg-bubbly-pink transition-colors body-style"
                 >
-                  Contact Us
+                  Let's Connect
                 </button>
               </div>
             </nav>

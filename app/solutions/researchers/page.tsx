@@ -93,12 +93,12 @@ export default function ResearchersSolutions() {
           {/* Contact Section */}
           <section className="bg-[#89CFF0]/5 rounded-2xl p-8 text-center">
             <h2 className="text-2xl font-bold text-[#89CFF0] mb-4">Ready to Transform Your Research?</h2>
-            <p className="text-gray-700 mb-6">Get in touch to learn how our platform can enhance your research programs and clinical studies.</p>
+            <p className="text-gray-700 mb-6">Let's connect to learn how our platform can enhance your research programs and clinical studies.</p>
             <Link 
               href="mailto:info@koios.care"
               className="inline-flex items-center justify-center px-6 py-3 bg-[#89CFF0] text-white rounded-full hover:bg-[#89CFF0]/90 transition-colors"
             >
-              Contact Us
+              Let's Connect
               <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
