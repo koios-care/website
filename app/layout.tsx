@@ -1,5 +1,6 @@
 import type React from "react"
 import { Header } from "@/components/header"
+import { CookiesBanner } from "@/components/cookies-banner"
 import './globals.css'
 import { Metadata } from 'next'
 import { Analytics } from "@vercel/analytics/react"
@@ -35,6 +36,7 @@ export default function RootLayout({
         <main className="pt-16">
           {children}
         </main>
+        <CookiesBanner />
         <Analytics />
       </body>
     </html>
