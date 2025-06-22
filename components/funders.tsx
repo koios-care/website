@@ -2,11 +2,11 @@ import Image from "next/image"
 
 const funders = [
   { name: "Lumiares", logo: "/lumiares.jpeg" },
-  { name: "BioHealth Innovation Fund", logo: "/bluehealth.jpeg" },
+  { name: "BioHealth Innovation Fund", logo: "/bhif.jpeg" },
   { name: "imec istart", logo: "/imec.jpeg" },
   { name: "VLAIO", logo: "/vlaio.jpeg" },
-  { name: "European Innovation Council", logo: "/eic.jpeg" },
-  { name: "Flanders Innovation & Entrepreneurship", logo: "/vlaio.jpeg" },
+  { name: "Evercurious", logo: "/evercurious.png" },
+  { name: "Astylab", logo: "/astylab.png" },
 ]
 
 export function Funders() {
@@ -18,7 +18,7 @@ export function Funders() {
           {funders.map((funder) => (
             <div
               key={funder.name}
-              className="w-32 h-32 relative bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-all duration-300"
+              className="w-32 h-32 relative bg-gray-100 rounded-lg p-4 shadow-md hover:shadow-lg transition-all duration-300"
             >
               <div className="w-full h-full relative grayscale hover:grayscale-0 transition-all duration-300">
                 <Image 
