@@ -108,7 +108,7 @@ export default function PrivacyPolicy() {
           data type is used to calculate the activity performed outside your
           home and to determine lifespace insights. GDPR generally requires data
           to be kept for no longer than is necessary. Processing happens within
-          a window of 28 days and is deleted after two years.
+          a window of 2 years and is deleted afterwards.
         </p>
         <p className="mb-6">
           This processing is carried out in accordance with Article 6(1)(f) of
