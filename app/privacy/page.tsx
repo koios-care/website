@@ -58,8 +58,7 @@ export default function PrivacyPolicy() {
         <ul className="list-disc pl-6 mb-6 space-y-2">
           <li>
             <span className="font-semibold">Contact Information:</span> Date of
-            birth, gender, username, mailing address, email address, job title,
-            prefix/title, and telephone number.
+            birth, gender, username, email address.
           </li>
           <li>
             <span className="font-semibold">Relationship Information:</span>{" "}
@@ -69,9 +68,8 @@ export default function PrivacyPolicy() {
           <li>
             <span className="font-semibold">Service Information:</span> Content
             you add in the app, responses to questionnaires, information about
-            your interaction with Koios Care, biometric data (e.g., heart rate,
-            voice data), device usage monitoring, geolocation data, movement
-            data, and touchscreen data.
+            your interaction with Koios Care, biometric data (e.g., heart rate), device usage monitoring, geolocation data, movement
+            data, and touchscreen typing timing data.
           </li>
           <li>
             <span className="font-semibold">Support Information:</span> Email
@@ -110,7 +108,7 @@ export default function PrivacyPolicy() {
           data type is used to calculate the activity performed outside your
           home and to determine lifespace insights. GDPR generally requires data
           to be kept for no longer than is necessary. Processing happens within
-          a window of 28 days and is deleted afterward.
+          a window of 28 days and is deleted after two years.
         </p>
         <p className="mb-6">
           This processing is carried out in accordance with Article 6(1)(f) of
@@ -150,7 +148,7 @@ export default function PrivacyPolicy() {
             <span className="font-semibold">Scientific Research:</span> We may
             use your Personal Data, including Sensitive Personal Data, for
             scientific research purposes, provided such research is
-            proportionate to the aim pursued. We may also anonymize (or
+            proportionate to the aim pursued. We anonymize (or
             de-identify) your Personal Data for these research activities.
           </li>
           <li>
