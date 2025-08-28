@@ -10,7 +10,7 @@ const advisors = [
   },
   {
     name: "Lampros Kourtis, PhD",
-    role: "Lead of Gates Ventures ADDF • Exited Founder",
+    role: "Lead of Gates Ventures ADDF • Founder & Investor",
     image: "/ik-nbg.png",
     linkedin: "https://www.linkedin.com/in/lamproskourtis1977/",
   },
