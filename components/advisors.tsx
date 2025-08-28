@@ -4,19 +4,19 @@ import Link from "next/link"
 const advisors = [
   {
     name: "Kris Schellens",
-    role: "Biopharma Leader • previously director, Biogen Beglium",
+    role: "ex director, Biogen Beglium",
     image: "/ks-nbg.png",
     linkedin: "https://www.linkedin.com/in/kris-schellens-27579710/",
   },
   {
     name: "Lampros Kourtis, PhD",
-    role: "Lead of Gates Ventures ADDF • Alzheimer's Digital Diagnostics • Exited Founder",
+    role: "Lead of Gates Ventures ADDF • Exited Founder",
     image: "/ik-nbg.png",
     linkedin: "https://www.linkedin.com/in/lamproskourtis1977/",
   },
   {
     name: "Gregor Strobbe, PhD",
-    role: "Health-tech Entrepreneur • founder, CEO of Clouds of Care",
+    role: "Founder, CEO of Clouds of Care",
     image: "/gs-nbg.png",
     linkedin: "https://www.linkedin.com/in/gregor-strobbe-17b37525/",
   },
@@ -34,7 +34,7 @@ const advisors = [
   },
   {
     name: "Hadeel Elamer",
-    role: "Businsess Development Advisor • ex-Digital Lead @Abbott",
+    role: "BD Advisor • ex-Digital Lead @Abbott",
     image: "/hadeel.png",
     linkedin: "https://www.linkedin.com/in/hadeelelamer/",
   },
@@ -51,7 +51,6 @@ const advisors = [
     image: "/bjorn.png",
     linkedin: "https://www.linkedin.com/in/bjorn-delbeecke-ll-m-mba-71462642/",
   }
-  ,
   ,
   {
     name: "Dr. Anneke Govaerts",
