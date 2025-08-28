@@ -37,7 +37,29 @@ const advisors = [
     role: "Businsess Development Advisor • ex-Digital Lead @Abbott",
     image: "/hadeel.png",
     linkedin: "https://www.linkedin.com/in/hadeelelamer/",
+  },
+  {
+    name: "Iraklis Kourtis, PhD",
+    role: "BD & Scientific Advisor • Digital Strategy @Takeda",
+    image: "/iraklis.png",
+    linkedin: "https://www.linkedin.com/in/ikourtis/",
   }
+  ,
+  {
+    name: "Bjorn Delbeecke, LL.M, MBA",
+    role: "Regulatory Strategy",
+    image: "/bjorn.png",
+    linkedin: "https://www.linkedin.com/in/bjorn-delbeecke-ll-m-mba-71462642/",
+  }
+  ,
+  ,
+  {
+    name: "Dr. Anneke Govaerts",
+    role: "Neurology & Neuroscience",
+    image: "/anneke.png",
+    linkedin: "https://www.linkedin.com/in/anneke-govaerts-20587545/",
+  }
+  
 ]
 
 export function Advisors() {
