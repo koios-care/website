@@ -51,13 +51,13 @@ const advisors = [
     image: "/bjorn.png",
     linkedin: "https://www.linkedin.com/in/bjorn-delbeecke-ll-m-mba-71462642/",
   }
-  ,
-  {
-    name: "Dr. Anneke Govaerts",
-    role: "Neurology & Neuroscience",
-    image: "/anneke.png",
-    linkedin: "https://www.linkedin.com/in/anneke-govaerts-20587545/",
-  }
+  // ,
+  // {
+  //   name: "Dr. Anneke Govaerts",
+  //   role: "Neurology & Neuroscience",
+  //   image: "/anneke.png",
+  //   linkedin: "https://www.linkedin.com/in/anneke-govaerts-20587545/",
+  // }
   
 ]
 
