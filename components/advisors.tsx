@@ -66,16 +66,16 @@ export function Advisors() {
     <section className="py-20 bg-bubbly-pink/10">
       <div className="container mx-auto px-4">
         <h2 className="font-display text-3xl text-warm-purple text-center mb-12">Our Advisors</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
           {advisors.map((advisor, index) => (
             <Link 
               href={advisor.linkedin}
               key={index}
               target="_blank"
               rel="noopener noreferrer"
-              className="block hover:scale-105 transition-transform duration-300"
+              className="block hover:scale-105 transition-transform duration-300 w-full sm:w-80 md:w-72 lg:w-80"
             >
-              <div className="text-center p-6 bg-wood-green/10 backdrop-blur-sm rounded-xl shadow-sm hover:shadow-md transition-shadow border border-wood-green/20">
+              <div className="text-center p-6 bg-wood-green/10 backdrop-blur-sm rounded-xl shadow-sm hover:shadow-md transition-shadow border border-wood-green/20 h-full">
                 <Image
                   src={advisor.image || "/placeholder.svg"}
                   alt={advisor.name}

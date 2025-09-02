@@ -38,6 +38,12 @@ const teamMembers = [
     image: "/di-nbg.png",
     linkedin: "https://www.linkedin.com/in/iakovakis/",
   },
+  {
+    name: "Bram Lanaer",
+    role: "Commercial Lead",
+    image: "/bram.png",
+    linkedin: "https://www.linkedin.com/in/bram-lenaerts-83a26a20/",
+  }
 ]
 
 export function TeamNetwork() {
@@ -45,16 +51,16 @@ export function TeamNetwork() {
     <section className="py-20 bg-sky-blue/10">
       <div className="container mx-auto px-4">
         <h2 className="font-display text-3xl text-warm-purple text-center mb-12">Our Team</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
           {teamMembers.map((member, index) => (
             <Link 
               href={member.linkedin} 
               key={index}
               target="_blank"
               rel="noopener noreferrer"
-              className="block hover:scale-105 transition-transform duration-300"
+              className="block hover:scale-105 transition-transform duration-300 w-full sm:w-80 md:w-72 lg:w-80"
             >
-              <div className="text-center p-6 bg-wood-green/10 backdrop-blur-sm rounded-xl shadow-sm hover:shadow-md transition-shadow border border-wood-green/20">
+              <div className="text-center p-6 bg-wood-green/10 backdrop-blur-sm rounded-xl shadow-sm hover:shadow-md transition-shadow border border-wood-green/20 h-full">
                 <Image
                   src={member.image || "/placeholder.svg"}
                   alt={member.name}
