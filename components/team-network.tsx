@@ -39,7 +39,7 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/iakovakis/",
   },
   {
-    name: "Bram Lanaer",
+    name: "Bram Lenaerts",
     role: "Commercial Lead",
     image: "/bram.png",
     linkedin: "https://www.linkedin.com/in/bram-lenaerts-83a26a20/",
