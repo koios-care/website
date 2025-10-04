@@ -152,14 +152,14 @@ export default function SystemConnections() {
   // Define the nodes in the system with adjusted positions and descriptions
   const nodes = [
     { 
-      label: "Drug+AI in Pharma R&D",
+      label: "Drug+ML in Pharma R&D",
       description: "Optimize clinical trials with objective HrQoL measurement.",
       x: 800, 
       y: 150, 
       delay: 0 
     },
     { 
-      label: "AI with Passive Sensing",
+      label: "ML with Passive Sensing",
       description: "Clinically meaningful frictionless solution.",
       x: 300, 
       y: 350, 
@@ -181,7 +181,7 @@ export default function SystemConnections() {
     },
     { 
       label: "Marketed Drug Products",
-      description: "Optimize Drug+AI solutions towards patient needs.",
+      description: "Optimize Drug+ML solutions towards patient needs.",
       x: 300, 
       y: 650, 
       delay: 0.8 
@@ -273,7 +273,7 @@ export default function SystemConnections() {
     { 
       label: "Sensing unseen symptoms", 
       value: "57%", 
-      category: "HrQol gain by connecting data, science and AI",
+      category: "HrQol gain by connecting data, science and ML",
       improvement: "avg. 1.3 h/day" 
     },
     { 
@@ -405,7 +405,7 @@ export default function SystemConnections() {
             transition={{ delay: 1.5 }}
           >
             <p className="text-white/80 max-w-2xl mx-auto">
-              Our AI-powered platform seamlessly connects all stakeholders in the healthcare ecosystem,
+              Our ML-powered platform seamlessly connects all stakeholders in the healthcare ecosystem,
               enabling better outcomes through real-time insights and collaboration.
             </p>
           </motion.div>

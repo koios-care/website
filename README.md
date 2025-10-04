@@ -1,7 +1,7 @@
 # Koios Website
 
 ## Overview
-The Koios Website is a Next.js application designed for AI-enabled neuro and brain health characterization. It utilizes modern web technologies such as React, TypeScript, and Tailwind CSS to provide a responsive and interactive user experience.
+The Koios Website is a Next.js application designed for ML-enabled neuro and brain health characterization. It utilizes modern web technologies such as React, TypeScript, and Tailwind CSS to provide a responsive and interactive user experience.
 
 ## Features
 - **Responsive Design**: The website is fully responsive and works seamlessly on various devices.

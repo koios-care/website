@@ -107,7 +107,7 @@ export default function PharmaSolutions() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-warm-purple mb-2">Real-time Analytics</h3>
-                  <p className="text-gray-700">Advanced analytics and AI-powered insights for better decision making.</p>
+                  <p className="text-gray-700">Advanced analytics and ML-powered insights for better decision making.</p>
                 </div>
               </div>
             </div>

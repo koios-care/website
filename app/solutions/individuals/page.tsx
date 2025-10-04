@@ -25,7 +25,7 @@ export default function IndividualsSolutions() {
             </div>
             <div className="bg-[#E4C1D5]/5 rounded-xl p-8 border border-[#E4C1D5]/10">
               <p className="text-gray-700 leading-relaxed">
-                Our wellness solution empowers neurocare with AI-enabled insights from everyday devices. You can use meaningful signs of quality of life and get personalized insights. 
+                Our wellness solution empowers neurocare with ML-enabled insights from everyday devices. You can use meaningful signs of quality of life and get personalized insights. 
                 <span className="block mt-4 text-sm">
                   Note: Koios Care is not a medical device and does not diagnose or treat any disease.
                 </span>

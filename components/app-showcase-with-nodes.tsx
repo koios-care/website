@@ -259,7 +259,7 @@ export default function AppShowcaseWithNodes() {
       description: "Improve outcomes at lower costs.",
     },
     {
-      label: "AI with Passive Sensing",
+      label: "ML with Passive Sensing",
       x: 600,
       y: 450,
       delay: 4,
@@ -270,7 +270,7 @@ export default function AppShowcaseWithNodes() {
       x: 600,
       y: 900,
       delay: 5,
-      description: "Deliver Drug+AI solutions personalized in patient needs.",
+      description: "Deliver Drug+ML solutions personalized in patient needs.",
     },
   ];
 
@@ -383,7 +383,7 @@ export default function AppShowcaseWithNodes() {
     { 
       label: "Impact in symptoms", 
       value: "57%", 
-      category: "HrQol gain by connecting data, science and AI",
+      category: "HrQol gain by connecting data, science and ML",
       improvement: "avg. 1.3 h/day" 
     },
     { 
@@ -415,7 +415,7 @@ export default function AppShowcaseWithNodes() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          AI for Quality of Life assessment and adjustment
+          ML for Quality of Life assessment and adjustment
         </motion.h2>
       </div>
 

@@ -44,7 +44,7 @@ const publications: Record<string, Publication[]> = {
     {
       title: "DeepFoG: An IMU-based Detection of Freezing-of-Gait Episodes in Parkinson's Disease Patients via Deep Learning",
       authors: "Bikias, T., Iakovakis, D., Hadjidimitriou, S, Charisis V. and Hadjileontiadis LJ.",
-      journal: "Front. Robot. AI - Sensor Fusion and Machine Perception",
+      journal: "Front. Robot. ML - Sensor Fusion and Machine Perception",
       year: "2021"
     },
     {
@@ -394,7 +394,7 @@ export default function Publications() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xl text-gray-700 leading-relaxed">
-              Our research focuses on developing innovative digital biomarkers and AI-enabled solutions 
+              Our research focuses on developing innovative digital biomarkers and ML-enabled solutions 
               for various neurological and mental health conditions.
             </p>
           </div>
