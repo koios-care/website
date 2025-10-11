@@ -25,7 +25,7 @@ export default function About() {
             >
               <p className="text-xl text-gray-700 leading-relaxed">
                 At Koios Care, we are pioneering the future of healthcare through unobtrusive digital biomarker technology. 
-                Our journey began with a simple yet powerful vision: to transform the way we monitor and manage neurological 
+                Our journey began with a simple yet powerful vision: to transform the way we monitor and understand neurological 
                 and chronic conditions, starting with Parkinson's Disease.
               </p>
             </motion.div>

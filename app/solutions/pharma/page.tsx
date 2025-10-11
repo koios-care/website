@@ -22,28 +22,28 @@ export default function PharmaSolutions() {
       solution: "We provided the digital measures, onboarding and analytics to patients to better understand their own health",
       results: [
         "Improved patient-caregiver communication",
-        "Observed reduced time-with symptoms by clincians' drug-tuning",
+        "Observed changes in quality of life indicators with medication adjustments",
         "L-Dopa 96% correlation with the digital measure of digital motor function",
         "Upcoming deployment in 5 hospitals"
       ],
     },
     {
       title: "Daytime Sleepiness",
-      challenge: " improve the screening pathway of narcolepsy from obstructive sleep apnea (which is 60% misdiagnosed) using digital measures of daytime-movement and circadian response through heart-rate physiology.",
+      challenge: " improve the measurement pathway of narcolepsy from obstructive sleep apnea (which is 60% misdiagnosed) using digital measures of daytime-movement and circadian response through heart-rate physiology.",
       solution: "We implemented our digital measure to relate daytime sleepiness and meal intake.",
       results: [
-        "0.85 AUC for the detection of daytime sleepiness",
+        "0.85 AUC for the measurement of daytime sleepiness",
         "Cost-benefit analysis shows 8x ROI on asset",
         "0.83 average fix-rater ICC",
       ],
     },
     {
       title: "Remote Patient Monitoring in IBD",
-      challenge: "Sudden inflammation often leads to poor patient adherence and poor outcomes. We implemented a novel physiology and ADL-baseed digital biomarker platform to capture disease activity and patient engagement data.",
-      solution: "Our platform provided continuous remote monitoring of symptoms and medication adherence, with real-time alerts for adverse events.",
+      challenge: "Sudden inflammation often leads to poor patient adherence and poor outcomes. We implemented a novel physiology and ADL-based digital biomarker platform to capture disease activity and patient engagement data.",
+      solution: "Our platform provided continuous remote monitoring of health indicators and medication adherence, with real-time alerts for adverse events.",
       results: [
         ">6 digital biomarkers with high test-retest reliability",
-        "Improved early detection of adverse events through passive sensing",
+        "Improved early insights of adverse events through passive sensing",
         "Enhanced patient engagement scores"
       ],
     },

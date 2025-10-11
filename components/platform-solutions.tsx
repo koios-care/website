@@ -51,11 +51,11 @@ const solutions: Solution[] = [
     secondaryText: "View validated solutions",
     features: [
       {
-        title: "Early-Stage Screening",
-        description: "Enhance clinical trials with early detection and population triaging"
+        title: "Early-Stage Measurement",
+        description: "Enhance clinical trials with early insights and population triaging"
       },
       {
-        title: "Treatment Effectiveness",
+        title: "Understanding yourself",
         description: "24/7 passive monitoring of physical activity and patient outcomes"
       }
     ]
@@ -73,7 +73,7 @@ const solutions: Solution[] = [
       },
       {
         title: "Care Optimization",
-        description: "Data-driven decisions for personalized treatment adjustments"
+        description: "Data-driven insights for personalized care planning"
       }
     ]
   },

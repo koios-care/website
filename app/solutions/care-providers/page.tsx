@@ -18,7 +18,7 @@ export default function CareProvidersSolutions() {
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white rounded-xl p-6 shadow-sm border border-[#D25137]/10">
                 <h3 className="text-xl font-semibold text-[#D25137] mb-4">Enhanced Patient Care</h3>
-                <p className="text-gray-700">Improve patient outcomes through continuous monitoring and early intervention opportunities.</p>
+                <p className="text-gray-700">Support care delivery through continuous monitoring and timely insights.</p>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-sm border border-[#D25137]/10">
                 <h3 className="text-xl font-semibold text-[#D25137] mb-4">Efficient Workflow</h3>
@@ -49,8 +49,8 @@ export default function CareProvidersSolutions() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-[#D25137] mb-2">Clinical Decision Support</h3>
-                  <p className="text-gray-700">AI-powered insights to help optimize treatment plans and interventions.</p>
+                  <h3 className="text-xl font-semibold text-[#D25137] mb-2">Clinical Insights</h3>
+                  <p className="text-gray-700">AI-powered insights to support care planning and inform clinical discussions.</p>
                 </div>
               </div>
             </div>

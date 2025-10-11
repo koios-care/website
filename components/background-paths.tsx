@@ -197,7 +197,7 @@ export default function BackgroundPaths({
                     A neurology-focused digital medicine company
                   </p>
                   <p className="text-base sm:text-lg text-white/80">
-                    Combining data, software AI and medicine to improve patient outcomes at lower costs, <br className="hidden sm:inline" /> 
+                    Combining data, software AI and medicine to support better care at lower costs, <br className="hidden sm:inline" /> 
                     starting with Parkinson's Disease
                   </p>
                 </motion.div>

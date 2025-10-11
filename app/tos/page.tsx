@@ -58,7 +58,7 @@ export default function TermsOfService() {
             <li>Tracking of Biometric Data and lifestyle factors</li>
             <li>Providing personalized information and feedback based on the data collected</li>
             <li>Offering wellness programs, exercises, or suggestions</li>
-            <li>Supporting Parkinson's Disease symptom management through the Parkiwatch application</li>
+            <li>Supporting Parkinson's Disease symptom tracking through the Parkiwatch application</li>
           </ul>
           <p>The information provided by the Koios Care Service is intended to support your wellbeing choices but does not constitute medical advice.</p>
         </section>
@@ -73,7 +73,7 @@ export default function TermsOfService() {
                 <li>To provide the core functionalities of the Koios Care Service, such as tracking your sleep patterns to offer sleep quality insights and monitoring activity levels to suggest wellness goals</li>
                 <li>To personalize your user experience within the Koios Care Service</li>
                 <li>For internal analysis to improve the Koios Care Service's functionality, features, and user experience, provided such data is anonymized or pseudonymized where feasible</li>
-                <li>To support Parkinson's Disease symptom management and quality of life assessment</li>
+                <li>To support Parkinson's Disease symptom tracking and quality of life assessment</li>
               </ul>
               <p className="mt-3">We will not collect, use, or store your Biometric Data for any purposes other than those disclosed in these Terms and our Privacy Policy without your explicit consent.</p>
             </div>
