@@ -50,7 +50,7 @@ export default function CareProvidersSolutions() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-[#D25137] mb-2">Clinical Decision Support</h3>
-                  <p className="text-gray-700">ML-powered insights to help optimize treatment plans and interventions.</p>
+                  <p className="text-gray-700">AI-powered insights to help optimize treatment plans and interventions.</p>
                 </div>
               </div>
             </div>

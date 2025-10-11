@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: 'Koios',
-  description: 'Koios - ML for Quality of Life assessment and adjustment',
+  description: 'Koios - AI for Quality of Life assessment and adjustment',
   icons: {
     icon: [
       {

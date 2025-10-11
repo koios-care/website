@@ -147,7 +147,7 @@ const videoTestimonials = [
     thumbnailAlt: "The Q-index study team with clinical trial partners ISPPC, AZ Delta, CHU Liege, and AZ Oostende"
   },
   {
-    title: "Q-index study PI: ML for Parkinson's disease monitoring",
+    title: "Q-index study PI: AI for Parkinson's disease monitoring",
     description: "How we're revolutionizing Parkinsson's disease monitoring with advanced imaging and data analysis",
     videoId: "pUCX9wFhJ7g",
     category: "Clinical Lead",

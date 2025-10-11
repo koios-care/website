@@ -137,7 +137,7 @@ function AnimatedTitle({ title }: { title: string }) {
 }
 
 export default function BackgroundPaths({
-  title = "Koios Care, ML-enabled neuro and brain health characterization company",
+  title = "Koios Care, AI-enabled neuro and brain health characterization company",
 }: {
   title?: string
 }) {
@@ -197,7 +197,7 @@ export default function BackgroundPaths({
                     A neurology-focused digital medicine company
                   </p>
                   <p className="text-base sm:text-lg text-white/80">
-                    Combining data, software ML and medicine to improve patient outcomes at lower costs, <br className="hidden sm:inline" /> 
+                    Combining data, software AI and medicine to improve patient outcomes at lower costs, <br className="hidden sm:inline" /> 
                     starting with Parkinson's Disease
                   </p>
                 </motion.div>
