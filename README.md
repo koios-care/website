@@ -26,6 +26,7 @@ The Koios Website is a Next.js application designed for AI-enabled neuro and bra
    ```bash
    npm install
    ```
+   
 
 ### Running the Development Server
 To start the development server, run:
