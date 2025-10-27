@@ -1,4 +1,5 @@
 import BackgroundPattern from "@/components/shared/background-pattern";
+import { PDFViewerWithLanguage } from "@/components/pdf-viewer-with-language";
 
 export default function IFUHCPs() {
   return (
@@ -9,13 +10,10 @@ export default function IFUHCPs() {
         title="Instructions For Use - Healthcare Professionals"
       />
       <div className="container mx-auto px-4 py-8 relative z-10">
-        <div className="w-full h-[calc(100vh-12rem)] bg-white rounded-lg shadow-lg overflow-hidden">
-          <iframe
-            src="/ifu-hcps.pdf"
-            className="w-full h-full border-0"
-            title="Instructions For Use - Healthcare Professionals"
-          />
-        </div>
+        <PDFViewerWithLanguage
+          basePdfName="ifu-hcps"
+          title="Instructions For Use - Healthcare Professionals"
+        />
       </div>
     </div>
   );
