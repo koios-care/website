@@ -105,7 +105,7 @@ export function Footer() {
                   Terms of Service
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/ifu-hcps" className="hover:text-bubbly-pink transition-colors">
                   Instructions for Healthcare Professionals
                 </Link>
@@ -114,7 +114,7 @@ export function Footer() {
                 <Link href="/ifu-patients" className="hover:text-bubbly-pink transition-colors">
                   Instructions for Patients
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <p className="text-sm text-white/80">VAT: BE0786.830.148</p>
               </li>
