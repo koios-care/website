@@ -20,7 +20,7 @@ export function Header() {
   const [isContactFormOpen, setIsContactFormOpen] = useState(false)
 
   const navigationLinks: NavigationLink[] = [
-    { href: "/about", label: "About" },
+    { href: "/#about", label: "About" },
     {
       label: "Solutions",
       children: [
@@ -130,7 +130,7 @@ export function Header() {
             <nav className="md:hidden py-4 space-y-4 max-h-[calc(100vh-4rem)] overflow-y-auto">
               {/* About Link */}
               <Link
-                href="/about"
+                href="/#about"
                 className="block text-warm-purple hover:text-bubbly-pink transition-colors body-style px-4"
                 onClick={() => setIsMenuOpen(false)}
               >

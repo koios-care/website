@@ -32,8 +32,8 @@ export default function Home() {
           <PlatformSolutions />
         </section>
 
-        {/* Mission & Vision Section */}
-        <section id="vision">
+        {/* About / Mission & Vision Section */}
+        <section id="about">
           <MissionVision />
         </section>
 
