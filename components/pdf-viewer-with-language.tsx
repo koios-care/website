@@ -12,7 +12,6 @@ type Language = "en" | "de" | "nl" | "fr"
 
 const languages: { code: Language; label: string }[] = [
   { code: "en", label: "EN" },
-  { code: "de", label: "DE" },
   { code: "nl", label: "NL" },
   { code: "fr", label: "FR" },
 ]
