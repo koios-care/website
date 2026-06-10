@@ -1,0 +1,34 @@
+{"_id":"quote-patient-53","_type":"quote","text":"In my current scheme, sometimes I forget that I have Parkinson's.","attribution":"Person living with Parkinson's, 53","featured":true,"order":10}
+{"_id":"quote-ag-clinician","_type":"quote","text":"Koios helps me identify a patient's pains quickly and offer better care.","attribution":"A.G. · Clinician","featured":true,"order":20}
+{"_id":"quote-bert-55","_type":"quote","text":"Sharing objective data with my doctor has improved our conversations significantly.","attribution":"Bert, 55 · Ghent","featured":true,"order":30}
+{"_id":"faqItem-special-device","_type":"faqItem","question":"Do I need a special device?","answer":"No. Parkiwatch runs on the smartphone and smartwatch you already own. There is no clinic-grade hardware to buy and no study wearable to charge or return.","order":10}
+{"_id":"faqItem-daily-tasks","_type":"faqItem","question":"Is there anything I have to do each day?","answer":"Nothing. There are no tasks, tests or diaries to fill in. Parkiwatch captures everyday movement and rest passively in the background, so your data reflects real life rather than a one-off snapshot.","order":20}
+{"_id":"faqItem-q-index","_type":"faqItem","question":"What is the Q-index?","answer":"The Q-index is a single, clear measure of how your quality of life is trending over time, built from 40+ validated digital measures. It is designed to be easy to read at a glance and to share with your care team.","order":30}
+{"_id":"faqItem-data-privacy","_type":"faqItem","question":"Who can see my data?","answer":"Your data is yours. It is private by design and shared only when you choose — for example, when you bring a summary to an appointment or invite your clinician to follow along.","order":40}
+{"_id":"faqItem-medical-device","_type":"faqItem","question":"Is Koios a medical device?","answer":"No. Koios Care is a wellness solution. It does not diagnose or treat disease, and it does not replace your clinician's judgement. It gives you and your care team a clearer, objective picture between visits.","order":50}
+{"_id":"stat-57-qol","_type":"stat","value":"57%","label":"reported improvement in health-related quality of life","order":10}
+{"_id":"stat-96-passive","_type":"stat","value":"96%","label":"of patients' days captured passively, with no added effort","order":20}
+{"_id":"stat-40-measures","_type":"stat","value":"40+","label":"validated digital measures of neurological & body health","order":30}
+{"_id":"stat-partners","_type":"stat","value":"8","label":"hospital & research partners across Belgium","order":40}
+{"_id":"partner-az-delta","_type":"partner","name":"AZ Delta","kind":"hospital","order":10}
+{"_id":"partner-az-groeninge","_type":"partner","name":"AZ Groeninge","kind":"hospital","order":20}
+{"_id":"partner-az-oostende","_type":"partner","name":"AZ Oostende","kind":"hospital","order":30}
+{"_id":"partner-chu-liege","_type":"partner","name":"CHU Liège","kind":"hospital","order":40}
+{"_id":"partner-chu-charleroi","_type":"partner","name":"CHU Charleroi","kind":"hospital","order":50}
+{"_id":"partner-imec-istart","_type":"partner","name":"imec.istart","kind":"backer","order":60}
+{"_id":"partner-vlaio","_type":"partner","name":"VLAIO","kind":"backer","order":70}
+{"_id":"teamMember-gaetan-garraux","_type":"teamMember","name":"Prof. MD Gaëtan Garraux","role":"Clinical Lead · Neurology Professor @CHU Liège","group":"team","order":10}
+{"_id":"teamMember-konstantinos-kyritsis","_type":"teamMember","name":"Konstantinos Kyritsis, PhD","role":"CEO","group":"team","order":20}
+{"_id":"teamMember-patricia-van-rompuy","_type":"teamMember","name":"Patricia Van Rompuy","role":"Quality and Clinical trial lead","group":"team","order":30}
+{"_id":"teamMember-apostolis-moustaklis","_type":"teamMember","name":"Apostolis Moustaklis","role":"Junior R&D engineer","group":"team","order":40}
+{"_id":"teamMember-vasileios-papapanagiotou","_type":"teamMember","name":"Vasileios Papapanagiotou, PhD","role":"Senior R&D engineer · Professor @Karolinska","group":"team","order":50}
+{"_id":"teamMember-dimitris-iakovakis","_type":"teamMember","name":"Dimitris Iakovakis, PhD","role":"CTO","group":"team","order":60}
+{"_id":"teamMember-bram-lenaerts","_type":"teamMember","name":"Bram Lenaerts","role":"Commercial Lead","group":"team","order":70}
+{"_id":"teamMember-kris-schellens","_type":"teamMember","name":"Kris Schellens","role":"ex director, Biogen Belgium","group":"advisor","order":110}
+{"_id":"teamMember-lampros-kourtis","_type":"teamMember","name":"Lampros Kourtis, PhD","role":"Lead of Gates Ventures ADDF · Founder & Investor","group":"advisor","order":120}
+{"_id":"teamMember-gregor-strobbe","_type":"teamMember","name":"Gregor Strobbe, PhD","role":"Founder, CEO of Clouds of Care","group":"advisor","order":130}
+{"_id":"teamMember-jurgen-van-broeck","_type":"teamMember","name":"Jurgen Van Broeck, MBA","role":"CEO of mAbxcience","group":"advisor","order":140}
+{"_id":"teamMember-jean-briac-prevost","_type":"teamMember","name":"MD Jean-Briac Prevost","role":"Clinical Oncologist · Business","group":"advisor","order":150}
+{"_id":"teamMember-hadeel-elamer","_type":"teamMember","name":"Hadeel Elamer","role":"BD Advisor · ex-Digital Lead @Abbott","group":"advisor","order":160}
+{"_id":"teamMember-iraklis-kourtis","_type":"teamMember","name":"Iraklis Kourtis, PhD","role":"BD & Scientific Advisor · Digital Strategy @Takeda","group":"advisor","order":170}
+{"_id":"teamMember-bjorn-delbeecke","_type":"teamMember","name":"Bjorn Delbeecke, LL.M, MBA","role":"Regulatory Strategy","group":"advisor","order":180}

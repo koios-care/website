@@ -1,0 +1,55 @@
+---
+import KoiosLogo from './KoiosLogo.astro';
+
+interface Props {
+  /** matches a nav item's `page` key to mark it active */
+  page?: string;
+}
+const { page = '' } = Astro.props;
+
+const NAV = [
+  { href: '/patients',   label: 'For patients',   page: 'patients' },
+  { href: '/clinicians', label: 'For clinicians', page: 'clinicians' },
+  { href: '/pharma',     label: 'For pharma',     page: 'pharma' },
+  { href: '/science',    label: 'Science',        page: 'science' },
+  { href: '/about',      label: 'About',          page: 'about' },
+];
+const MOBILE_NAV = [{ href: '/', label: 'Home', page: 'home' }, ...NAV];
+---
+<header class="site-nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/" aria-label="KOIOS home"><KoiosLogo /></a>
+    <nav class="nav-links">
+      {NAV.map((n) => (
+        <a href={n.href} class:list={[{ active: n.page === page }]}>{n.label}</a>
+      ))}
+    </nav>
+    <div class="nav-cta">
+      <a href="/patients" class="btn btn--primary">Get Parkiwatch <span class="arr">&rarr;</span></a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    {MOBILE_NAV.map((n) => <a href={n.href}>{n.label}</a>)}
+    <a href="/patients" style="color:var(--accent);font-weight:600">Get Parkiwatch &rarr;</a>
+  </div>
+</header>
+
+<script>
+  const nav = document.getElementById('siteNav');
+  if (nav) {
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('mobileMenu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+</script>

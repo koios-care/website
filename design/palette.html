@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Koios · Colour palette</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="koios.css" />
+<script src="koios-boot.js"></script>
+<style>
+  .pal-hero{padding:clamp(40px,5vw,64px) 0 12px}
+  .pal-hero h1{white-space:nowrap}
+  @media(max-width:560px){.pal-hero h1{white-space:normal}}
+  .pal-sec{padding:0 0 calc(40px*var(--density))}
+  .pal-sec h2{font-size:clamp(24px,3vw,32px)}
+  .pal-sec .sub{font-size:15px;color:var(--ink-mid);margin-top:8px;max-width:60ch}
+  .swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(166px,1fr));gap:16px;margin-top:26px}
+  .sw{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .sw .chip{height:88px;border-bottom:1px solid rgba(0,0,0,.05)}
+  .sw .meta{padding:13px 14px}
+  .sw .nm{font-size:14px;font-weight:600;color:var(--ink)}
+  .sw .nm .star{color:var(--secondary);font-weight:700}
+  .sw .hex{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-mid);margin-top:5px;text-transform:uppercase;letter-spacing:.02em}
+  .sw .tok{font-family:var(--font-mono);font-size:10.5px;color:var(--ink-dim);margin-top:3px}
+  .sw.ring .chip{box-shadow:inset 0 0 0 1px var(--line)}
+  .pair{display:flex}
+  .pair span{flex:1;height:88px}
+  .legend{display:flex;gap:10px;align-items:center;font-family:var(--font-mono);font-size:11px;
+    letter-spacing:.04em;color:var(--ink-dim);margin-top:14px}
+  .legend .d{width:10px;height:10px;border-radius:3px}
+</style>
+</head>
+<body data-page="palette">
+
+<div id="site-header"></div>
+
+<section class="pal-hero">
+  <div class="wrap">
+    <span class="eyebrow">Design system</span>
+    <h1 style="margin-top:16px;font-size:clamp(36px,5vw,56px)">The Koios palette.</h1>
+    <p class="lead" style="margin-top:18px">Built on a single brand maroon and warm paper neutrals, with one explorable secondary accent and a tight set of semantic signals. Colour is used sparingly &mdash; if it appears, it&rsquo;s saying something.</p>
+  </div>
+</section>
+
+<!-- BRAND -->
+<section class="pal-sec">
+  <div class="wrap">
+    <h2>Brand maroon</h2>
+    <p class="sub">The locked KOIOS colour, <span class="mono">#5B112F</span>, and its tonal range. Used for headlines accents, primary actions, the logo and dark sections.</p>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#2A0816"></div><div class="meta"><div class="nm">Maroon 900</div><div class="hex">#2A0816</div><div class="tok">--primary-deeper</div></div></div>
+      <div class="sw"><div class="chip" style="background:#3A0B1E"></div><div class="meta"><div class="nm">Maroon 800</div><div class="hex">#3A0B1E</div><div class="tok">--primary-deep</div></div></div>
+      <div class="sw"><div class="chip" style="background:#5B112F"></div><div class="meta"><div class="nm">Brand <span class="star">&#9733;</span></div><div class="hex">#5B112F</div><div class="tok">--primary</div></div></div>
+      <div class="sw"><div class="chip" style="background:#842048"></div><div class="meta"><div class="nm">Maroon 600</div><div class="hex">#842048</div><div class="tok">--primary-bright</div></div></div>
+      <div class="sw"><div class="chip" style="background:#B06A82"></div><div class="meta"><div class="nm">Maroon 300</div><div class="hex">#B06A82</div><div class="tok">tint</div></div></div>
+      <div class="sw"><div class="chip" style="background:#E6D5DB"></div><div class="meta"><div class="nm">Maroon 100</div><div class="hex">#E6D5DB</div><div class="tok">hover border</div></div></div>
+    </div>
+    <div class="legend"><span class="d" style="background:#5B112F"></span> Accent tweak shifts between Deep · Brand · Bright.</div>
+  </div>
+</section>
+
+<!-- PAPER -->
+<section class="pal-sec">
+  <div class="wrap">
+    <h2>Paper &amp; neutrals</h2>
+    <p class="sub">Warm cream surfaces and hairline rules carry the &ldquo;clinical paper&rdquo; feel &mdash; depth comes from line weight and surface tone, not heavy shadow.</p>
+    <div class="swatches">
+      <div class="sw ring"><div class="chip" style="background:#F3EFE9"></div><div class="meta"><div class="nm">Canvas</div><div class="hex">#F3EFE9</div><div class="tok">--bg</div></div></div>
+      <div class="sw ring"><div class="chip" style="background:#EAE3D8"></div><div class="meta"><div class="nm">Recessed</div><div class="hex">#EAE3D8</div><div class="tok">--bg-dark</div></div></div>
+      <div class="sw ring"><div class="chip" style="background:#FBF8F3"></div><div class="meta"><div class="nm">Surface</div><div class="hex">#FBF8F3</div><div class="tok">--surface</div></div></div>
+      <div class="sw ring"><div class="chip" style="background:#FFFFFF"></div><div class="meta"><div class="nm">Card</div><div class="hex">#FFFFFF</div><div class="tok">--surface-2</div></div></div>
+      <div class="sw ring"><div class="chip" style="background:#E3DCD0"></div><div class="meta"><div class="nm">Hairline</div><div class="hex">#E3DCD0</div><div class="tok">--line</div></div></div>
+      <div class="sw ring"><div class="chip" style="background:#CFC6B8"></div><div class="meta"><div class="nm">Rule strong</div><div class="hex">#CFC6B8</div><div class="tok">--line-strong</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INK -->
+<section class="pal-sec">
+  <div class="wrap">
+    <h2>Ink &amp; text</h2>
+    <p class="sub">A warm, slightly maroon-tinted greyscale for body copy and labels.</p>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#251319"></div><div class="meta"><div class="nm">Ink</div><div class="hex">#251319</div><div class="tok">--ink</div></div></div>
+      <div class="sw"><div class="chip" style="background:#5C4A50"></div><div class="meta"><div class="nm">Ink mid</div><div class="hex">#5C4A50</div><div class="tok">--ink-mid</div></div></div>
+      <div class="sw"><div class="chip" style="background:#8B7A80"></div><div class="meta"><div class="nm">Ink dim</div><div class="hex">#8B7A80</div><div class="tok">--ink-dim</div></div></div>
+      <div class="sw"><div class="chip" style="background:#B7AAAF"></div><div class="meta"><div class="nm">Ink faint</div><div class="hex">#B7AAAF</div><div class="tok">--ink-faint</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECONDARY -->
+<section class="pal-sec">
+  <div class="wrap">
+    <h2>Secondary accent</h2>
+    <p class="sub">The brand&rsquo;s warm companion to the maroon &mdash; also the &ldquo;positive / synced&rdquo; data signal (Q-index trend, ticks, the hero line). All warm, muted earth tones tuned to the wine + cream. Pick one in <b>Tweaks &rsaquo; Secondary</b>; each ships a base + brighter tint. <b>Clay</b> is the current default.</p>
+    <div class="swatches">
+      <div class="sw"><div class="pair"><span style="background:#A85740"></span><span style="background:#C2715A"></span></div><div class="meta"><div class="nm">Clay <span class="star">&#9733;</span></div><div class="hex">#A85740 / #C2715A</div><div class="tok">default</div></div></div>
+      <div class="sw"><div class="pair"><span style="background:#AE6275"></span><span style="background:#C98699"></span></div><div class="meta"><div class="nm">Rose</div><div class="hex">#AE6275 / #C98699</div><div class="tok">option</div></div></div>
+      <div class="sw"><div class="pair"><span style="background:#BE9038"></span><span style="background:#D7AC54"></span></div><div class="meta"><div class="nm">Gold</div><div class="hex">#BE9038 / #D7AC54</div><div class="tok">option</div></div></div>
+      <div class="sw"><div class="pair"><span style="background:#6F8A5A"></span><span style="background:#8BA574"></span></div><div class="meta"><div class="nm">Sage</div><div class="hex">#6F8A5A / #8BA574</div><div class="tok">option</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SEMANTIC -->
+<section class="pal-sec">
+  <div class="wrap">
+    <h2>Semantic signals</h2>
+    <p class="sub">Reserved strictly for meaning &mdash; never decoration. Tuned to the same warm, dusty family so they sit with the brand rather than shouting over it.</p>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:var(--secondary)"></div><div class="meta"><div class="nm">Positive</div><div class="hex" id="posHex">secondary</div><div class="tok">--secondary</div></div></div>
+      <div class="sw"><div class="chip" style="background:#B07D24"></div><div class="meta"><div class="nm">Warning</div><div class="hex">#B07D24</div><div class="tok">--amber</div></div></div>
+      <div class="sw"><div class="chip" style="background:#AE4B3C"></div><div class="meta"><div class="nm">Negative</div><div class="hex">#AE4B3C</div><div class="tok">--red</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- IN CONTEXT -->
+<section class="pal-sec">
+  <div class="wrap">
+    <h2>In context</h2>
+    <p class="sub">How the secondary reads against maroon and paper. Flip it live in Tweaks.</p>
+    <div class="features" style="margin-top:24px">
+      <div class="card" style="display:flex;flex-direction:column;gap:14px">
+        <span class="mono-label">Q-index trend</span>
+        <svg viewBox="0 0 240 70" preserveAspectRatio="none" style="width:100%;height:64px">
+          <polyline points="0,54 40,50 80,56 120,40 160,46 200,30 240,22" fill="none" stroke="var(--secondary)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div style="display:flex;gap:14px;align-items:center;font-family:var(--font-mono);font-size:12px;color:var(--ink-mid)">
+          <span style="color:var(--secondary)">&uarr; 6 pts</span>
+          <span style="width:9px;height:9px;border-radius:999px;background:var(--secondary)"></span> synced
+        </div>
+      </div>
+      <div class="card dark" style="background:var(--primary);color:#fff;display:flex;flex-direction:column;gap:12px">
+        <span class="eyebrow on-dark">On maroon</span>
+        <p style="font-family:var(--font-display);font-size:22px;color:#fff;line-height:1.3">Steadier mornings, measured.</p>
+        <span style="font-family:var(--font-mono);font-size:12px;color:var(--secondary-bright)">&mdash; secondary-bright reads here</span>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;gap:12px">
+        <span class="mono-label">Buttons</span>
+        <a class="btn btn--primary" style="justify-content:center">Primary &mdash; maroon</a>
+        <a class="btn btn--ghost" style="justify-content:center">Ghost</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="koios.js"></script>
+<script>
+(function(){
+  function upd(){var v=getComputedStyle(document.documentElement).getPropertyValue('--secondary').trim();
+    var el=document.getElementById('posHex'); if(el)el.textContent=v.toUpperCase();}
+  upd(); window.addEventListener('koios:tweak',upd);
+})();
+</script>
+</body>
+</html>

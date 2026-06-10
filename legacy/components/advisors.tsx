@@ -1,0 +1,95 @@
+import Image from "next/image"
+import Link from "next/link"
+
+const advisors = [
+  {
+    name: "Kris Schellens",
+    role: "ex director, Biogen Beglium",
+    image: "/ks-nbg.png",
+    linkedin: "https://www.linkedin.com/in/kris-schellens-27579710/",
+  },
+  {
+    name: "Lampros Kourtis, PhD",
+    role: "Lead of Gates Ventures ADDF • Founder & Investor",
+    image: "/ik-nbg.png",
+    linkedin: "https://www.linkedin.com/in/lamproskourtis1977/",
+  },
+  {
+    name: "Gregor Strobbe, PhD",
+    role: "Founder, CEO of Clouds of Care",
+    image: "/gs-nbg.png",
+    linkedin: "https://www.linkedin.com/in/gregor-strobbe-17b37525/",
+  },
+  {
+    name: "Jurgen Van Broeck, MBA",
+    role: "CEO of mAbxcience",
+    image: "/jvb-nbg.png",
+    linkedin: "https://www.linkedin.com/in/jurgen-van-broeck-7842ba8/",
+  },
+  {
+    name: "MD Jean-Briac Prevost",
+    role: "Clinical Oncologist • Business",
+    image: "/jb-nbg.png",
+    linkedin: "https://www.linkedin.com/in/jean-briac-prevost-66b2131a",
+  },
+  {
+    name: "Hadeel Elamer",
+    role: "BD Advisor • ex-Digital Lead @Abbott",
+    image: "/hadeel.png",
+    linkedin: "https://www.linkedin.com/in/hadeelelamer/",
+  },
+  {
+    name: "Iraklis Kourtis, PhD",
+    role: "BD & Scientific Advisor • Digital Strategy @Takeda",
+    image: "/iraklis.png",
+    linkedin: "https://www.linkedin.com/in/ikourtis/",
+  }
+  ,
+  {
+    name: "Bjorn Delbeecke, LL.M, MBA",
+    role: "Regulatory Strategy",
+    image: "/bjorn.png",
+    linkedin: "https://www.linkedin.com/in/bjorn-delbeecke-ll-m-mba-71462642/",
+  }
+  // ,
+  // {
+  //   name: "Dr. Anneke Govaerts",
+  //   role: "Neurology & Neuroscience",
+  //   image: "/anneke.png",
+  //   linkedin: "https://www.linkedin.com/in/anneke-govaerts-20587545/",
+  // }
+  
+]
+
+export function Advisors() {
+  return (
+    <section className="py-20 bg-bubbly-pink/10">
+      <div className="container mx-auto px-4">
+        <h2 className="font-display text-3xl text-warm-purple text-center mb-12">Our Advisors</h2>
+        <div className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
+          {advisors.map((advisor, index) => (
+            <Link 
+              href={advisor.linkedin}
+              key={index}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block hover:scale-105 transition-transform duration-300 w-full sm:w-80 md:w-72 lg:w-80"
+            >
+              <div className="text-center p-6 bg-wood-green/10 backdrop-blur-sm rounded-xl shadow-sm hover:shadow-md transition-shadow border border-wood-green/20 h-full">
+                <Image
+                  src={advisor.image || "/placeholder.svg"}
+                  alt={advisor.name}
+                  width={120}
+                  height={120}
+                  className="rounded-full mx-auto mb-4"
+                />
+                <h3 className="font-display text-xl text-warm-purple mb-2">{advisor.name}</h3>
+                <p className="text-wood-green text-sm leading-relaxed">{advisor.role}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+} 

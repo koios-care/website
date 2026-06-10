@@ -1,0 +1,199 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Koios · For clinicians & hospitals"
+  description="Remote monitoring that fits your workflow. Spot changes earlier and ground every conversation in real-world data — from one dashboard."
+  page="clinicians"
+>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div style="max-width:30ch">
+      <span class="eyebrow">For clinicians &amp; hospitals</span>
+      <h1 style="margin-top:18px">See <em>between</em> the visits.</h1>
+    </div>
+    <p class="lead" style="margin-top:22px">Remote monitoring that fits your workflow. Spot changes earlier and ground each conversation in real-world data &mdash; all from one dashboard, with no clinic-grade hardware to manage.</p>
+    <div class="hero-actions">
+      <a href="/about#contact" class="btn btn--primary">Request a demo <span class="arr">&rarr;</span></a>
+      <a href="https://clinician.parkiwatch.com" target="_blank" rel="noopener" class="btn btn--ghost">Go to dashboard <span class="arr">&nearr;</span></a>
+      <a href="/science" class="btn btn--ghost">See the evidence</a>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD MOCK -->
+<section style="padding-top:0">
+  <div class="wrap reveal">
+    <div class="dash">
+      <div class="dash-bar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="t">Koios &middot; clinician dashboard</span>
+      </div>
+      <div class="dash-body">
+        <div class="dash-list" id="patientList">
+          <!-- populated by JS -->
+        </div>
+        <div class="dash-main" id="dashMain"><!-- populated by JS --></div>
+      </div>
+    </div>
+    <p class="disclaimer" style="margin-top:18px">Illustrative interface with sample data. Click a patient to switch views.</p>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section style="background:var(--surface-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Why clinicians use Koios</span>
+      <h2>Real-world signal, on your terms.</h2>
+    </div>
+    <div class="features reveal" style="margin-top:48px">
+      <div class="feature">
+        <svg class="ico" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg>
+        <h3>Spot changes earlier</h3>
+        <p>Continuous measures surface drift in gait, tremor and sleep weeks before it would show up in a clinic exam.</p>
+      </div>
+      <div class="feature">
+        <svg class="ico" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <h3>Ground the conversation</h3>
+        <p>Start each appointment from objective data instead of recall &mdash; fewer surprises, better-targeted decisions.</p>
+      </div>
+      <div class="feature">
+        <svg class="ico" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <h3>Fits your workflow</h3>
+        <p>No new hardware to provision. Patients enrol with their own devices; you review on the web when it suits you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENROLMENT -->
+<section>
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">Getting started</span>
+      <h2 style="margin-top:16px">Up and running in a single visit.</h2>
+      <ul class="checklist" style="margin-top:26px">
+        <li><span class="tick">1</span><span><b>Enrol the patient</b> in clinic &mdash; they install Parkiwatch on their own phone and watch.</span></li>
+        <li><span class="tick">2</span><span><b>Passive capture begins</b> immediately, with no tasks for the patient to complete.</span></li>
+        <li><span class="tick">3</span><span><b>Review on the dashboard</b> &mdash; trends, flags and a shareable summary for each appointment.</span></li>
+      </ul>
+    </div>
+    <div class="reveal" data-delay="1">
+      <div class="note-card">
+        <span class="mono-label">Deployed across</span>
+        <div class="partners" style="margin-top:18px">
+          <span class="partner">AZ Delta</span>
+          <span class="partner">AZ Groeninge</span>
+          <span class="partner">AZ Oostende</span>
+          <span class="partner">CHU Li&egrave;ge</span>
+          <span class="partner">CHU Charleroi</span>
+        </div>
+        <p style="margin-top:22px;font-size:15px;color:var(--ink-mid)">Koios is in use with real patients across Belgian hospital networks, and validated in clinical trial <span class="mono">NCT06209502</span>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="dark">
+  <div class="wrap bigquote reveal">
+    <p>&ldquo;Koios helps me identify a patient&rsquo;s pains quickly and offer better care.&rdquo;</p>
+    <div class="who">A.G. &middot; Clinician</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap reveal" style="text-align:center">
+    <span class="eyebrow no-rule" style="justify-content:center;display:flex">Let&rsquo;s talk</span>
+    <h2 style="margin:18px auto 0;max-width:18ch">Bring the time between visits into view.</h2>
+    <div class="hero-actions" style="justify-content:center;margin-top:30px">
+      <a href="/about#contact" class="btn btn--primary">Request a demo <span class="arr">&rarr;</span></a>
+      <a href="https://clinician.parkiwatch.com" target="_blank" rel="noopener" class="btn btn--ghost">Go to dashboard <span class="arr">&nearr;</span></a>
+      <a href="/science#publications" class="btn btn--ghost">Read the publications</a>
+    </div>
+  </div>
+</section>
+
+</BaseLayout>
+
+<style is:global>
+  .dash-chart{height:120px;margin-top:14px;border:1px solid var(--line);border-radius:var(--radius-sm);
+    padding:14px;background:var(--bg)}
+  .dash-chart svg{width:100%;height:100%;display:block}
+  .dash-note{font-family:var(--font-mono);font-size:11px;color:var(--ink-dim);margin-top:14px;
+    display:flex;gap:8px;align-items:flex-start;line-height:1.5}
+  .dash-note.watch{color:var(--amber)}
+  .dash-note.alert{color:var(--red)}
+  .cta{text-align:center}
+</style>
+
+<script>
+  type Patient = {
+    id: string; name: string; age: number; st: string; q: number; dq: string;
+    gait: string; tremor: string; sleep: string; sdq: string;
+    note: [string, string]; pts: number[];
+  };
+  const PATIENTS: Patient[] = [
+    { id: 'BV', name: 'B. Vermeulen', age: 55, st: 'ok', q: 74, dq: '+6', gait: '+4%', tremor: 'stable', sleep: '7.4h', sdq: '+0.3h',
+      note: ['ok', 'Steady improvement across gait and sleep over the last 30 days.'],
+      pts: [46, 42, 48, 40, 38, 34, 36, 30, 32, 26, 24, 20] },
+    { id: 'DH', name: 'D. Haesaert', age: 62, st: 'watch', q: 58, dq: '−3', gait: '−5%', tremor: '↑ rest', sleep: '6.1h', sdq: '−0.6h',
+      note: ['watch', 'Rest tremor trending up and sleep shortening — worth a closer look at the next visit.'],
+      pts: [30, 32, 28, 34, 30, 36, 34, 40, 38, 44, 42, 48] },
+    { id: 'LM', name: 'L. Maes', age: 49, st: 'ok', q: 81, dq: '+2', gait: 'stable', tremor: 'stable', sleep: '7.9h', sdq: '+0.1h',
+      note: ['ok', 'Stable and high. No action needed; continue current scheme.'],
+      pts: [26, 24, 28, 22, 24, 20, 22, 18, 20, 16, 18, 15] },
+    { id: 'RP', name: 'R. Peeters', age: 68, st: 'alert', q: 44, dq: '−8', gait: '−11%', tremor: '↑ action', sleep: '5.4h', sdq: '−1.1h',
+      note: ['alert', 'Marked decline in gait and sleep over two weeks — consider bringing the appointment forward.'],
+      pts: [34, 36, 32, 38, 40, 44, 42, 50, 52, 58, 60, 66] },
+  ];
+
+  function spark(pts: number[]) {
+    const max = Math.max(...pts), min = Math.min(...pts), rng = (max - min) || 1;
+    const n = pts.length, w = 100, h = 100;
+    const d = pts.map((p, i) => {
+      const x = (i / (n - 1)) * w, y = ((p - min) / rng) * h;
+      return (i ? 'L' : 'M') + x.toFixed(1) + ',' + y.toFixed(1);
+    }).join(' ');
+    return '<svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">' +
+      '<polyline points="0,' + (h / 2) + ' 100,' + (h / 2) + '" fill="none" stroke="var(--line)" stroke-width="0.6" stroke-dasharray="2 2"/>' +
+      '<path d="' + d + '" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg>';
+  }
+
+  const list = document.getElementById('patientList');
+  const main = document.getElementById('dashMain');
+  let active = 'BV';
+
+  function renderList() {
+    if (!list) return;
+    list.innerHTML = PATIENTS.map((p) =>
+      '<div class="dash-patient' + (p.id === active ? ' active' : '') + '" data-id="' + p.id + '">' +
+        '<div><div class="nm">' + p.name + '</div><div class="meta">Q ' + p.q + ' &middot; ' + p.dq + ' / 30d</div></div>' +
+        '<span class="st ' + p.st + '"></span></div>'
+    ).join('');
+    list.querySelectorAll('.dash-patient').forEach((el) => {
+      el.addEventListener('click', () => { active = el.getAttribute('data-id') || 'BV'; renderList(); renderMain(); });
+    });
+  }
+  function renderMain() {
+    if (!main) return;
+    const p = PATIENTS.find((x) => x.id === active)!;
+    main.innerHTML =
+      '<div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">' +
+        '<div class="pname">' + p.name + '</div>' +
+        '<span class="mono" style="font-size:12px;color:var(--ink-dim)">Parkinson’s &middot; age ' + p.age + '</span>' +
+      '</div>' +
+      '<div class="dash-metrics">' +
+        '<div class="dash-metric"><div class="k">Q-index</div><div class="v">' + p.q + '<small class="' + (p.dq.indexOf('−') === 0 ? 'down' : '') + '">' + p.dq + '</small></div></div>' +
+        '<div class="dash-metric"><div class="k">Gait</div><div class="v" style="font-size:22px">' + p.gait + '</div></div>' +
+        '<div class="dash-metric"><div class="k">Sleep</div><div class="v" style="font-size:22px">' + p.sleep + '<small class="' + (p.sdq.indexOf('−') === 0 ? 'down' : '') + '">' + p.sdq + '</small></div></div>' +
+      '</div>' +
+      '<div class="dash-chart">' + spark(p.pts) + '</div>' +
+      '<div class="dash-note ' + p.note[0] + '"><span>' + (p.note[0] === 'ok' ? '&#9679;' : p.note[0] === 'watch' ? '&#9650;' : '&#9888;') + '</span><span>' + p.note[1] + '</span></div>';
+  }
+  renderList(); renderMain();
+</script>

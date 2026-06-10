@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Koios · For pharma & research"
+  description="Objective digital endpoints for decentralised trials — real-world measures of quality of life and disease progression, with better compliance and lower site-visit cost."
+  page="pharma"
+>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">For pharma &amp; research</span>
+      <h1 style="margin-top:18px">Objective digital <em>endpoints</em>.</h1>
+    </div>
+    <p class="lead" style="margin-top:22px">Run decentralised trials on real-world measures of quality of life and disease progression. Improve compliance, capture richer longitudinal evidence, and cut the cost of site visits &mdash; using devices participants already own.</p>
+    <div class="hero-actions">
+      <a href="/about#contact" class="btn btn--primary">Discuss a study <span class="arr">&rarr;</span></a>
+      <a href="/science" class="btn btn--ghost">Validation &amp; methods</a>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE PROPS -->
+<section style="padding-top:calc(20px*var(--density))">
+  <div class="wrap">
+    <div class="metric-band reveal">
+      <div class="m"><div class="v">96%</div><div class="k">of participant-days captured passively, reducing missing data</div></div>
+      <div class="m"><div class="v">40+</div><div class="k">validated digital measures, ready to use as exploratory endpoints</div></div>
+      <div class="m"><div class="v">&darr;</div><div class="k">fewer site visits &mdash; lower burden for participants and sites alike</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ENDPOINTS (tabs) -->
+<section style="background:var(--surface-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The measures</span>
+      <h2>A library of real-world signal.</h2>
+      <p class="lead">Continuous, passively-collected measures across motor, sleep and physiology &mdash; the substrate for objective digital endpoints.</p>
+    </div>
+    <div class="reveal" style="margin-top:32px">
+      <div class="tabs" id="epTabs">
+        <button class="active" data-tab="motor">Motor</button>
+        <button data-tab="sleep">Sleep &amp; rest</button>
+        <button data-tab="physio">Physiology</button>
+        <button data-tab="qol">Quality of life</button>
+      </div>
+
+      <div class="tab-panel active" data-panel="motor">
+        <div class="ep-grid">
+          <div class="ep"><div class="nm">Gait &mdash; cadence</div><div class="ds">Steps per minute during ambulation, day over day.</div><span class="tag">Motor</span></div>
+          <div class="ep"><div class="nm">Gait &mdash; stride</div><div class="ds">Stride length and variability as a marker of stability.</div><span class="tag">Motor</span></div>
+          <div class="ep"><div class="nm">Rest tremor</div><div class="ds">Amplitude and duration of tremor at rest.</div><span class="tag">Motor</span></div>
+          <div class="ep"><div class="nm">Action tremor</div><div class="ds">Tremor during voluntary movement.</div><span class="tag">Motor</span></div>
+          <div class="ep"><div class="nm">Activity volume</div><div class="ds">Daily active minutes and movement intensity.</div><span class="tag">Motor</span></div>
+          <div class="ep"><div class="nm">Turning</div><div class="ds">Turn speed and smoothness during daily movement.</div><span class="tag">Motor</span></div>
+        </div>
+      </div>
+      <div class="tab-panel" data-panel="sleep">
+        <div class="ep-grid">
+          <div class="ep"><div class="nm">Sleep duration</div><div class="ds">Total nightly sleep and consistency.</div><span class="tag">Sleep</span></div>
+          <div class="ep"><div class="nm">Sleep efficiency</div><div class="ds">Proportion of time in bed actually asleep.</div><span class="tag">Sleep</span></div>
+          <div class="ep"><div class="nm">Nocturnal movement</div><div class="ds">Restlessness and awakenings overnight.</div><span class="tag">Sleep</span></div>
+          <div class="ep"><div class="nm">Rest rhythm</div><div class="ds">Regularity of rest&ndash;activity cycles.</div><span class="tag">Sleep</span></div>
+        </div>
+      </div>
+      <div class="tab-panel" data-panel="physio">
+        <div class="ep-grid">
+          <div class="ep"><div class="nm">Resting heart rate</div><div class="ds">Daily resting HR and trend.</div><span class="tag">Physiology</span></div>
+          <div class="ep"><div class="nm">Heart-rate variability</div><div class="ds">Autonomic regulation over time.</div><span class="tag">Physiology</span></div>
+          <div class="ep"><div class="nm">HR response</div><div class="ds">Heart-rate response to activity and recovery.</div><span class="tag">Physiology</span></div>
+        </div>
+      </div>
+      <div class="tab-panel" data-panel="qol">
+        <div class="ep-grid">
+          <div class="ep"><div class="nm">Q-index</div><div class="ds">Composite measure of quality-of-life trend.</div><span class="tag">Composite</span></div>
+          <div class="ep"><div class="nm">Symptom stability</div><div class="ds">Day-to-day variability across motor domains.</div><span class="tag">Composite</span></div>
+          <div class="ep"><div class="nm">Progression slope</div><div class="ds">Longitudinal direction of change over months.</div><span class="tag">Composite</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="disclaimer" style="margin-top:26px">Measure availability and endpoint qualification depend on study design and regulatory context. Koios Care is a wellness solution and is not a medical device.</p>
+  </div>
+</section>
+
+<!-- WHY DECENTRALISED -->
+<section>
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">Why it matters</span>
+      <h2 style="margin-top:16px">Richer evidence, less burden.</h2>
+      <p class="lead" style="margin-top:18px">Episodic clinic assessments miss the day-to-day reality of living with Parkinson&rsquo;s. Continuous, passive capture turns months of real life into analysable signal.</p>
+    </div>
+    <div class="reveal" data-delay="1">
+      <ul class="checklist">
+        <li><span class="tick">&checkmark;</span><span><b>Better compliance</b> &mdash; no tasks or diaries means fewer dropouts and less missing data.</span></li>
+        <li><span class="tick">&checkmark;</span><span><b>Real-world validity</b> &mdash; measures reflect everyday function, not a single supervised test.</span></li>
+        <li><span class="tick">&checkmark;</span><span><b>Lower cost</b> &mdash; fewer in-person site visits for participants and sponsors.</span></li>
+        <li><span class="tick">&checkmark;</span><span><b>Longitudinal depth</b> &mdash; continuous data reveals slopes and patterns episodic visits cannot.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="dark cta">
+  <div class="wrap reveal" style="text-align:center">
+    <h2 style="margin:0 auto;max-width:18ch">Design your next study around real life.</h2>
+    <p class="lead" style="margin:22px auto 0;text-align:center">Tell us about your programme and we&rsquo;ll map the measures that fit.</p>
+    <div class="hero-actions" style="justify-content:center;margin-top:32px">
+      <a href="/about#contact" class="btn btn--on-dark">Discuss a study <span class="arr">&rarr;</span></a>
+      <a href="/science#publications" class="btn btn--ghost on-dark">See publications</a>
+    </div>
+  </div>
+</section>
+
+</BaseLayout>
+
+<style is:global>
+  .ep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+  .ep{border:1px solid var(--line);border-radius:var(--radius-sm);padding:18px 18px;background:var(--surface-2)}
+  .ep .nm{font-size:16px;font-weight:600;color:var(--ink)}
+  .ep .ds{font-size:13.5px;color:var(--ink-mid);margin-top:7px;line-height:1.5}
+  .ep .tag{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--accent);margin-top:12px;display:block}
+  @media(max-width:820px){.ep-grid{grid-template-columns:1fr}}
+  .metric-band{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);
+    border-radius:var(--radius);overflow:hidden;background:var(--surface-2);margin-top:48px}
+  .metric-band .m{padding:32px 28px;border-right:1px solid var(--line)}
+  .metric-band .m:last-child{border-right:none}
+  .metric-band .v{font-family:var(--font-display);font-size:44px;color:var(--accent);line-height:1}
+  .metric-band .k{font-size:14px;color:var(--ink-mid);margin-top:12px;line-height:1.5}
+  @media(max-width:760px){.metric-band{grid-template-columns:1fr}.metric-band .m{border-right:none;border-bottom:1px solid var(--line)}.metric-band .m:last-child{border-bottom:none}}
+  .cta{text-align:center}
+</style>
+
+<script>
+  const tabs = document.getElementById('epTabs');
+  if (tabs) {
+    const panels = document.querySelectorAll('.tab-panel');
+    tabs.querySelectorAll('button').forEach((b) => {
+      b.addEventListener('click', () => {
+        tabs.querySelectorAll('button').forEach((x) => x.classList.remove('active'));
+        b.classList.add('active');
+        const id = b.getAttribute('data-tab');
+        panels.forEach((p) => p.classList.toggle('active', p.getAttribute('data-panel') === id));
+      });
+    });
+  }
+</script>

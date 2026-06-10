@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Compatibility list — from the founders' material (koios.care/compatibility).
+// Do not add devices that haven't been validated by the team.
+const watches = [
+  { id: 'SW-06', maker: 'Google', model: 'Pixel Watch 3', wearos: '5.1', role: 'Candidate' },
+  { id: 'SW-07', maker: 'Google', model: 'Pixel Watch 4', wearos: '6.1', role: 'Candidate' },
+  { id: 'SW-01', maker: 'Mobvoi', model: 'Ticwatch E3', wearos: '3.5', role: 'Candidate' },
+  { id: 'SW-05', maker: 'Mobvoi', model: 'Ticwatch Pro 3', wearos: '3.5', role: 'Candidate' },
+  { id: 'SW-02', maker: 'Mobvoi', model: 'Ticwatch Pro 5', wearos: '4.0', role: 'Candidate' },
+  { id: 'SW-04', maker: 'Xiaomi', model: 'Watch 2 Pro', wearos: '3.5', role: 'Candidate' },
+  { id: 'SW-03', maker: 'Xiaomi', model: 'Watch 5', wearos: '5.0', role: 'Candidate' },
+];
+---
+<BaseLayout
+  title="Koios · Device compatibility"
+  description="The smartwatches on the Parkiwatch compatibility list, and the minimum smartphone requirements for running the app."
+  page="compatibility"
+>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Compatibility</span>
+      <h1 style="margin-top:18px">Works with devices you <em>own</em>.</h1>
+    </div>
+    <p class="lead" style="margin-top:22px">Parkiwatch runs on your Android smartphone and works with third-party smartwatches that provide raw accelerometer data. The smartwatches below are part of our compatibility list.</p>
+  </div>
+</section>
+
+<!-- WATCHES -->
+<section style="padding-top:calc(20px*var(--density))">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Smartwatches</span>
+      <h2>The compatibility list.</h2>
+    </div>
+    <div class="compat-table reveal" style="margin-top:36px">
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Manufacturer</th><th>Model</th><th>Wear OS</th><th>Role</th></tr>
+        </thead>
+        <tbody>
+          {watches.map((w) => (
+            <tr>
+              <td class="mono">{w.id}</td>
+              <td>{w.maker}</td>
+              <td><b>{w.model}</b></td>
+              <td class="mono">{w.wearos}</td>
+              <td><span class="role">{w.role}</span></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="disclaimer" style="margin-top:18px">Parkiwatch is compatible with third-party smartwatches and wrist-worn sensors that have an inertial measurement unit (IMU) providing 3-dimensional raw accelerometer data at a sampling frequency of at least 18&nbsp;Hz. Consult the device manufacturer&rsquo;s documentation for set-up instructions.</p>
+  </div>
+</section>
+
+<!-- PHONE REQUIREMENTS -->
+<section style="background:var(--surface-2);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Your smartphone</span>
+      <h2>Minimum requirements.</h2>
+      <p class="lead">To ensure correct operation, Parkiwatch must only be used on smartphones that meet these validated minimum technical requirements.</p>
+    </div>
+    <div class="req-grid reveal" style="margin-top:40px">
+      <div class="req"><span class="k">Operating system</span><span class="v">Android 9.0 (SDK 28) or higher</span></div>
+      <div class="req"><span class="k">Bluetooth</span><span class="v">5.0 or higher</span></div>
+      <div class="req"><span class="k">Connectivity</span><span class="v">Active internet (Wi-Fi or cellular)</span></div>
+      <div class="req"><span class="k">App store</span><span class="v">Google Play access for installation &amp; updates</span></div>
+      <div class="req"><span class="k">Free storage</span><span class="v">At least 500&nbsp;MB for temporary data buffering</span></div>
+    </div>
+    <p class="ifu-cross reveal" style="margin-top:30px">Full details are in the instructions for use: <a href="/ifu-patients">for people with Parkinson&rsquo;s</a> &middot; <a href="/ifu-hcps">for healthcare professionals</a>.</p>
+  </div>
+</section>
+
+</BaseLayout>
+
+<style is:global>
+  .compat-table{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius-lg);
+    overflow-x:auto;box-shadow:var(--shadow-sm)}
+  .compat-table table{width:100%;border-collapse:collapse;min-width:540px}
+  .compat-table th{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-dim);text-align:left;padding:16px 20px;
+    border-bottom:1px solid var(--line-strong)}
+  .compat-table td{font-size:14.5px;color:var(--ink-mid);padding:15px 20px;border-bottom:1px solid var(--line)}
+  .compat-table tbody tr:last-child td{border-bottom:0}
+  .compat-table tbody tr:hover{background:var(--surface)}
+  .compat-table td b{color:var(--ink);font-weight:600}
+  .compat-table td.mono{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.02em}
+  .compat-table .role{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--positive);background:rgba(42,99,77,.1);
+    padding:4px 10px;border-radius:999px}
+  .req-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+  .req{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
+  .req .k{display:block;font-family:var(--font-mono);font-size:10.5px;font-weight:500;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim)}
+  .req .v{display:block;font-size:15px;font-weight:500;color:var(--ink);margin-top:8px;line-height:1.5}
+  .ifu-cross{font-size:14.5px;color:var(--ink-mid)}
+  .ifu-cross a{color:var(--primary);font-weight:500;border-bottom:1px solid var(--line-strong)}
+  .ifu-cross a:hover{border-bottom-color:var(--primary)}
+</style>

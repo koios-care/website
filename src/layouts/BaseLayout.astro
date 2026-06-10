@@ -1,0 +1,60 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { VisualEditing } from '@sanity/astro/visual-editing';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** active nav item (matches Header NAV page keys) */
+  page?: string;
+}
+const { title, description, page = '' } = Astro.props;
+const isVisualEditing = import.meta.env.PUBLIC_SANITY_VISUAL_EDITING_ENABLED === 'true';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  {description && <meta name="description" content={description} />}
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body data-page={page}>
+  <Header page={page} />
+  <slot />
+  <Footer />
+  <VisualEditing enabled={isVisualEditing} />
+
+  <script>
+    // scroll reveals — base state is visible; we ARM (hide) only elements that
+    // start below the fold, then unarm them as they scroll in. Above-the-fold
+    // content (the hero) is never armed, so it can never be stuck invisible.
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add('in');
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.reveal').forEach((el) => {
+        if (el.getBoundingClientRect().top > vh * 0.9) {
+          el.classList.add('armed'); // below the fold → hide + observe
+          io.observe(el);
+        }
+        // above the fold → leave visible, no observation needed
+      });
+    }
+  </script>
+</body>
+</html>

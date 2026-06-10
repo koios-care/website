@@ -1,0 +1,172 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getFaqItems } from '../sanity/lib/content';
+
+const cmsFaq = await getFaqItems();
+const faqItems = cmsFaq ?? [
+  { question: 'Do I need a special device?', answer: 'No. Parkiwatch runs on the smartphone and smartwatch you already own. There is no clinic-grade hardware to buy and no study wearable to charge or return.' },
+  { question: 'Is there anything I have to do each day?', answer: 'Nothing. There are no tasks, tests or diaries to fill in. Parkiwatch captures everyday movement and rest passively in the background, so your data reflects real life rather than a one-off snapshot.' },
+  { question: 'What is the Q-index?', answer: 'The Q-index is a single, clear measure of how your quality of life is trending over time, built from 40+ validated digital measures. It is designed to be easy to read at a glance and to share with your care team.' },
+  { question: 'Who can see my data?', answer: 'Your data is yours. It is private by design and shared only when you choose — for example, when you bring a summary to an appointment or invite your clinician to follow along.' },
+  { question: 'Is Koios a medical device?', answer: "No. Koios Care is a wellness solution. It does not diagnose or treat disease, and it does not replace your clinician’s judgement. It gives you and your care team a clearer, objective picture between visits." },
+];
+---
+<BaseLayout
+  title="Koios · For people living with Parkinson's"
+  description="Take Parkiwatch home and understand your own days. Objective data for every appointment, from the phone and watch you already wear."
+  page="patients"
+>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="wrap split lead-text">
+    <div>
+      <span class="eyebrow">For people with Parkinson&rsquo;s</span>
+      <h1>Understand your own <em>days</em>.</h1>
+      <p class="lead">Take Parkiwatch home and arrive at every appointment with objective data &mdash; instead of trying to remember how the month went. See your own patterns, and feel more in control of the condition.</p>
+      <div class="hero-actions">
+        <a href="#pricing" class="btn btn--primary">Get Parkiwatch &mdash; &euro;20/mo <span class="arr">&rarr;</span></a>
+        <a href="#how" class="btn btn--ghost">How it works</a>
+      </div>
+    </div>
+    <div class="reveal" data-delay="1">
+      <div class="home-mock">
+        <div class="screen">
+          <div class="hm-top"><span>Today &middot; Q-index</span><span>Mon 4 Jun</span></div>
+          <div class="hm-q">72<small>/100</small></div>
+          <span class="hm-tag">&uarr; 6 points this month</span>
+          <svg class="spark" viewBox="0 0 260 60" preserveAspectRatio="none" aria-hidden="true">
+            <polyline points="0,46 30,42 60,48 90,34 120,38 150,28 180,32 210,22 240,26 260,18"
+              fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="hm-rows">
+            <div class="hm-row"><span class="l">Steadier mornings</span><span class="v">Gait &uarr;</span></div>
+            <div class="hm-row"><span class="l">Rest tremor</span><span class="v">Stable</span></div>
+            <div class="hm-row"><span class="l">Sleep quality</span><span class="v">7.4 h</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">How it works for you</span>
+      <h2>Nothing to do differently.</h2>
+      <p class="lead">No tasks. No diary. No study device to charge. Parkiwatch works quietly in the background of the phone and watch you already own.</p>
+    </div>
+    <div class="features">
+      <div class="card feature reveal">
+        <svg class="ico" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="9" y="2" width="6" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+        <h3>Wear what you wear</h3>
+        <p>Set up once. Your phone and smartwatch quietly capture movement, rest and rhythm &mdash; no change to your routine.</p>
+      </div>
+      <div class="card feature reveal" data-delay="1">
+        <svg class="ico" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <h3>See your validated kinematic measures</h3>
+        <p>Get a clear picture for how your quality of life is trending &mdash; with the patterns behind it in plain language.</p>
+      </div>
+      <div class="card feature reveal" data-delay="2">
+        <svg class="ico" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
+        <h3>Share with your team</h3>
+        <p>Bring an objective summary to appointments, so conversations start from real data rather than memory.</p>
+      </div>
+    </div>
+    <p class="disclaimer" style="margin-top:30px">Koios Care is a wellness solution. It is not a medical device and does not diagnose or treat disease.</p>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED + PRICING -->
+<section id="pricing" style="background:var(--surface-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap incl-grid">
+    <div class="reveal">
+      <span class="eyebrow">What&rsquo;s included</span>
+      <h2 style="margin-top:16px">Everything, for one simple price.</h2>
+      <ul class="checklist" style="margin-top:28px">
+        <li><span class="tick">&checkmark;</span><span>The <b>Parkiwatch app</b> for your phone and smartwatch, set up in minutes.</span></li>
+        <li><span class="tick">&checkmark;</span><span><b>40+ digital measures</b> of gait, tremor, sleep, activity and heart-rate physiology.</span></li>
+        <li><span class="tick">&checkmark;</span><span>Your daily <b>patterns</b> and trends, explained in plain language.</span></li>
+        <li><span class="tick">&checkmark;</span><span>A shareable summary you can <b>bring to appointments</b>.</span></li>
+        <li><span class="tick">&checkmark;</span><span>Private by design. <b>Your data is yours</b> &mdash; shared only when you choose.</span></li>
+      </ul>
+    </div>
+    <div class="reveal" data-delay="1">
+      <div class="price-card">
+        <span class="mono-label">Parkiwatch &middot; subscription</span>
+        <div class="amt" style="margin-top:14px"><sup>&euro;</sup>20</div>
+        <div class="per">per month &middot; about the cost of a streaming subscription</div>
+        <a href="/about#contact" class="btn btn--primary">Get started <span class="arr">&rarr;</span></a>
+        <hr />
+        <ul class="checklist">
+          <li><span class="tick">&checkmark;</span><span>No clinic-grade hardware to buy</span></li>
+          <li><span class="tick">&checkmark;</span><span>Cancel anytime</span></li>
+          <li><span class="tick">&checkmark;</span><span>Works with devices you already own</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="dark">
+  <div class="wrap bigquote reveal">
+    <p>&ldquo;In my current scheme, sometimes I forget that I have Parkinson&rsquo;s.&rdquo;</p>
+    <div class="who">Person living with Parkinson&rsquo;s, 53</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap" style="max-width:840px">
+    <div class="sec-head reveal" style="margin:0 auto;text-align:center">
+      <span class="eyebrow no-rule" style="justify-content:center;display:flex">Questions</span>
+      <h2 style="margin-top:16px">The things people ask first.</h2>
+    </div>
+    <div class="faq reveal" style="margin-top:40px">
+      {faqItems.map((item, i) => (
+        <details open={i === 0 || undefined}>
+          <summary>{item.question}<span class="pm">+</span></summary>
+          <div class="ans">{item.answer}</div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="dark cta">
+  <div class="wrap reveal" style="text-align:center">
+    <h2 style="margin:0 auto;max-width:16ch">Start understanding your days.</h2>
+    <p class="lead" style="margin:22px auto 0;text-align:center">Set up Parkiwatch in minutes with devices you already own.</p>
+    <div class="hero-actions" style="justify-content:center;margin-top:32px">
+      <a href="/about#contact" class="btn btn--on-dark">Get Parkiwatch <span class="arr">&rarr;</span></a>
+      <a href="/science" class="btn btn--ghost on-dark">See the science</a>
+    </div>
+  </div>
+</section>
+
+</BaseLayout>
+
+<style is:global>
+  .home-mock{position:relative;background:var(--primary);border-radius:34px;padding:14px;
+    box-shadow:var(--shadow-lg);max-width:300px;margin:0 auto;border:7px solid var(--primary-deeper)}
+  .home-mock .screen{background:var(--bg);border-radius:24px;overflow:hidden;padding:22px 20px}
+  .home-mock .hm-top{display:flex;justify-content:space-between;align-items:center;
+    font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:var(--ink-dim);text-transform:uppercase}
+  .home-mock .hm-q{font-family:var(--font-display);font-size:72px;line-height:1;color:var(--ink);margin:14px 0 2px}
+  .home-mock .hm-q small{font-size:22px;color:var(--ink-dim)}
+  .home-mock .hm-tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:11px;
+    color:var(--sage);letter-spacing:.04em}
+  .home-mock svg.spark{width:100%;height:60px;margin:16px 0 10px}
+  .home-mock .hm-rows{display:flex;flex-direction:column;gap:9px}
+  .home-mock .hm-row{display:flex;justify-content:space-between;align-items:center;background:var(--surface-2);
+    border:1px solid var(--line);border-radius:10px;padding:11px 13px}
+  .home-mock .hm-row .l{font-size:13px;color:var(--ink);font-weight:500}
+  .home-mock .hm-row .v{font-family:var(--font-mono);font-size:12px;color:var(--ink-mid)}
+  .incl-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(36px,5vw,64px);align-items:start}
+  @media(max-width:860px){.incl-grid{grid-template-columns:1fr;gap:40px}}
+  .cta{text-align:center}
+</style>

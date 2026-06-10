@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import IfuDocument from '../components/IfuDocument.astro';
+---
+<BaseLayout
+  title="Koios · Instructions for use — patients"
+  description="The official Parkiwatch instructions for use for people with Parkinson's disease — available in English, Dutch and French."
+  page="ifu-patients"
+>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Instructions for use</span>
+      <h1 style="margin-top:18px">For people with <em>Parkinson&rsquo;s</em>.</h1>
+    </div>
+    <p class="lead" style="margin-top:22px">The official instructions for use for the Parkiwatch system, intended for people with Parkinson&rsquo;s disease. Please read this guide before first use and keep it for reference.</p>
+  </div>
+</section>
+
+<!-- DOCUMENT -->
+<section style="padding-top:calc(20px*var(--density))">
+  <div class="wrap">
+    <IfuDocument slug="ifu-patients" docTitle="Parkiwatch instructions for use — people with Parkinson's disease" />
+    <p class="ifu-cross reveal">Are you a clinician? See the <a href="/ifu-hcps">instructions for use for healthcare professionals</a> &middot; or check <a href="/compatibility">which smartwatches are compatible</a>.</p>
+  </div>
+</section>
+
+</BaseLayout>
+
+<style is:global>
+  .ifu-cross{margin-top:22px;font-size:14.5px;color:var(--ink-mid)}
+  .ifu-cross a{color:var(--primary);font-weight:500;border-bottom:1px solid var(--line-strong)}
+  .ifu-cross a:hover{border-bottom-color:var(--primary)}
+</style>

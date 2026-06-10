@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/solutions/individuals", "destination": "/patients", "permanent": true },
+    { "source": "/solutions/care-providers", "destination": "/clinicians", "permanent": true },
+    { "source": "/solutions/pharma", "destination": "/pharma", "permanent": true },
+    { "source": "/solutions/researchers", "destination": "/science", "permanent": true },
+    { "source": "/solutions", "destination": "/patients", "permanent": true },
+    { "source": "/publications", "destination": "/science#publications", "permanent": true },
+    { "source": "/terms", "destination": "/tos", "permanent": true },
+    { "source": "/GEP", "destination": "/", "permanent": true },
+    { "source": "/visualization", "destination": "/", "permanent": true }
+  ]
+}

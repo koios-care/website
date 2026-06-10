@@ -1,0 +1,87 @@
+---
+// Embedded IFU viewer — the PDF is the controlled regulatory document
+// (we host it verbatim, never re-typeset it), wrapped in the site's
+// design language with an EN/NL/FR switcher and download actions.
+interface Props {
+  /** file slug under /documents, e.g. "ifu-patients" → ifu-patients-en.pdf … */
+  slug: string;
+  /** iframe title for accessibility */
+  docTitle: string;
+}
+const { slug, docTitle } = Astro.props;
+const langs = [
+  { code: 'EN', label: 'English', file: `/documents/${slug}-en.pdf` },
+  { code: 'NL', label: 'Nederlands', file: `/documents/${slug}-nl.pdf` },
+  { code: 'FR', label: 'Français', file: `/documents/${slug}-fr.pdf` },
+];
+---
+<div class="doc-card reveal">
+  <div class="doc-head">
+    <div class="doc-meta">
+      <div><span class="k">Device</span><span class="v">PARKIWATCH</span></div>
+      <div><span class="k">Manufacturer</span><span class="v">Koios Care (BV), Antwerpen</span></div>
+      <div><span class="k">IFU version</span><span class="v">2.0</span></div>
+      <div><span class="k">Date of issue</span><span class="v">29/05/2026</span></div>
+    </div>
+    <div class="doc-langs" role="group" aria-label="Document language">
+      {langs.map((l, i) => (
+        <button
+          class={i === 0 ? 'active' : undefined}
+          data-file={l.file}
+          aria-pressed={i === 0 ? 'true' : 'false'}
+          title={l.label}
+        >{l.code}</button>
+      ))}
+    </div>
+  </div>
+  <iframe class="doc-frame" src={langs[0].file} title={docTitle} loading="lazy"></iframe>
+  <div class="doc-actions">
+    <a class="btn btn--primary doc-open" href={langs[0].file} target="_blank" rel="noopener">Open the PDF <span class="arr">&rarr;</span></a>
+    <a class="btn btn--ghost doc-download" href={langs[0].file} download>Download</a>
+  </div>
+  <p class="doc-note">The PDF above is the controlled version of this document. If it doesn&rsquo;t display in your browser, use the buttons to open or download it.</p>
+</div>
+
+<style is:global>
+  .doc-card{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius-lg);
+    padding:clamp(18px,3vw,30px);box-shadow:var(--shadow)}
+  .doc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+  .doc-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,max-content));gap:8px 34px}
+  .doc-meta .k{display:block;font-family:var(--font-mono);font-size:10.5px;font-weight:500;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim)}
+  .doc-meta .v{display:block;font-size:14.5px;font-weight:500;color:var(--ink);margin-top:3px}
+  .doc-langs{display:flex;gap:8px}
+  .doc-langs button{font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.06em;
+    padding:8px 14px;border-radius:999px;border:1px solid var(--line-strong);background:transparent;
+    color:var(--ink-mid);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+  .doc-langs button:hover{border-color:var(--primary)}
+  .doc-langs button.active{background:var(--primary);border-color:var(--primary);color:#fff}
+  .doc-frame{width:100%;height:78vh;min-height:480px;border:1px solid var(--line);
+    border-radius:var(--radius-sm);margin-top:22px;background:var(--bg-dark)}
+  .doc-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:20px}
+  .doc-note{font-size:13px;color:var(--ink-dim);margin-top:14px;line-height:1.6}
+  @media(max-width:680px){.doc-frame{height:64vh}}
+</style>
+
+<script>
+// language switcher: swap the iframe + open/download targets in place
+document.querySelectorAll('.doc-card').forEach(function (card) {
+  var frame = card.querySelector('.doc-frame') as HTMLIFrameElement | null;
+  var open = card.querySelector('.doc-open') as HTMLAnchorElement | null;
+  var dl = card.querySelector('.doc-download') as HTMLAnchorElement | null;
+  var buttons = card.querySelectorAll('.doc-langs button');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var file = btn.getAttribute('data-file');
+      if (!file) return;
+      buttons.forEach(function (b) {
+        b.classList.toggle('active', b === btn);
+        b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+      });
+      if (frame) frame.src = file;
+      if (open) open.href = file;
+      if (dl) dl.href = file;
+    });
+  });
+});
+</script>

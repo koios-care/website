@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Koios · hero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--burgundy:#5B112F;--burgundy-deep:#3A0B1E;--paper:#F6F4F1;--rose:#E7C9D3;
+    --line-accent:#E9C478;
+    --serif:"Fraunces",Georgia,serif;--sans:"Hanken Grotesk",-apple-system,sans-serif}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{font-family:var(--sans);background:var(--burgundy-deep);color:var(--paper);overflow:hidden}
+
+  .hero{position:relative;width:100%;height:100vh;min-height:620px;overflow:hidden;
+    background:radial-gradient(120% 95% at 70% 14%, #6E1539 0%, var(--burgundy) 44%, var(--burgundy-deep) 100%)}
+  .hero::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;
+    background:radial-gradient(130% 120% at 50% 42%, transparent 56%, rgba(20,5,12,.52) 100%)}
+  canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;z-index:2}
+
+  .wordmark{position:absolute;top:34px;left:42px;z-index:5;font-family:var(--serif);
+    font-size:22px;font-weight:500;letter-spacing:.16em;color:var(--paper);opacity:.92}
+  .content{position:absolute;z-index:4;left:0;right:0;top:23%;text-align:center;padding:0 24px;
+    opacity:0;transform:translateY(14px);will-change:opacity,transform}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--line-accent);margin-bottom:22px}
+  .content h1{font-family:var(--serif);font-weight:400;font-size:clamp(38px,5.4vw,68px);line-height:1.05;
+    letter-spacing:-.025em;color:#fff;max-width:17ch;margin:0 auto}
+  .content h1 em{font-style:italic;color:var(--line-accent)}
+  .content .sub{margin:24px auto 0;font-size:clamp(16px,1.4vw,19px);line-height:1.6;color:#E9D2D9;max-width:54ch}
+
+  .dock{position:absolute;z-index:5;left:0;right:0;bottom:34px;display:flex;align-items:center;
+    justify-content:space-between;gap:18px;padding:0 42px;flex-wrap:wrap}
+  .palette{display:flex;align-items:center;gap:9px}
+  .palette .pl{font-size:12px;letter-spacing:.06em;color:rgba(243,220,228,.5);margin-right:3px}
+  .sw{width:20px;height:20px;border-radius:50%;border:1.5px solid rgba(255,255,255,.34);cursor:pointer;
+    padding:0;transition:.2s}
+  .sw:hover{transform:scale(1.1)}
+  .sw.active{border-color:#fff;transform:scale(1.14)}
+  .hint{font-size:13px;letter-spacing:.04em;color:rgba(243,220,228,.6)}
+  .hint b{color:var(--line-accent);font-weight:600}
+  .replay{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--rose);background:transparent;
+    border:1px solid rgba(255,255,255,.2);padding:8px 16px;border-radius:999px;cursor:pointer;transition:.2s}
+  .replay:hover{border-color:#fff;color:#fff}
+  @media (prefers-reduced-motion: reduce){.content{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<section class="hero" id="hero">
+  <div class="wordmark">KOIOS</div>
+  <canvas id="c"></canvas>
+
+  <div class="content" id="content">
+    <div class="eyebrow">AI-native digital medicine</div>
+    <h1>Parkinson's care that runs on <em>data</em>, not memory.</h1>
+    <p class="sub">Koios reads the everyday signal of life with Parkinson's, and turns the noise into something steady you can act on.</p>
+  </div>
+
+  <div class="dock">
+    <div class="palette">
+      <span class="pl">line</span>
+      <button class="sw active" data-pal="gold"  style="background:#E9C478" aria-label="gold"></button>
+      <button class="sw" data-pal="cream" style="background:#EEE1CD" aria-label="cream"></button>
+      <button class="sw" data-pal="rose"  style="background:#F3B8C9" aria-label="rose"></button>
+      <button class="sw" data-pal="ice"   style="background:#B4D2E6" aria-label="ice"></button>
+    </div>
+    <span class="hint">run your cursor <b>across the line</b> to disturb it</span>
+    <button class="replay" id="replay">&#8635; replay</button>
+  </div>
+</section>
+
+<script>
+(() => {
+  const cv=document.getElementById('c'), ctx=cv.getContext('2d');
+  const hero=document.getElementById('hero'), content=document.getElementById('content');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const PALETTES={
+    gold:  {calm:[233,196,120], hot:[240,128,96]},
+    cream: {calm:[238,225,205], hot:[231,150,120]},
+    rose:  {calm:[243,184,201], hot:[214,83,126]},
+    ice:   {calm:[180,210,230], hot:[110,150,205]}
+  };
+  let P=PALETTES.gold;
+  const rgb=a=>`rgb(${a[0]},${a[1]},${a[2]})`;
+  function setPalette(name){
+    P=PALETTES[name];
+    document.documentElement.style.setProperty('--line-accent', rgb(P.calm));
+    document.querySelectorAll('.sw').forEach(b=>b.classList.toggle('active', b.dataset.pal===name));
+  }
+  document.querySelectorAll('.sw').forEach(b=>b.addEventListener('click',()=>setPalette(b.dataset.pal)));
+
+  const C={ tremorTau:1.05, calmAmp:6,
+    modes:[{humps:2.5,omega:4.0,amp:26},{humps:4.5,omega:6.8,amp:13}] };  // C, slower waves
+  const clamp=(v,lo,hi)=>v<lo?lo:v>hi?hi:v;
+  const lerpColor=(a,b,t)=>`rgb(${Math.round(a[0]+(b[0]-a[0])*t)},${Math.round(a[1]+(b[1]-a[1])*t)},${Math.round(a[2]+(b[2]-a[2])*t)})`;
+
+  let W,H,dpr,mid,n,spacing,phases=[],ripples=[],loadT0=performance.now(),lastYs=null;
+  let settledOnce=false;
+
+  function size(){
+    dpr=Math.min(window.devicePixelRatio||1,2);
+    W=hero.clientWidth; H=hero.clientHeight;
+    cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+    spacing=Math.max(6,Math.round(W/360)); n=Math.floor(W/spacing)+2;
+    const cr=content.getBoundingClientRect(), hr=hero.getBoundingClientRect();
+    mid=Math.min((cr.bottom-hr.top)+98, H*0.84);   // line sits a fixed gap below the text
+  }
+  function restart(){ phases=C.modes.map(()=>Math.random()*Math.PI*2); ripples=[]; loadT0=performance.now();
+    settledOnce=false; content.style.opacity=0; content.style.transform='translateY(14px)'; }
+  size(); restart();
+  addEventListener('resize', size);
+  document.getElementById('replay').addEventListener('click', restart);
+
+  function spawn(px,amp){ ripples.push({x0:px,t0:performance.now(),amp}); if(ripples.length>18) ripples.shift(); }
+  let lastMx=null,lastSpawnX=null;
+  cv.addEventListener('pointermove',e=>{
+    const r=cv.getBoundingClientRect(), x=e.clientX-r.left, y=e.clientY-r.top;
+    let speed=0.6; if(lastMx!==null) speed=Math.min(1.7,Math.abs(x-lastMx)/18+0.5); lastMx=x;
+    if(!lastYs) return;
+    const idx=clamp(Math.round(x/spacing),0,n-1), ly=lastYs[idx];
+    if(Math.abs(y-ly)<34 && (lastSpawnX===null||Math.abs(x-lastSpawnX)>38)){
+      spawn(x,(20+speed*13)*((y<ly)?1:-1)); lastSpawnX=x;
+    }
+  });
+  cv.addEventListener('pointerleave',()=>{lastMx=null;lastSpawnX=null;});
+  cv.addEventListener('pointerdown',e=>{const r=cv.getBoundingClientRect();spawn(e.clientX-r.left,44*(Math.random()<0.5?-1:1));});
+
+  function rippleAt(x,now){let s=0;for(const rp of ripples){const tau=(now-rp.t0)/1000,env=Math.exp(-1.6*tau);
+    if(env<0.03)continue;const r=560*tau,front=Math.abs(x-rp.x0)-r,g=Math.exp(-(front*front)/(2*64*64));
+    s+=rp.amp*env*g*Math.cos(front*0.055);}return s;}
+  function rippleEnergy(now){let m=0;for(const rp of ripples){const e=Math.abs(rp.amp)*Math.exp(-1.6*(now-rp.t0)/1000);if(e>m)m=e;}return m/30;}
+
+  function reveal(agit){
+    if(!settledOnce && agit<0.15) settledOnce=true;
+    if(settledOnce){content.style.opacity=1; content.style.transform='none'; return;}
+    const r=clamp((0.5-agit)/0.4,0,1), e=r*r*(3-2*r);
+    content.style.opacity=e; content.style.transform=`translateY(${(1-e)*14}px)`;
+  }
+
+  function draw(now){
+    const tL=(now-loadT0)/1000, env=Math.exp(-tL/C.tremorTau);
+    const agit=clamp(env+rippleEnergy(now)*0.9,0,1), color=lerpColor(P.calm,P.hot,agit);
+    ctx.clearRect(0,0,W,H);
+    const xs=[],ys=[];
+    for(let i=0;i<n;i++){const x=i*spacing,u=i/(n-1);
+      let y=C.calmAmp*Math.sin(1.3*Math.PI*u+now*0.0011)+2*Math.sin(2.5*Math.PI*u-now*0.0007);
+      for(let k=0;k<C.modes.length;k++){const m=C.modes[k];y+=env*m.amp*Math.sin(m.humps*Math.PI*u+m.omega*tL+phases[k]);}
+      y+=rippleAt(x,now); xs.push(x); ys.push(mid+y);}
+    lastYs=ys;
+    ctx.lineCap='round'; ctx.lineJoin='round';
+    ctx.beginPath(); ctx.moveTo(xs[0],ys[0]);
+    for(let i=1;i<n-1;i++) ctx.quadraticCurveTo(xs[i],ys[i],(xs[i]+xs[i+1])/2,(ys[i]+ys[i+1])/2);
+    ctx.strokeStyle=color; ctx.shadowColor=color;
+    ctx.globalAlpha=0.16; ctx.shadowBlur=24+agit*22; ctx.lineWidth=12; ctx.stroke();
+    ctx.globalAlpha=1;    ctx.shadowBlur=8+agit*18;  ctx.lineWidth=2.4; ctx.stroke();
+    ctx.shadowBlur=0; ctx.strokeStyle='#fff'; ctx.lineWidth=0.8; ctx.globalAlpha=0.09+(1-agit)*0.09; ctx.stroke(); ctx.globalAlpha=1;
+    reveal(agit);
+    if(ripples.length) ripples=ripples.filter(rp=>Math.exp(-1.6*(now-rp.t0)/1000)>=0.03);
+  }
+
+  setPalette('gold');
+  if(reduce){ loadT0=performance.now()-9999; draw(performance.now()); content.style.opacity=1; content.style.transform='none'; return; }
+  function frame(now){ draw(now); requestAnimationFrame(frame); }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

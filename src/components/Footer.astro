@@ -1,0 +1,50 @@
+---
+import KoiosLogo from './KoiosLogo.astro';
+const year = new Date().getFullYear();
+---
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="/"><KoiosLogo /></a>
+        <p class="foot-tag">Clinically meaningful insight from the devices people already use, captured quietly in the background. Starting with Parkinson&rsquo;s.</p>
+      </div>
+      <div>
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="/patients">For patients</a></li>
+          <li><a href="/clinicians">For clinicians</a></li>
+          <li><a href="/pharma">For pharma</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/science">Science</a></li>
+          <li><a href="/science#publications">Publications</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/ifu-patients">IFU &mdash; patients</a></li>
+          <li><a href="/ifu-hcps">IFU &mdash; clinicians</a></li>
+          <li><a href="/compatibility">Compatibility</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@koios.care">info@koios.care</a></li>
+          <li>Filip Williotstraat 9</li>
+          <li>2600 Antwerpen, BE</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; {year} Koios Care &middot; powered by noera</span>
+      <span><a href="/privacy">Privacy</a> &middot; <a href="/tos">Terms</a> &middot; VAT BE0786.830.148</span>
+    </div>
+  </div>
+</footer>

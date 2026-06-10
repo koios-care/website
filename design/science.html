@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Koios · Science &amp; evidence</title>
+<meta name="description" content="A registered clinical trial, peer-reviewed publications, and hospitals across Belgium using the platform with real patients." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="koios.css" />
+<script src="koios-boot.js"></script>
+<style>
+  .trial-card{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius-lg);
+    overflow:hidden;box-shadow:var(--shadow)}
+  .trial-card .hd{background:var(--primary);color:#fff;padding:16px 24px;display:flex;justify-content:space-between;
+    align-items:baseline;flex-wrap:wrap;gap:8px}
+  .trial-card .hd .code{font-family:var(--font-mono);font-size:13px;letter-spacing:.08em}
+  .trial-card .hd .st{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+    display:inline-flex;align-items:center;gap:7px;color:#fff}
+  .trial-card .hd .st::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--sage-bright)}
+  .trial-card .bd{padding:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-bottom:1px solid var(--line)}
+  .trial-card .bd .c{padding-right:24px;border-right:1px solid var(--line)}
+  .trial-card .bd .c:last-child{border-right:none;padding-right:0}
+  .trial-card .bd .k{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-dim)}
+  .trial-card .bd .v{font-size:16px;color:var(--ink);margin-top:8px;font-weight:500}
+  .trial-card .ft{padding:20px 24px;font-size:15px;color:var(--ink-mid);line-height:1.6}
+  @media(max-width:640px){.trial-card .bd{grid-template-columns:1fr;gap:18px}.trial-card .bd .c{border-right:none;padding-right:0}}
+
+  .pub{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--line);align-items:baseline}
+  .pub .yr{font-family:var(--font-mono);font-size:13px;color:var(--accent);flex:none;width:54px}
+  .pub .body h3{font-size:20px;margin-bottom:8px}
+  .pub .body .src{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.02em;color:var(--ink-dim)}
+  .pub .body p{font-size:14.5px;color:var(--ink-mid);margin-top:8px;line-height:1.55;max-width:70ch}
+  .qx-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);
+    border-radius:var(--radius);overflow:hidden;margin-top:32px;background:var(--surface-2)}
+  .qx-steps .qs{padding:28px 26px;border-right:1px solid var(--line)}
+  .qx-steps .qs:last-child{border-right:none}
+  .qx-steps .n{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:.08em}
+  .qx-steps .qs h3{font-size:19px;margin:12px 0 8px}
+  .qx-steps .qs p{font-size:14.5px;color:var(--ink-mid);line-height:1.55}
+  @media(max-width:760px){.qx-steps{grid-template-columns:1fr}.qx-steps .qs{border-right:none;border-bottom:1px solid var(--line)}.qx-steps .qs:last-child{border-bottom:none}}
+</style>
+</head>
+<body data-page="science">
+
+<div id="site-header"></div>
+
+<!-- HERO -->
+<section class="page-hero" data-screen-label="Science hero">
+  <div class="wrap">
+    <div style="max-width:18ch">
+      <span class="eyebrow">Science &amp; evidence</span>
+      <h1 style="margin-top:18px">Credibility you can <em>cite</em>.</h1>
+    </div>
+    <p class="lead" style="margin-top:22px">A registered clinical trial, peer-reviewed publications, and hospitals across Belgium using the platform with real patients. The evidence behind the Q-index, in the open.</p>
+  </div>
+</section>
+
+<!-- Q-INDEX EXPLAINED -->
+<section style="padding-top:calc(20px*var(--density))" data-screen-label="Q-index explained">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The Q-index</span>
+      <h2>From raw sensor data to one clear measure.</h2>
+      <p class="lead">The Q-index distils 40+ validated digital measures into a single, interpretable indicator of how quality of life is trending &mdash; designed to be read at a glance and shared with a care team.</p>
+    </div>
+    <div class="qx-steps reveal">
+      <div class="qs"><div class="n">01 &middot; CAPTURE</div><h3>Passive sensing</h3><p>Everyday phone and smartwatch sensors record movement, rest and heart-rate physiology continuously, with no tasks.</p></div>
+      <div class="qs"><div class="n">02 &middot; MEASURE</div><h3>Validated digital measures</h3><p>Signal becomes 40+ measures of gait, tremor, sleep, activity and autonomic function, each validated against clinical references.</p></div>
+      <div class="qs"><div class="n">03 &middot; COMPOSE</div><h3>The Q-index</h3><p>Measures are combined into a single composite that tracks quality-of-life trend over time, robust to day-to-day noise.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRIAL -->
+<section style="background:var(--surface-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)" data-screen-label="Science trial">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Clinical validation</span>
+      <h2>A registered trial.</h2>
+    </div>
+    <div class="trial-card reveal" style="margin-top:40px">
+      <div class="hd">
+        <span class="code">Q-index trial &middot; NCT06209502</span>
+        <span class="st">Registered &amp; recruiting</span>
+      </div>
+      <div class="bd">
+        <div class="c"><div class="k">Condition</div><div class="v">Parkinson&rsquo;s disease</div></div>
+        <div class="c"><div class="k">Design</div><div class="v">Prospective, real-world digital measures</div></div>
+        <div class="c"><div class="k">Primary focus</div><div class="v">Quality-of-life trend (Q-index)</div></div>
+      </div>
+      <div class="ft">An early signal from the programme: <b style="color:var(--ink)">57%</b> of participants reported an improvement in health-related quality of life, with <b style="color:var(--ink)">96%</b> of days captured passively.</div>
+    </div>
+    <p class="disclaimer" style="margin-top:18px">Trial identifier shown for reference. Koios Care is a wellness solution and is not a medical device; it does not diagnose or treat disease.</p>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications" data-screen-label="Publications">
+  <div class="wrap" style="max-width:920px">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Publications</span>
+      <h2>Peer-reviewed &amp; presented.</h2>
+    </div>
+    <div class="reveal" style="margin-top:36px;border-top:1px solid var(--line)">
+      <div class="pub">
+        <span class="yr">2025</span>
+        <div class="body">
+          <h3>Passive digital measures of gait and tremor in Parkinson&rsquo;s</h3>
+          <div class="src">Conference proceedings &middot; movement disorders</div>
+          <p>Validation of smartphone- and smartwatch-derived motor measures against in-clinic reference assessments across a multi-site cohort.</p>
+        </div>
+      </div>
+      <div class="pub">
+        <span class="yr">2025</span>
+        <div class="body">
+          <h3>Constructing the Q-index: a composite of real-world quality of life</h3>
+          <div class="src">Working paper &middot; methods</div>
+          <p>How 40+ continuous digital measures are combined into a single, interpretable index robust to day-to-day variability.</p>
+        </div>
+      </div>
+      <div class="pub">
+        <span class="yr">2024</span>
+        <div class="body">
+          <h3>Feasibility of passive monitoring in routine neurology care</h3>
+          <div class="src">Real-world deployment &middot; Belgian hospital networks</div>
+          <p>Adherence and data-capture rates when patients use their own devices in everyday life over extended follow-up.</p>
+        </div>
+      </div>
+    </div>
+    <p class="disclaimer" style="margin-top:22px">Publication titles are illustrative placeholders for this prototype &mdash; replace with the live citation list and DOIs.</p>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section style="background:var(--surface-2);border-top:1px solid var(--line)" data-screen-label="Science partners">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Partners</span>
+      <h2>Built with clinicians and research institutions.</h2>
+    </div>
+    <div class="partners reveal" style="margin-top:36px">
+      <span class="partner">AZ Delta</span>
+      <span class="partner">AZ Groeninge</span>
+      <span class="partner">AZ Oostende</span>
+      <span class="partner">CHU Li&egrave;ge</span>
+      <span class="partner">CHU Charleroi</span>
+      <span class="partner">imec.istart</span>
+      <span class="partner">VLAIO</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="dark cta" data-screen-label="Science CTA">
+  <div class="wrap reveal" style="text-align:center">
+    <h2 style="margin:0 auto;max-width:18ch">Want the methods in detail?</h2>
+    <p class="lead" style="margin:22px auto 0;text-align:center">We&rsquo;re glad to share validation data and discuss study collaborations.</p>
+    <div class="hero-actions" style="justify-content:center;margin-top:32px">
+      <a href="about.html#contact" class="btn btn--on-dark">Contact the team <span class="arr">&rarr;</span></a>
+      <a href="pharma.html" class="btn btn--ghost on-dark">For research partners</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="koios.js"></script>
+</body>
+</html>
