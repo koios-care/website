@@ -2,17 +2,54 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getTeam, getAdvisors, initials } from '../sanity/lib/content';
 
-// Sanity-managed team; falls back to labeled placeholders until content is entered
+// Sanity-managed team; falls back to the real roster (names, roles, photos and
+// LinkedIn from the founders' material) until/unless content is entered in Studio.
 const team = await getTeam();
 const FALLBACK_TEAM = [
-  { name: 'Name Surname', role: 'Co-founder & CEO', photoUrl: null, ph: 'KV' },
-  { name: 'Name Surname', role: 'Co-founder & CTO', photoUrl: null, ph: 'JD' },
-  { name: 'Name Surname', role: 'Clinical lead', photoUrl: null, ph: 'ML' },
-  { name: 'Name Surname', role: 'Head of data science', photoUrl: null, ph: 'SP' },
+  { name: 'Konstantinos Kyritsis, PhD', role: 'Co-founder & CEO', photoUrl: null, photo: '/team/konstantinos.jpeg', linkedin: 'https://www.linkedin.com/in/konstantinos-kyritsis-0a6b0a4a/' },
+  { name: 'Dimitris Iakovakis, PhD', role: 'Co-founder & CTO', photoUrl: null, photo: '/team/di-nbg.png', linkedin: 'https://www.linkedin.com/in/iakovakis/' },
+  { name: 'Vasileios Papapanagiotou, PhD', role: 'Senior R&D engineer · Professor @Karolinska', photoUrl: null, photo: '/team/vp-nbg.png', linkedin: 'https://www.linkedin.com/in/vasileios-papapanagiotou-3155b990/' },
+  { name: 'Prof. MD Gaëtan Garraux', role: 'Clinical lead · Neurology professor @CHU Liège', photoUrl: null, photo: '/team/gg-nbg.png', linkedin: 'https://www.linkedin.com/in/ga%C3%ABtan-garraux-md-phd-8744b2a/' },
+  { name: 'Patricia Van Rompuy', role: 'Quality & clinical trial lead', photoUrl: null, photo: '/team/pvr-nbg.png', linkedin: 'https://www.linkedin.com/in/patricia-van-rompuy-341927b/' },
+  { name: 'Bram Lenaerts', role: 'Commercial lead', photoUrl: null, photo: '/team/bram.png', linkedin: 'https://www.linkedin.com/in/bram-lenaerts-83a26a20/' },
+  { name: 'Apostolis Moustaklis', role: 'Junior R&D engineer', photoUrl: null, photo: '/team/AM-nbg.png', linkedin: 'https://www.linkedin.com/in/apostolos-moustaklis-941a45162/' },
 ];
-const members = team ?? FALLBACK_TEAM;
-// Advisors render only when CMS content exists — no placeholder section
-const advisors = await getAdvisors();
+// The CMS carries names/roles but no photo or LinkedIn, so we enrich each
+// record from the local directory below (matched by normalised name). The
+// same arrays also serve as the standalone fallback when the CMS is empty.
+
+// Advisors — CMS content if present, otherwise the real advisory board.
+const cmsAdvisors = await getAdvisors();
+const FALLBACK_ADVISORS = [
+  { name: 'Kris Schellens', role: 'ex-Director, Biogen Belgium', photoUrl: null, photo: '/team/ks-nbg.png', linkedin: 'https://www.linkedin.com/in/kris-schellens-27579710/' },
+  { name: 'Lampros Kourtis, PhD', role: 'Lead of Gates Ventures ADDF · Founder & investor', photoUrl: null, photo: '/team/ik-nbg.png', linkedin: 'https://www.linkedin.com/in/lamproskourtis1977/' },
+  { name: 'Gregor Strobbe, PhD', role: 'Founder & CEO of Clouds of Care', photoUrl: null, photo: '/team/gs-nbg.png', linkedin: 'https://www.linkedin.com/in/gregor-strobbe-17b37525/' },
+  { name: 'Jurgen Van Broeck, MBA', role: 'CEO of mAbxience', photoUrl: null, photo: '/team/jvb-nbg.png', linkedin: 'https://www.linkedin.com/in/jurgen-van-broeck-7842ba8/' },
+  { name: 'MD Jean-Briac Prévost', role: 'Clinical oncologist · Business', photoUrl: null, photo: '/team/jb-nbg.png', linkedin: 'https://www.linkedin.com/in/jean-briac-prevost-66b2131a' },
+  { name: 'Hadeel Elamer', role: 'BD advisor · ex-Digital lead @Abbott', photoUrl: null, photo: '/team/hadeel.png', linkedin: 'https://www.linkedin.com/in/hadeelelamer/' },
+  { name: 'Iraklis Kourtis, PhD', role: 'BD & scientific advisor · Digital strategy @Takeda', photoUrl: null, photo: '/team/iraklis.png', linkedin: 'https://www.linkedin.com/in/ikourtis/' },
+  { name: 'Bjorn Delbeecke, LL.M, MBA', role: 'Regulatory strategy', photoUrl: null, photo: '/team/bjorn.png', linkedin: 'https://www.linkedin.com/in/bjorn-delbeecke-ll-m-mba-71462642/' },
+];
+const norm = (s: string) =>
+  s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]/g, '');
+const DIRECTORY = new Map(
+  [...FALLBACK_TEAM, ...FALLBACK_ADVISORS].map((m) => [norm(m.name), m])
+);
+// keep CMS photo if it has one; otherwise graft the local photo + LinkedIn
+const enrich = (m: any) => {
+  const local = DIRECTORY.get(norm(m.name));
+  return {
+    ...m,
+    photo: m.photoUrl ? null : (m.photo ?? local?.photo ?? null),
+    linkedin: m.linkedin ?? local?.linkedin ?? null,
+  };
+};
+const members = (team ?? FALLBACK_TEAM).map(enrich);
+// advisors to omit from the site (matched by normalised name, any source)
+const REMOVE_ADVISORS = ['hadeel', 'krisschellens', 'irakliskourtis'];
+const advisors = (cmsAdvisors ?? FALLBACK_ADVISORS)
+  .map(enrich)
+  .filter((m) => !REMOVE_ADVISORS.some((k) => norm(m.name).includes(k)));
 ---
 <BaseLayout
   title="Koios · About & contact"
@@ -87,14 +124,21 @@ const advisors = await getAdvisors();
           <div class="photo">
             {m.photoUrl
               ? <img src={`${m.photoUrl}?w=600&h=600&fit=crop&auto=format`} alt={m.name} loading="lazy" />
-              : <span>{'ph' in m ? m.ph : initials(m.name)}</span>}
+              : 'photo' in m && m.photo
+                ? <img src={m.photo} alt={m.name} loading="lazy" />
+                : <span>{initials(m.name)}</span>}
           </div>
           <h4>{m.name}</h4>
           <div class="role">{m.role}</div>
+          {'linkedin' in m && m.linkedin && (
+            <a class="member-li" href={m.linkedin} target="_blank" rel="noopener" aria-label={`${m.name} on LinkedIn`}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+          )}
         </div>
       ))}
     </div>
-    {!team && <p class="disclaimer" style="margin-top:24px">Team names and photos are placeholders &mdash; add real team members in the Studio at /admin.</p>}
     {advisors && (
       <div style="margin-top:72px">
         <div class="sec-head reveal">
@@ -107,30 +151,23 @@ const advisors = await getAdvisors();
               <div class="photo">
                 {m.photoUrl
                   ? <img src={`${m.photoUrl}?w=600&h=600&fit=crop&auto=format`} alt={m.name} loading="lazy" />
-                  : <span>{initials(m.name)}</span>}
+                  : 'photo' in m && m.photo
+                    ? <img src={m.photo} alt={m.name} loading="lazy" />
+                    : <span>{initials(m.name)}</span>}
               </div>
               <h4>{m.name}</h4>
               <div class="role">{m.role}</div>
+              {'linkedin' in m && m.linkedin && (
+                <a class="member-li" href={m.linkedin} target="_blank" rel="noopener" aria-label={`${m.name} on LinkedIn`}>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                  <span>LinkedIn</span>
+                </a>
+              )}
             </div>
           ))}
         </div>
       </div>
     )}
-  </div>
-</section>
-
-<!-- BACKERS -->
-<section style="background:var(--surface-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Backed by</span>
-      <h2>Supported to build it properly.</h2>
-    </div>
-    <div class="backers reveal">
-      <div class="b"><div class="v">&euro;1M</div><div class="k">seed funding to bring objective measurement to neurology</div></div>
-      <div class="b"><div class="v">imec.istart</div><div class="k">one of Europe&rsquo;s leading deep-tech accelerators</div></div>
-      <div class="b"><div class="v">VLAIO</div><div class="k">Flanders Innovation &amp; Entrepreneurship agency</div></div>
-    </div>
   </div>
 </section>
 
@@ -184,13 +221,11 @@ const advisors = await getAdvisors();
   .value p{font-size:15px;color:var(--ink-mid);line-height:1.6}
   .value .n{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:.1em}
   @media(max-width:820px){.values{grid-template-columns:1fr}}
-  .backers{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);
-    border-radius:var(--radius);overflow:hidden;background:var(--surface-2);margin-top:40px}
-  .backers .b{padding:30px 28px;border-right:1px solid var(--line)}
-  .backers .b:last-child{border-right:none}
-  .backers .v{font-family:var(--font-display);font-size:28px;color:var(--ink)}
-  .backers .k{font-size:14px;color:var(--ink-mid);margin-top:10px;line-height:1.5}
-  @media(max-width:760px){.backers{grid-template-columns:1fr}.backers .b{border-right:none;border-bottom:1px solid var(--line)}.backers .b:last-child{border-bottom:none}}
+  .member-li{display:inline-flex;align-items:center;gap:6px;margin-top:10px;
+    font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--ink-dim);transition:color .2s}
+  .member-li svg{opacity:.7;transition:opacity .2s}
+  .member-li:hover{color:var(--accent)}
+  .member-li:hover svg{opacity:1}
   .contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(36px,5vw,60px);align-items:start}
   @media(max-width:860px){.contact-grid{grid-template-columns:1fr;gap:40px}}
   .contact-meta li{list-style:none;margin-bottom:18px}

@@ -28,6 +28,17 @@ const partners = cmsPartners ?? [
   { name: 'imec.istart', kind: 'backer' },
   { name: 'VLAIO', kind: 'backer' },
 ];
+
+// Investors & funders behind the seed round (logos from the founders' material).
+// Lead investor first.
+const INVESTORS = [
+  { name: 'Evercurious VC', logo: '/investors/evercurious.png' },
+  { name: 'Astylab Ventures', logo: '/investors/astylab.png' },
+  { name: 'imec.istart', logo: '/investors/imec.jpeg' },
+  { name: 'VLAIO', logo: '/investors/vlaio.jpeg' },
+  { name: 'BlueHealth Innovation Fund', logo: '/investors/bhif.jpeg' },
+  { name: 'Lumiares', logo: '/investors/lumiares.jpeg' },
+];
 ---
 <BaseLayout
   title="Koios · Neurology that runs on data, not memory"
@@ -108,19 +119,16 @@ const partners = cmsPartners ?? [
         <div class="num">1</div>
         <h3>Wear what you already wear</h3>
         <p>A smartphone and a smartwatch. Parkiwatch runs quietly in the background &mdash; no tasks to complete, no change to daily routine.</p>
-        <svg class="ico" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="9" y="2" width="6" height="20" rx="2"/><path d="M12 18h.01"/></svg>
       </div>
       <div class="card step reveal" data-delay="1">
         <div class="num">2</div>
         <h3>Turn movement into measures</h3>
         <p>Gait, tremor, sleep, activity and heart-rate physiology become 40+ validated digital measures of neuro, brain and body health.</p>
-        <svg class="ico" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg>
       </div>
       <div class="card step reveal" data-delay="2">
         <div class="num">3</div>
         <h3>Track quality of life with the Q-index</h3>
         <p>One clear index shows how quality of life changes over time. Patients can share it with their care team to help guide treatment.</p>
-        <svg class="ico" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
       </div>
     </div>
     <p class="disclaimer" style="margin-top:30px">Koios Care is a wellness solution. It is not a medical device and does not diagnose or treat disease.</p>
@@ -208,6 +216,21 @@ const partners = cmsPartners ?? [
         <span class="partner">Q-index trial &middot; NCT06209502</span>
         {partners.map(p => <span class="partner">{p.name}</span>)}
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- BACKED BY -->
+<section style="background:var(--surface-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)" data-screen-label="Backed by">
+  <div class="wrap">
+    <div class="sec-head reveal" style="max-width:none;text-align:center">
+      <span class="eyebrow no-rule" style="justify-content:center;display:flex">Backed by</span>
+      <h2 style="margin-top:14px">Investors and funders behind Koios.</h2>
+    </div>
+    <div class="investors reveal" style="margin-top:44px">
+      {INVESTORS.map((i) => (
+        <div class="inv" title={i.name}><img src={i.logo} alt={i.name} loading="lazy" /></div>
+      ))}
     </div>
   </div>
 </section>
