@@ -5,10 +5,8 @@ import { getFaqItems } from '../sanity/lib/content';
 const cmsFaq = await getFaqItems();
 const faqItems = cmsFaq ?? [
   { question: 'Do I need a special device?', answer: 'No. Parkiwatch runs on the smartphone and smartwatch you already own. There is no clinic-grade hardware to buy and no study wearable to charge or return.' },
-  { question: 'Is there anything I have to do each day?', answer: 'Nothing. There are no tasks, tests or diaries to fill in. Parkiwatch captures everyday movement and rest passively in the background, so your data reflects real life rather than a one-off snapshot.' },
-  { question: 'What is the Q-index?', answer: 'The Q-index is a single, clear measure of how your quality of life is trending over time, built from 40+ validated digital measures. It is designed to be easy to read at a glance and to share with your care team.' },
+  { question: 'What is the Q-index?', answer: 'The Q-index is a single, clear measure of how your quality of life is trending over time, built from 40+ digital measures. It is designed to be easy to read at a glance and to share with your care team.' },
   { question: 'Who can see my data?', answer: 'Your data is yours. It is private by design and shared only when you choose — for example, when you bring a summary to an appointment or invite your clinician to follow along.' },
-  { question: 'Is Koios a medical device?', answer: "No. Koios Care is a wellness solution. It does not diagnose or treat disease, and it does not replace your clinician’s judgement. It gives you and your care team a clearer, objective picture between visits." },
 ];
 ---
 <BaseLayout
@@ -56,7 +54,7 @@ const faqItems = cmsFaq ?? [
     <div class="sec-head reveal">
       <span class="eyebrow">How it works for you</span>
       <h2>Nothing to do differently.</h2>
-      <p class="lead">No tasks. No diary. No study device to charge. Parkiwatch works quietly in the background of the phone and watch you already own.</p>
+      <p class="lead">No tasks. No manual diary. No study device to charge. Parkiwatch works quietly in the background of the phone and watch you already own.</p>
     </div>
     <div class="features">
       <div class="card feature reveal">
