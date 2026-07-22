@@ -35,11 +35,15 @@ const langs = [
     </div>
   </div>
   <iframe class="doc-frame" src={langs[0].file} title={docTitle} loading="lazy"></iframe>
+  <div class="doc-fallback" hidden>
+    <p>Your browser doesn&rsquo;t display PDF documents inline &mdash; use the buttons below to open the document in a new tab or download it.</p>
+  </div>
   <div class="doc-actions">
     <a class="btn btn--primary doc-open" href={langs[0].file} target="_blank" rel="noopener">Open the PDF <span class="arr">&rarr;</span></a>
     <a class="btn btn--ghost doc-download" href={langs[0].file} download>Download</a>
   </div>
   <p class="doc-note">The PDF above is the controlled version of this document. If it doesn&rsquo;t display in your browser, use the buttons to open or download it.</p>
+  <p class="doc-note">Obsolete versions of this document are available on request at <a href="mailto:support@koios.care">support@koios.care</a>. A paper version of this document can be sent on request at <a href="mailto:support@koios.care">support@koios.care</a>.</p>
 </div>
 
 <style is:global>
@@ -58,15 +62,30 @@ const langs = [
   .doc-langs button.active{background:var(--primary);border-color:var(--primary);color:#fff}
   .doc-frame{width:100%;height:78vh;min-height:480px;border:1px solid var(--line);
     border-radius:var(--radius-sm);margin-top:22px;background:var(--bg-dark)}
+  .doc-fallback{margin-top:22px;padding:26px;border:1px dashed var(--line-strong);
+    border-radius:var(--radius-sm);background:var(--surface);text-align:center}
+  .doc-fallback p{font-size:14.5px;color:var(--ink-mid);line-height:1.6;max-width:52ch;margin:0 auto}
+  .doc-fallback[hidden],.doc-frame[hidden]{display:none}
   .doc-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:20px}
   .doc-note{font-size:13px;color:var(--ink-dim);margin-top:14px;line-height:1.6}
+  .doc-note + .doc-note{margin-top:6px}
+  .doc-note a{color:var(--primary);font-weight:500;border-bottom:1px solid var(--line-strong)}
+  .doc-note a:hover{border-bottom-color:var(--primary)}
   @media(max-width:680px){.doc-frame{height:64vh}}
 </style>
 
 <script>
 // language switcher: swap the iframe + open/download targets in place
+// browsers with no inline PDF viewer (Firefox set to "always ask", most
+// mobile browsers) render the iframe blank — swap it for the fallback panel
+var noInlinePdf = navigator.pdfViewerEnabled === false;
 document.querySelectorAll('.doc-card').forEach(function (card) {
   var frame = card.querySelector('.doc-frame') as HTMLIFrameElement | null;
+  var fallback = card.querySelector('.doc-fallback') as HTMLElement | null;
+  if (noInlinePdf) {
+    if (frame) { frame.hidden = true; frame.removeAttribute('src'); }
+    if (fallback) fallback.hidden = false;
+  }
   var open = card.querySelector('.doc-open') as HTMLAnchorElement | null;
   var dl = card.querySelector('.doc-download') as HTMLAnchorElement | null;
   var buttons = card.querySelectorAll('.doc-langs button');
@@ -78,7 +97,7 @@ document.querySelectorAll('.doc-card').forEach(function (card) {
         b.classList.toggle('active', b === btn);
         b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
       });
-      if (frame) frame.src = file;
+      if (frame && !noInlinePdf) frame.src = file;
       if (open) open.href = file;
       if (dl) dl.href = file;
     });

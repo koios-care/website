@@ -107,6 +107,7 @@ const faqItems = cmsFaq ?? [
           <li><span class="tick">&checkmark;</span><span>Cancel anytime</span></li>
           <li><span class="tick">&checkmark;</span><span>Works with devices you already own</span></li>
         </ul>
+        <p class="ifu-note">Before you start, read the <a href="/ifu-patients">Instructions for Use for patients</a>.</p>
       </div>
     </div>
   </div>
@@ -153,6 +154,9 @@ const faqItems = cmsFaq ?? [
 </BaseLayout>
 
 <style is:global>
+  .ifu-note{font-size:13px;color:var(--ink-dim);margin-top:18px;line-height:1.6}
+  .ifu-note a{color:var(--primary);font-weight:500;border-bottom:1px solid var(--line-strong)}
+  .ifu-note a:hover{border-bottom-color:var(--primary)}
   .play-link{display:inline-flex;align-items:center;justify-content:center;gap:9px;width:100%;margin-top:12px;
     padding:11px 16px;border:1px solid var(--line-strong);border-radius:var(--radius-sm);
     font-family:var(--font-sans);font-size:14px;font-weight:600;color:var(--ink);

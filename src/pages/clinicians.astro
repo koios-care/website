@@ -20,6 +20,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <a href="https://clinician.parkiwatch.com" target="_blank" rel="noopener" class="btn btn--ghost">Go to dashboard <span class="arr">&nearr;</span></a>
       <a href="/science" class="btn btn--ghost">See the evidence</a>
     </div>
+    <p class="ifu-note">Before you use the dashboard, read the <a href="/ifu-hcps">Instructions for Use for healthcare professionals</a>.</p>
   </div>
 </section>
 
@@ -115,12 +116,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <a href="https://clinician.parkiwatch.com" target="_blank" rel="noopener" class="btn btn--ghost">Go to dashboard <span class="arr">&nearr;</span></a>
       <a href="/science#publications" class="btn btn--ghost">Read the publications</a>
     </div>
+    <p class="ifu-note">Before you use the dashboard, read the <a href="/ifu-hcps">Instructions for Use for healthcare professionals</a>.</p>
   </div>
 </section>
 
 </BaseLayout>
 
 <style is:global>
+  .ifu-note{font-size:13px;color:var(--ink-dim);margin-top:18px;line-height:1.6}
+  .ifu-note a{color:var(--primary);font-weight:500;border-bottom:1px solid var(--line-strong)}
+  .ifu-note a:hover{border-bottom-color:var(--primary)}
   .dash-chart{height:120px;margin-top:14px;border:1px solid var(--line);border-radius:var(--radius-sm);
     padding:14px;background:var(--bg)}
   .dash-chart svg{width:100%;height:100%;display:block}
