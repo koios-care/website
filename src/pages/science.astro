@@ -200,7 +200,7 @@ const partners = cmsPartners ?? [
 ---
 <BaseLayout
   title="Koios · Science & evidence"
-  description="A registered clinical trial, peer-reviewed publications, and hospitals across Belgium using the platform with real patients."
+  description="Peer-reviewed publications and hospitals across Belgium using the platform with real patients."
   page="science"
 >
 
@@ -211,7 +211,7 @@ const partners = cmsPartners ?? [
       <span class="eyebrow">Science &amp; evidence</span>
       <h1 style="margin-top:18px">Credibility you can <em>cite</em>.</h1>
     </div>
-    <p class="lead" style="margin-top:22px">A registered clinical trial, peer-reviewed publications, and hospitals across Belgium using the platform with real patients. The evidence behind the Q-index, in the open.</p>
+    <p class="lead" style="margin-top:22px">Peer-reviewed publications and hospitals across Belgium using the platform with real patients. The evidence behind the Q-index, in the open.</p>
   </div>
 </section>
 
@@ -231,28 +231,6 @@ const partners = cmsPartners ?? [
   </div>
 </section>
 
-<!-- TRIAL -->
-<section style="background:var(--surface-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Clinical validation</span>
-      <h2>A registered trial.</h2>
-    </div>
-    <div class="trial-card reveal" style="margin-top:40px">
-      <div class="hd">
-        <span class="code">Q-index trial &middot; NCT06209502</span>
-        <span class="st">Registered &amp; recruiting</span>
-      </div>
-      <div class="bd">
-        <div class="c"><div class="k">Condition</div><div class="v">Parkinson&rsquo;s disease</div></div>
-        <div class="c"><div class="k">Design</div><div class="v">Prospective, real-world digital measures</div></div>
-        <div class="c"><div class="k">Primary focus</div><div class="v">Quality-of-life trend (Q-index)</div></div>
-      </div>
-      <div class="ft">An early signal from the programme: <b style="color:var(--ink)">96%</b> of days captured passively.</div>
-    </div>
-    <p class="disclaimer" style="margin-top:18px">Trial identifier shown for reference. Koios Care is a wellness solution and is not a medical device; it does not diagnose or treat disease.</p>
-  </div>
-</section>
 
 <!-- RESEARCH IMPACT -->
 <section>
@@ -421,22 +399,6 @@ const partners = cmsPartners ?? [
 </script>
 
 <style is:global>
-  .trial-card{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius-lg);
-    overflow:hidden;box-shadow:var(--shadow)}
-  .trial-card .hd{background:var(--primary);color:#fff;padding:16px 24px;display:flex;justify-content:space-between;
-    align-items:baseline;flex-wrap:wrap;gap:8px}
-  .trial-card .hd .code{font-family:var(--font-mono);font-size:13px;letter-spacing:.08em}
-  .trial-card .hd .st{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
-    display:inline-flex;align-items:center;gap:7px;color:#fff}
-  .trial-card .hd .st::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--sage-bright)}
-  .trial-card .bd{padding:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-bottom:1px solid var(--line)}
-  .trial-card .bd .c{padding-right:24px;border-right:1px solid var(--line)}
-  .trial-card .bd .c:last-child{border-right:none;padding-right:0}
-  .trial-card .bd .k{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-dim)}
-  .trial-card .bd .v{font-size:16px;color:var(--ink);margin-top:8px;font-weight:500}
-  .trial-card .ft{padding:20px 24px;font-size:15px;color:var(--ink-mid);line-height:1.6}
-  @media(max-width:640px){.trial-card .bd{grid-template-columns:1fr;gap:18px}.trial-card .bd .c{border-right:none;padding-right:0}}
-
   /* ---- research impact ---- */
   .impact-strip{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);
     border-radius:var(--radius);overflow:hidden;background:var(--surface-2)}
