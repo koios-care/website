@@ -7,8 +7,10 @@ interface Props {
   slug: string;
   /** iframe title for accessibility */
   docTitle: string;
+  /** audience-specific "requesting a paper copy" note, as HTML */
+  paperCopyNote: string;
 }
-const { slug, docTitle } = Astro.props;
+const { slug, docTitle, paperCopyNote } = Astro.props;
 const langs = [
   { code: 'EN', label: 'English', file: `/documents/${slug}-en.pdf` },
   { code: 'NL', label: 'Nederlands', file: `/documents/${slug}-nl.pdf` },
@@ -43,7 +45,8 @@ const langs = [
     <a class="btn btn--ghost doc-download" href={langs[0].file} download>Download</a>
   </div>
   <p class="doc-note">The PDF above is the controlled version of this document. If it doesn&rsquo;t display in your browser, use the buttons to open or download it.</p>
-  <p class="doc-note">Obsolete versions of this document are available on request at <a href="mailto:support@koios.care">support@koios.care</a>. A paper version of this document can be sent on request at <a href="mailto:support@koios.care">support@koios.care</a>.</p>
+  <p class="doc-note">Obsolete versions of this document are available on request at <a href="mailto:support@koios.care">support@koios.care</a>.</p>
+  <p class="doc-note" set:html={paperCopyNote} />
 </div>
 
 <style is:global>

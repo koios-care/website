@@ -22,7 +22,11 @@ import IfuDocument from '../components/IfuDocument.astro';
 <!-- DOCUMENT -->
 <section style="padding-top:calc(20px*var(--density))">
   <div class="wrap">
-    <IfuDocument slug="ifu-patients" docTitle="Parkiwatch instructions for use — people with Parkinson's disease" />
+    <IfuDocument
+      slug="ifu-patients"
+      docTitle="Parkiwatch instructions for use — people with Parkinson's disease"
+      paperCopyNote={`<strong>Requesting a paper copy of these Instructions for Use.</strong> These Instructions for Use are provided electronically. You can ask for a printed copy at any time, free of charge. To request one, contact Koios Care at <a href="mailto:support@koios.care">support@koios.care</a> with your name and postal address. Your paper copy will be sent to you within 7 calendar days of your request. The current version is also always available at <a href="https://www.koios.care">www.koios.care</a>.`}
+    />
     <p class="ifu-cross reveal">Are you a clinician? See the <a href="/ifu-hcps">instructions for use for healthcare professionals</a> &middot; or check <a href="/compatibility">which smartwatches are compatible</a>.</p>
   </div>
 </section>
