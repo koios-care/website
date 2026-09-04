@@ -1,7 +1,7 @@
 ---
 // Embedded IFU viewer — the PDF is the controlled regulatory document
 // (we host it verbatim, never re-typeset it), wrapped in the site's
-// design language with an EN/NL/FR switcher and download actions.
+// design language with an EN/NL/FR/DE switcher and download actions.
 interface Props {
   /** file slug under /documents, e.g. "ifu-patients" → ifu-patients-en.pdf … */
   slug: string;
@@ -15,6 +15,7 @@ const langs = [
   { code: 'EN', label: 'English', file: `/documents/${slug}-en.pdf` },
   { code: 'NL', label: 'Nederlands', file: `/documents/${slug}-nl.pdf` },
   { code: 'FR', label: 'Français', file: `/documents/${slug}-fr.pdf` },
+  { code: 'DE', label: 'Deutsch', file: `/documents/${slug}-de.pdf` },
 ];
 ---
 <div class="doc-card reveal">
@@ -22,8 +23,8 @@ const langs = [
     <div class="doc-meta">
       <div><span class="k">Device</span><span class="v">PARKIWATCH</span></div>
       <div><span class="k">Manufacturer</span><span class="v">Koios Care (BV), Antwerpen</span></div>
-      <div><span class="k">IFU version</span><span class="v">2.0</span></div>
-      <div><span class="k">Date of issue</span><span class="v">29/05/2026</span></div>
+      <div><span class="k">IFU version</span><span class="v">3</span></div>
+      <div><span class="k">Date of issue</span><span class="v">01/09/2026</span></div>
     </div>
     <div class="doc-langs" role="group" aria-label="Document language">
       {langs.map((l, i) => (
