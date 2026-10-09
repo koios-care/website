@@ -4,8 +4,8 @@ import { getFaqItems } from '../sanity/lib/content';
 
 const cmsFaq = await getFaqItems();
 const faqItems = cmsFaq ?? [
-  { question: 'Do I need a special device?', answer: 'No. Parkiwatch runs on the smartphone and smartwatch you already own. There is no clinic-grade hardware to buy and no study wearable to charge or return.' },
-  { question: 'What is the Q-index?', answer: 'The Q-index is a single, clear measure of how your quality of life is trending over time, built from 40+ digital measures. It is designed to be easy to read at a glance and to share with your care team.' },
+  { question: 'Do I need a special device?', answer: 'Parkiwatch runs on an Android smartphone together with a compatible third-party smartwatch or wrist-worn sensor. There is no clinic-grade hardware to buy. The compatibility page lists supported devices.' },
+  { question: 'What does Parkiwatch measure?', answer: 'Parkiwatch provides validated kinematic measures representative of tremor, bradykinesia and dyskinesia, alongside supportive digital health measures. Its reports are designed to be reviewed with your healthcare professional.' },
   { question: 'Who can see my data?', answer: 'Your data is yours. It is private by design and shared only when you choose — for example, when you bring a summary to an appointment or invite your clinician to follow along.' },
 ];
 ---
@@ -26,24 +26,21 @@ const faqItems = cmsFaq ?? [
         <a href="#pricing" class="btn btn--primary">Get Parkiwatch &mdash; &euro;20/mo <span class="arr">&rarr;</span></a>
         <a href="#how" class="btn btn--ghost">How it works</a>
       </div>
+      <p class="ifu-note">Parkiwatch is used under the supervision of your treating healthcare professional. It is intended for adults with Parkinson&rsquo;s Disease who are being treated and followed by a licensed healthcare professional.</p>
     </div>
     <div class="reveal" data-delay="1">
       <div class="home-mock">
         <div class="screen">
-          <div class="hm-top"><span>Today &middot; Q-index</span><span>Mon 4 Jun</span></div>
-          <div class="hm-q">72<small>/100</small></div>
-          <span class="hm-tag">&uarr; 6 points this month</span>
-          <svg class="spark" viewBox="0 0 260 60" preserveAspectRatio="none" aria-hidden="true">
-            <polyline points="0,46 30,42 60,48 90,34 120,38 150,28 180,32 210,22 240,26 260,18"
-              fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+          <div class="hm-top"><span>Today &middot; kinematic measures</span><span>Mon 4 Jun</span></div>
           <div class="hm-rows">
-            <div class="hm-row"><span class="l">Steadier mornings</span><span class="v">Gait &uarr;</span></div>
-            <div class="hm-row"><span class="l">Rest tremor</span><span class="v">Stable</span></div>
-            <div class="hm-row"><span class="l">Sleep quality</span><span class="v">7.4 h</span></div>
+            <div class="hm-row"><span class="l">Tremor</span><span class="hm-bars" aria-hidden="true"><i style="height:20%"></i><i style="height:35%"></i><i style="height:20%"></i><i style="height:50%"></i><i style="height:35%"></i><i style="height:20%"></i><i style="height:20%"></i><i style="height:35%"></i><i style="height:25%"></i><i style="height:40%"></i></span></div>
+            <div class="hm-row"><span class="l">Bradykinesia</span><span class="hm-bars" aria-hidden="true"><i style="height:35%"></i><i style="height:50%"></i><i style="height:35%"></i><i style="height:35%"></i><i style="height:50%"></i><i style="height:65%"></i><i style="height:50%"></i><i style="height:35%"></i><i style="height:45%"></i><i style="height:30%"></i></span></div>
+            <div class="hm-row"><span class="l">Dyskinesia</span><span class="hm-bars" aria-hidden="true"><i style="height:15%"></i><i style="height:15%"></i><i style="height:30%"></i><i style="height:15%"></i><i style="height:15%"></i><i style="height:15%"></i><i style="height:30%"></i><i style="height:15%"></i><i style="height:20%"></i><i style="height:15%"></i></span></div>
           </div>
+          <span class="hm-tag">Measured every 15 minutes</span>
         </div>
       </div>
+      <p class="disclaimer" style="margin:18px auto 0;text-align:center">Illustrative interface with sample data.</p>
     </div>
   </div>
 </section>
@@ -53,19 +50,19 @@ const faqItems = cmsFaq ?? [
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">How it works for you</span>
-      <h2>Nothing to do differently.</h2>
-      <p class="lead">No tasks. No manual diary. No study device to charge. Parkiwatch works quietly in the background of the phone and watch you already own.</p>
+      <h2>Little to do differently.</h2>
+      <p class="lead">No manual diary and no clinic-grade hardware. Parkiwatch works in the background of your phone and a compatible smartwatch.</p>
     </div>
     <div class="features">
       <div class="card feature reveal">
         <svg class="ico" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="9" y="2" width="6" height="20" rx="2"/><path d="M12 18h.01"/></svg>
         <h3>Wear what you wear</h3>
-        <p>Set up once. Your phone and smartwatch quietly capture movement, rest and rhythm &mdash; no change to your routine.</p>
+        <p>Set up once. Your phone and smartwatch capture movement in the background.</p>
       </div>
       <div class="card feature reveal" data-delay="1">
         <svg class="ico" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
         <h3>See your validated kinematic measures</h3>
-        <p>Get a clear picture for how your quality of life is trending &mdash; with the patterns behind it in plain language.</p>
+        <p>Tremor, bradykinesia and dyskinesia, measured through the day in 15-minute intervals &mdash; in reports designed to be reviewed with your healthcare professional.</p>
       </div>
       <div class="card feature reveal" data-delay="2">
         <svg class="ico" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
@@ -73,7 +70,7 @@ const faqItems = cmsFaq ?? [
         <p>Bring an objective summary to appointments, so conversations start from real data rather than memory.</p>
       </div>
     </div>
-    <p class="disclaimer" style="margin-top:30px">Koios Care is a wellness solution. It is not a medical device and does not diagnose or treat disease.</p>
+    <p class="disclaimer" style="margin-top:30px">Parkiwatch is a Class IIa Software as a Medical Device (EU MDR 2017/745) intended for the continuous, passive detection and quantitative assessment of kinematic patterns representative of tremor, bradykinesia and dyskinesia in adults with Parkinson&rsquo;s Disease. It does not diagnose Parkinson&rsquo;s Disease, does not recommend or change your medication, and does not replace the judgment of your healthcare professional.</p>
   </div>
 </section>
 
@@ -85,7 +82,7 @@ const faqItems = cmsFaq ?? [
       <h2 style="margin-top:16px">Everything, for one simple price.</h2>
       <ul class="checklist" style="margin-top:28px">
         <li><span class="tick">&checkmark;</span><span>The <b>Parkiwatch app</b> for your phone and smartwatch, set up in minutes.</span></li>
-        <li><span class="tick">&checkmark;</span><span><b>40+ digital measures</b> of gait, tremor, sleep, activity and heart-rate physiology.</span></li>
+        <li><span class="tick">&checkmark;</span><span><b>Validated kinematic measures</b> of tremor, bradykinesia and dyskinesia, alongside supportive digital health measures.</span></li>
         <li><span class="tick">&checkmark;</span><span>Your daily <b>patterns</b> and trends, explained in plain language.</span></li>
         <li><span class="tick">&checkmark;</span><span>A shareable summary you can <b>bring to appointments</b>.</span></li>
         <li><span class="tick">&checkmark;</span><span>Private by design. <b>Your data is yours</b> &mdash; shared only when you choose.</span></li>
@@ -107,6 +104,7 @@ const faqItems = cmsFaq ?? [
           <li><span class="tick">&checkmark;</span><span>Cancel anytime</span></li>
           <li><span class="tick">&checkmark;</span><span>Works with devices you already own</span></li>
         </ul>
+        <p class="ifu-note">Parkiwatch is used under the supervision of your treating healthcare professional. It is intended for adults with Parkinson&rsquo;s Disease who are being treated and followed by a licensed healthcare professional.</p>
         <p class="ifu-note">Before you start, read the <a href="/ifu-patients">Instructions for Use for patients</a>.</p>
       </div>
     </div>
@@ -148,6 +146,7 @@ const faqItems = cmsFaq ?? [
       <a href="/about#contact" class="btn btn--on-dark">Get Parkiwatch <span class="arr">&rarr;</span></a>
       <a href="/science" class="btn btn--ghost on-dark">See the science</a>
     </div>
+    <p class="ifu-note" style="max-width:60ch;margin-left:auto;margin-right:auto">Parkiwatch is used under the supervision of your treating healthcare professional. It is intended for adults with Parkinson&rsquo;s Disease who are being treated and followed by a licensed healthcare professional.</p>
   </div>
 </section>
 
@@ -167,16 +166,15 @@ const faqItems = cmsFaq ?? [
   .home-mock .screen{background:var(--bg);border-radius:24px;overflow:hidden;padding:22px 20px}
   .home-mock .hm-top{display:flex;justify-content:space-between;align-items:center;
     font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:var(--ink-dim);text-transform:uppercase}
-  .home-mock .hm-q{font-family:var(--font-display);font-size:72px;line-height:1;color:var(--ink);margin:14px 0 2px}
-  .home-mock .hm-q small{font-size:22px;color:var(--ink-dim)}
   .home-mock .hm-tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:11px;
-    color:var(--sage);letter-spacing:.04em}
-  .home-mock svg.spark{width:100%;height:60px;margin:16px 0 10px}
-  .home-mock .hm-rows{display:flex;flex-direction:column;gap:9px}
+    color:var(--sage);letter-spacing:.04em;margin-top:14px}
+  .home-mock .hm-rows{display:flex;flex-direction:column;gap:9px;margin-top:16px}
+  .home-mock .hm-bars{display:flex;align-items:flex-end;gap:3px;height:26px}
+  .home-mock .hm-bars i{display:block;width:5px;border-radius:2px;background:var(--accent)}
   .home-mock .hm-row{display:flex;justify-content:space-between;align-items:center;background:var(--surface-2);
     border:1px solid var(--line);border-radius:10px;padding:11px 13px}
   .home-mock .hm-row .l{font-size:13px;color:var(--ink);font-weight:500}
-  .home-mock .hm-row .v{font-family:var(--font-mono);font-size:12px;color:var(--ink-mid)}
+  .dark .ifu-note{color:var(--on-dark-dim)}
   .incl-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(36px,5vw,64px);align-items:start}
   @media(max-width:860px){.incl-grid{grid-template-columns:1fr;gap:40px}}
   .cta{text-align:center}

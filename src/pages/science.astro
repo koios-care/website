@@ -200,7 +200,7 @@ const partners = cmsPartners ?? [
 ---
 <BaseLayout
   title="Koios · Science & evidence"
-  description="Peer-reviewed publications and hospitals across Belgium using the platform with real patients."
+  description="Peer-reviewed publications, and research conducted with hospitals across Belgium as sites of the KC-QI-2023 study."
   page="science"
 >
 
@@ -211,22 +211,27 @@ const partners = cmsPartners ?? [
       <span class="eyebrow">Science &amp; evidence</span>
       <h1 style="margin-top:18px">Credibility you can <em>cite</em>.</h1>
     </div>
-    <p class="lead" style="margin-top:22px">Peer-reviewed publications and hospitals across Belgium using the platform with real patients. The evidence behind the Q-index, in the open.</p>
+    <p class="lead" style="margin-top:22px">Peer-reviewed publications, and research conducted with hospitals across Belgium as sites of the KC-QI-2023 study. The evidence behind the measures, in the open.</p>
   </div>
 </section>
 
-<!-- Q-INDEX EXPLAINED -->
+<!-- MEASURES EXPLAINED -->
 <section style="padding-top:calc(20px*var(--density))">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">The Q-index</span>
-      <h2>From raw sensor data to one clear measure.</h2>
-      <p class="lead">The Q-index distils 40+ digital measures into a single, interpretable indicator of how quality of life is trending &mdash; designed to be read at a glance and shared with a care team.</p>
+      <span class="eyebrow">The measures</span>
+      <h2>From raw sensor data to validated kinematic measures.</h2>
+      <p class="lead">Parkiwatch applies validated signal processing and statistical learning algorithms to wrist accelerometer data, producing continuous, longitudinal kinematic measures for healthcare professionals.</p>
     </div>
     <div class="qx-steps reveal">
-      <div class="qs"><div class="n">01 &middot; CAPTURE</div><h3>Passive sensing</h3><p>Everyday phone and smartwatch sensors record movement, rest and heart-rate physiology continuously, with no tasks.</p></div>
-      <div class="qs"><div class="n">02 &middot; MEASURE</div><h3>Validated digital measures</h3><p>Signal becomes 40+ measures of gait, tremor, sleep, activity and autonomic function, each validated against clinical references.</p></div>
-      <div class="qs"><div class="n">03 &middot; COMPOSE</div><h3>The Q-index</h3><p>Measures are combined into a single composite that tracks quality-of-life trend over time, robust to day-to-day noise.</p></div>
+      <div class="qs"><div class="n">01 &middot; CAPTURE</div><h3>Passive sensing</h3><p>A smartwatch or wrist-worn sensor records triaxial accelerometer data during daily life.</p></div>
+      <div class="qs"><div class="n">02 &middot; MEASURE</div><h3>Validated kinematic measures</h3><p>Signal becomes three validated kinematic measures &mdash; tremor, bradykinesia and dyskinesia &mdash; calculated alongside supportive digital health measures of typing, mealtime movement, sleep and activity.</p></div>
+      <div class="qs"><div class="n">03 &middot; REPORT</div><h3>Dashboard &amp; PDF reports</h3><p>Measures are made available to healthcare professionals at 15-minute resolution, to be interpreted within the context of standard clinical assessment.</p></div>
+    </div>
+    <div class="research-note reveal">
+      <span class="mono-label">In research &middot; not part of the CE-marked device</span>
+      <h3>The Q-index</h3>
+      <p>An exploratory composite of digital measures under investigation as an indicator of quality-of-life trend. It is a research measure and is not an output of the PARKIWATCH medical device.</p>
     </div>
   </div>
 </section>
@@ -320,10 +325,18 @@ const partners = cmsPartners ?? [
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Partners</span>
-      <h2>Built with clinicians and research institutions.</h2>
+      <h2>Research sites and backers.</h2>
     </div>
-    <div class="partners reveal" style="margin-top:36px">
-      {partners.map(p => <span class="partner">{p.name}</span>)}
+    <div class="reveal" style="margin-top:36px">
+      <span class="mono-label">Research sites &middot; KC-QI-2023</span>
+      <div class="partners" style="margin-top:14px">
+        {partners.filter(p => p.kind === 'hospital').map(p => <span class="partner">{p.name}</span>)}
+      </div>
+      <p class="disclaimer" style="margin-top:14px">Their listing does not indicate routine clinical use of Parkiwatch at these sites.</p>
+      <span class="mono-label" style="display:block;margin-top:28px">Backed by</span>
+      <div class="partners" style="margin-top:14px">
+        {partners.filter(p => p.kind !== 'hospital').map(p => <span class="partner">{p.name}</span>)}
+      </div>
     </div>
   </div>
 </section>
@@ -470,6 +483,9 @@ const partners = cmsPartners ?? [
     border-radius:var(--radius);overflow:hidden;margin-top:32px;background:var(--surface-2)}
   .qx-steps .qs{padding:28px 26px;border-right:1px solid var(--line)}
   .qx-steps .qs:last-child{border-right:none}
+  .research-note{margin-top:22px;border:1px dashed var(--line-strong);border-radius:var(--radius);padding:24px 26px;max-width:64ch}
+  .research-note h3{font-size:19px;margin:12px 0 8px}
+  .research-note p{font-size:14.5px;color:var(--ink-mid);line-height:1.55}
   .qx-steps .n{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:.08em}
   .qx-steps .qs h3{font-size:19px;margin:12px 0 8px}
   .qx-steps .qs p{font-size:14.5px;color:var(--ink-mid);line-height:1.55}
