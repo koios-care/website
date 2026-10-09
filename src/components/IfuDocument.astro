@@ -7,10 +7,12 @@ interface Props {
   slug: string;
   /** iframe title for accessibility */
   docTitle: string;
+  /** IFU document version, as stated in the PDF's revision history */
+  version: string;
   /** audience-specific "requesting a paper copy" note, as HTML */
   paperCopyNote: string;
 }
-const { slug, docTitle, paperCopyNote } = Astro.props;
+const { slug, docTitle, version, paperCopyNote } = Astro.props;
 const langs = [
   { code: 'EN', label: 'English', file: `/documents/${slug}-en.pdf` },
   { code: 'NL', label: 'Nederlands', file: `/documents/${slug}-nl.pdf` },
@@ -23,7 +25,7 @@ const langs = [
     <div class="doc-meta">
       <div><span class="k">Device</span><span class="v">PARKIWATCH</span></div>
       <div><span class="k">Manufacturer</span><span class="v">Koios Care (BV), Antwerpen</span></div>
-      <div><span class="k">IFU version</span><span class="v">4</span></div>
+      <div><span class="k">IFU version</span><span class="v">{version}</span></div>
       <div><span class="k">Date of issue</span><span class="v">05/10/2026</span></div>
     </div>
     <div class="doc-langs" role="group" aria-label="Document language">
