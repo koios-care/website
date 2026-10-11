@@ -1,16 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getFeaturedQuotes, getStats, getPartners } from '../sanity/lib/content';
+import { getPartners } from '../sanity/lib/content';
 
-// Sanity-managed testimonials (first 3 featured); falls back to launch copy
-const cmsQuotes = await getFeaturedQuotes();
-const quotes = cmsQuotes ?? [
+// Testimonials and stats are regulated content (NC-46): kept in the page, not loaded from Sanity
+const quotes = [
   { text: 'In my current scheme, sometimes I forget that I have Parkinson’s.', attribution: 'Person living with Parkinson’s, 53' },
   { text: 'Sharing objective data with my doctor has improved our conversations significantly.', attribution: 'Bert, 55 · Ghent' },
 ];
 
-const cmsStats = await getStats();
-const stats = cmsStats ?? [
+const stats = [
   { value: '96%', label: "of patients’ days captured passively" },
   { value: '3', label: 'validated kinematic measures: tremor, bradykinesia, dyskinesia' },
   { value: '5', label: 'hospital research sites in the KC-QI-2023 study' },
@@ -40,7 +38,7 @@ const INVESTORS = [
 ---
 <BaseLayout
   title="Koios · Neurology that runs on data, not memory"
-  description="Koios turns the phone and watch people already wear into clinically meaningful measures of life with Parkinson's — an objective view of every day, well beyond the clinic visit."
+  description="Koios turns everyday movement, captured with a smartphone and smartwatch, into objective, validated kinematic measures for people with Parkinson's — a view of every day, well beyond the clinic visit."
   page="home"
 >
 
@@ -98,7 +96,7 @@ const INVESTORS = [
       </div>
       <div class="gap-copy reveal" data-delay="1">
         <p>Neurology runs on snapshots: a short exam, a questionnaire, and a patient trying to recall how a hard month felt. But symptoms shift hour to hour, and quality of life is difficult to capture in a fifteen-minute appointment.</p>
-        <p>So medication gets adjusted slowly, decline shows up late, and no one can measure whether care is working. Koios covers that gap &mdash; turning the time between visits into objective data that patients and clinicians can act on.</p>
+        <p>So the time between visits goes largely unmeasured. Koios covers that gap &mdash; giving healthcare professionals objective information between clinic visits, to interpret alongside their clinical assessment.</p>
       </div>
     </div>
   </div>
@@ -109,14 +107,14 @@ const INVESTORS = [
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">How Koios works</span>
-      <h2>Everyday devices. Clinically meaningful signal.</h2>
-      <p class="lead">No clinic-grade hardware. No clunky wearables. No daily diary to fill in. Just the phone and smartwatch people already own.</p>
+      <h2>Everyday devices. Objective kinematic measures.</h2>
+      <p class="lead">No clinic-grade hardware. No daily diary to fill in. Just an Android phone and a compatible smartwatch.</p>
     </div>
     <div class="steps">
       <div class="card step reveal">
         <div class="num">1</div>
-        <h3>Wear what you already wear</h3>
-        <p>A smartphone and a smartwatch. Parkiwatch runs quietly in the background &mdash; no tasks to complete, no change to daily routine.</p>
+        <h3>Wear a smartwatch through the day</h3>
+        <p>An Android smartphone and a compatible smartwatch. Parkiwatch runs in the background, with little change to daily routine.</p>
       </div>
       <div class="card step reveal" data-delay="1">
         <div class="num">2</div>
@@ -161,7 +159,7 @@ const INVESTORS = [
       <a href="/patients" class="card door reveal">
         <span class="tag">For patients</span>
         <h3>Understand your own days</h3>
-        <p>Take Parkiwatch home and arrive at every appointment with objective data instead of trying to remember how the month went. See your own patterns, and feel more in control.</p>
+        <p>Take Parkiwatch home and arrive at every appointment with objective data instead of trying to remember how the month went. See your own patterns, and review them with your healthcare professional.</p>
         <div class="price">&euro;20 / month &middot; about the cost of a streaming subscription</div>
         <span class="go">For people with Parkinson&rsquo;s <span class="arr">&rarr;</span></span>
       </a>
@@ -174,7 +172,7 @@ const INVESTORS = [
       <a href="/pharma" class="card door reveal" data-delay="2">
         <span class="tag">For pharma</span>
         <h3>Objective digital endpoints</h3>
-        <p>Decentralised trials with real-world measures of quality of life and disease progression. Improve compliance, capture richer evidence and cut the cost of site visits.</p>
+        <p>Decentralised trials with exploratory, real-world research measures. Improve compliance, capture richer evidence and cut the cost of site visits.</p>
         <span class="go" style="margin-top:auto">For pharma &amp; research <span class="arr">&rarr;</span></span>
       </a>
     </div>

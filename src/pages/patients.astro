@@ -1,17 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getFaqItems } from '../sanity/lib/content';
-
-const cmsFaq = await getFaqItems();
-const faqItems = cmsFaq ?? [
+// FAQ copy is regulated content (NC-46): kept in the page, not loaded from Sanity,
+// so it cannot drift from the Instructions for Use.
+const faqItems = [
   { question: 'Do I need a special device?', answer: 'Parkiwatch runs on an Android smartphone together with a compatible third-party smartwatch or wrist-worn sensor. There is no clinic-grade hardware to buy. The compatibility page lists supported devices.' },
+  { question: 'Is there anything I have to do each day?', answer: 'Very little. Wear your smartwatch or wrist-worn sensor during your waking hours and Parkiwatch works in the background. If your healthcare professional selects it, you will be asked from time to time to complete a short questionnaire.' },
   { question: 'What does Parkiwatch measure?', answer: 'Parkiwatch provides validated kinematic measures representative of tremor, bradykinesia and dyskinesia, alongside supportive digital health measures. Its reports are designed to be reviewed with your healthcare professional.' },
   { question: 'Who can see my data?', answer: 'Your data is yours. It is private by design and shared only when you choose — for example, when you bring a summary to an appointment or invite your clinician to follow along.' },
+  { question: 'Is Parkiwatch a medical device?', answer: 'Yes. Parkiwatch is a Class IIa Software as a Medical Device under EU MDR 2017/745. It does not diagnose Parkinson’s Disease, does not recommend or change your medication, and does not replace the judgment of your healthcare professional. It is used under the supervision of your treating healthcare professional.' },
 ];
 ---
 <BaseLayout
   title="Koios · For people living with Parkinson's"
-  description="Take Parkiwatch home and understand your own days. Objective data for every appointment, from the phone and watch you already wear."
+  description="Take Parkiwatch home and understand your own days. Objective data for every appointment, from your Android phone and a compatible smartwatch."
   page="patients"
 >
 
@@ -21,7 +22,7 @@ const faqItems = cmsFaq ?? [
     <div>
       <span class="eyebrow">For people with Parkinson&rsquo;s</span>
       <h1>Understand your own <em>days</em>.</h1>
-      <p class="lead">Take Parkiwatch home and arrive at every appointment with objective data &mdash; instead of trying to remember how the month went. See your own patterns, and feel more in control of the condition.</p>
+      <p class="lead">Take Parkiwatch home and arrive at every appointment with objective data &mdash; instead of trying to remember how the month went. See your own patterns, and review them with your healthcare professional.</p>
       <div class="hero-actions">
         <a href="#pricing" class="btn btn--primary">Get Parkiwatch &mdash; &euro;20/mo <span class="arr">&rarr;</span></a>
         <a href="#how" class="btn btn--ghost">How it works</a>
@@ -102,7 +103,7 @@ const faqItems = cmsFaq ?? [
         <ul class="checklist">
           <li><span class="tick">&checkmark;</span><span>No clinic-grade hardware to buy</span></li>
           <li><span class="tick">&checkmark;</span><span>Cancel anytime</span></li>
-          <li><span class="tick">&checkmark;</span><span>Works with devices you already own</span></li>
+          <li><span class="tick">&checkmark;</span><span>Works with Android phones and <a href="/compatibility">compatible smartwatches</a></span></li>
         </ul>
         <p class="ifu-note">Parkiwatch is used under the supervision of your treating healthcare professional. It is intended for adults with Parkinson&rsquo;s Disease who are being treated and followed by a licensed healthcare professional.</p>
         <p class="ifu-note">Before you start, read the <a href="/ifu-patients">Instructions for Use for patients</a>.</p>
@@ -141,7 +142,7 @@ const faqItems = cmsFaq ?? [
 <section class="dark cta">
   <div class="wrap reveal" style="text-align:center">
     <h2 style="margin:0 auto;max-width:16ch">Start understanding your days.</h2>
-    <p class="lead" style="margin:22px auto 0;text-align:center">Set up Parkiwatch in minutes with devices you already own.</p>
+    <p class="lead" style="margin:22px auto 0;text-align:center">Set up Parkiwatch in minutes on your Android phone and a compatible smartwatch.</p>
     <div class="hero-actions" style="justify-content:center;margin-top:32px">
       <a href="/about#contact" class="btn btn--on-dark">Get Parkiwatch <span class="arr">&rarr;</span></a>
       <a href="/science" class="btn btn--ghost on-dark">See the science</a>
@@ -156,6 +157,7 @@ const faqItems = cmsFaq ?? [
   .ifu-note{font-size:13px;color:var(--ink-dim);margin-top:18px;line-height:1.6}
   .ifu-note a{color:var(--primary);font-weight:500;border-bottom:1px solid var(--line-strong)}
   .ifu-note a:hover{border-bottom-color:var(--primary)}
+  .price-card .checklist a{color:var(--primary);border-bottom:1px solid var(--line-strong)}
   .play-link{display:inline-flex;align-items:center;justify-content:center;gap:9px;width:100%;margin-top:12px;
     padding:11px 16px;border:1px solid var(--line-strong);border-radius:var(--radius-sm);
     font-family:var(--font-sans);font-size:14px;font-weight:600;color:var(--ink);
